@@ -14,5 +14,5 @@ export const commonMap = new Map([
   ["n", { light: "m", dark: "M" }],
   ["p", { light: "o", dark: "O" }],
   // Empty
-  [" ", { light: "*", dark: "+" }]
+  ["_", { light: "*", dark: "+" }]
 ]);

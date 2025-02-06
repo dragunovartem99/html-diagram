@@ -1,0 +1,110 @@
+@import "fonts.css";
+
+:root {
+  font-family: "Goudy Bookletter 1911", serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  --html-diagram-color: #000;
+  color: #000;
+  background-color: #fff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-image: url("noise.svg");
+}
+
+#app {
+  max-width: 1980px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+main {
+  margin-block: 1.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border: 1px solid #bbb;
+  gap: 2rem 4rem;
+  padding: 2rem 4rem;
+}
+
+figure {
+  flex: 1 0 300px;
+  margin: 0;
+}
+
+.kingdom {
+  --html-diagram-font: "Chess Kingdom";
+}
+
+.leipzig {
+  --html-diagram-font: "Chess Leipzig";
+}
+
+.merida {
+  --html-diagram-font: "Chess Merida";
+}
+
+footer p {
+  font-size: 1.4rem;
+  margin-block: 0.1rem;
+}
+
+footer a, span {
+  font-size: 1.2rem;
+}
+
+footer a {
+  padding-inline: 0.5rem;
+}
+
+footer span::before {
+  content: "•";
+  margin-inline: 0.3rem;
+}
+
+.accent {
+  background-color: #000;
+  color: #fff;
+  background-image: url("noise.svg");
+}
+
+h1 {
+  font-size: 3.2rem;
+  margin-block: 0 0.3rem;
+}
+
+label,
+select {
+  font-size: 1.6rem;
+}
+
+select {
+  font-family: inherit;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #000;
+}
+
+figure a:hover {
+  fill: #333;
+}
+
+.player {
+  font-size: 1.6em;
+  margin-block: 0 0.5em;
+}
