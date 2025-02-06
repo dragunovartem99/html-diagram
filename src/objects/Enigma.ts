@@ -1,4 +1,4 @@
-import type { FontMap } from "../types";
+import type { FenRecord, FigurineNotation, FontMap } from "../types";
 
 export class Enigma {
   #fontMap;
@@ -7,7 +7,7 @@ export class Enigma {
     this.#fontMap = fontMap;
   }
 
-  encode(fenRecord: string) {
+  encode(fenRecord: FenRecord): FigurineNotation {
     return fenRecord.split(" ")[0]
       .replace(/\//g, '')
       .replace(/\d/g, (digit) => '_'.repeat(+digit))

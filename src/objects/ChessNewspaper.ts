@@ -1,4 +1,4 @@
-import type { FontMap } from "../types";
+import type { FenRecord, FontMap } from "../types";
 import { Enigma } from "./Enigma";
 import { Caricature } from "./Caricature";
 import { Stylesheet } from "./Stylesheet";
@@ -6,7 +6,7 @@ import { Stylesheet } from "./Stylesheet";
 export class ChessNewspaper extends HTMLElement {
   static observedAttributes = ["fen"];
 
-  #fen = "8/8/8/8/8/8/8/8";
+  #fen: FenRecord = "8/8/8/8/8/8/8/8";
   _fontMap!: FontMap;
 
   constructor() {
@@ -31,11 +31,11 @@ export class ChessNewspaper extends HTMLElement {
     this.shadowRoot!.replaceChildren(graphic);
   }
 
-  get fen() {
+  get fen(): FenRecord {
     return this.#fen;
   }
 
-  set fen(fen) {
+  set fen(fen: FenRecord) {
     this.#fen = fen;
     this.#render(); // side effect?
   }

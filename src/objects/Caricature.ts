@@ -1,9 +1,9 @@
-import { ICaricature } from "../types";
+import { FigurineNotation, ICaricature } from "../types";
 
 export class Caricature implements ICaricature {
   #notation;
 
-  constructor(notation: string) {
+  constructor(notation: FigurineNotation) {
     this.#notation = notation;
   }
 
