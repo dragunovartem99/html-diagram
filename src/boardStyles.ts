@@ -1,6 +1,9 @@
 export default `
-  svg { width: 100% }
-  foreignObject { line-height: 0 }
+  svg {
+    display: block;
+    width: 100%;
+    line-height: 0;
+  }
   span {
     line-height: 1;
     font-size: 10px;
