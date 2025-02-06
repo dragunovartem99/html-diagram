@@ -3,7 +3,7 @@ import { Enigma } from "./Enigma";
 import { Caricature } from "./Caricature";
 import { Stylesheet } from "./Stylesheet";
 
-export class ChessNewspaper extends HTMLElement {
+export class HTMLDiagram extends HTMLElement {
   static observedAttributes = ["fen"];
 
   #fen: FenRecord = "8/8/8/8/8/8/8/8";
@@ -20,7 +20,7 @@ export class ChessNewspaper extends HTMLElement {
   }
 
   #setStyles() {
-    new Stylesheet("../board-styles.ts").create().then((sheet) => {
+    new Stylesheet("../boardStyles.ts").create().then((sheet) => {
       this.shadowRoot!.adoptedStyleSheets = [sheet];
     });
   }

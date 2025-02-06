@@ -8,7 +8,7 @@ export type FontMap = Map<string, {
     dark: string
 }>;
 
-export type TvFrame = {
+export type TVFrame = {
   t: "featured" | "fen",
   d: any
 };

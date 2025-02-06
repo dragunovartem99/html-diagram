@@ -1,14 +1,14 @@
 import './css/style.css'
 
-import { ChessNewspaper } from './objects/ChessNewspaper.ts'
-import { commonMap } from './common-map.ts'
+import { HTMLDiagram } from './objects/HTMLDiagram.ts';
+import { defaultFontMap } from './defaultFontMap.ts'
+import { TVFrame } from './types';
 import { watchTV } from './watchTV.ts';
-import { TvFrame } from './types';
 
-class MyDiagram extends ChessNewspaper {
+class MyDiagram extends HTMLDiagram {
   constructor() {
     super();
-    this._fontMap = commonMap;
+    this._fontMap = defaultFontMap;
   }
 }
 
@@ -21,7 +21,7 @@ typography.addEventListener("change", (event) => {
   document.querySelector("#app")!.className = target.value;
 });
 
-watchTV((frame: TvFrame) => {
+watchTV((frame: TVFrame) => {
   const { t: type, d: data } = frame;
 
   const live = document.querySelector("#live")!;
