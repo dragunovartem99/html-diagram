@@ -1,8 +1,9 @@
 import './css/style.css'
 
-import { readNdJson } from './readNdJson.ts'
 import { ChessNewspaper } from './objects/ChessNewspaper.ts'
 import { commonMap } from './common-map.ts'
+import { watchTV } from './watchTV.ts';
+import { TvFrame } from './types';
 
 class MyDiagram extends ChessNewspaper {
   constructor() {
@@ -20,9 +21,9 @@ typography.addEventListener("change", (event) => {
   document.querySelector("#app")!.className = target.value;
 });
 
-type Message = { t: "featured" | "fen", d: any; };
+watchTV((frame: TvFrame) => {
+  const { t: type, d: data } = frame;
 
-const onMessage = ({ t: type, d: data }: Message) => {
   const live = document.querySelector("#live")!;
   const diagram: MyDiagram = live.querySelector("my-diagram")!;
 
@@ -36,7 +37,4 @@ const onMessage = ({ t: type, d: data }: Message) => {
     white.textContent = data.players[0].user.name;
     black.textContent = data.players[1].user.name;
   }
-};
-
-const stream = fetch('https://lichess.org/api/tv/feed');
-stream.then(readNdJson(onMessage));
+})

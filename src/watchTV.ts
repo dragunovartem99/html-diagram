@@ -1,4 +1,9 @@
-export const readNdJson = processLine => response => {
+export function watchTV(onFrame: Function) {
+  const stream = fetch('https://lichess.org/api/tv/feed');
+  stream.then(readNdJson(onFrame)).then(() => console.log("End of stream"));
+}
+
+const readNdJson = processLine => response => {
   const stream = response.body.getReader();
   const matcher = /\r?\n/;
   const decoder = new TextDecoder();
