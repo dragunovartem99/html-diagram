@@ -7,7 +7,7 @@ export class Stylesheet {
 
 	async create() {
 		const sheet = new CSSStyleSheet();
-		const { default: rules } = await import(this.#path);
+		const { default: rules } = await import(/* @vite-ignore */ this.#path);
 		sheet.replaceSync(rules);
 		return sheet;
 	}
