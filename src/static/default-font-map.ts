@@ -14,5 +14,5 @@ export default new Map([
 	["n", { light: "m", dark: "M" }],
 	["p", { light: "o", dark: "O" }],
 	// Empty
-	["_", { light: "*", dark: "+" }],
+	[" ", { light: "*", dark: "+" }],
 ]);

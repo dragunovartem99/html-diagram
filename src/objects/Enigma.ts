@@ -11,10 +11,10 @@ export class Enigma {
 		return fenRecord
 			.split(" ")[0]
 			.replace(/\//g, "")
-			.replace(/\d/g, (digit) => "_".repeat(+digit))
+			.replace(/\d/g, (digit) => " ".repeat(+digit))
 			.replace(/./g, (match, offset) => {
 				const entry = this.#fontMap.get(match);
-				const color = !((offset * 9) & 8) ? "light" : "dark";
+				const color = (offset * 9) & 8 ? "dark" : "light";
 				return entry?.[color] || match;
 			});
 	}
