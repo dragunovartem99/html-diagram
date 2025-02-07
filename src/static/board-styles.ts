@@ -1,6 +1,5 @@
 export default `
   svg {
-    width: 100%;
     line-height: 0;
   }
   span {
