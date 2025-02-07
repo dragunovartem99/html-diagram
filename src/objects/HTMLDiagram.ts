@@ -20,7 +20,7 @@ export class HTMLDiagram extends HTMLElement {
   }
 
   #setStyles() {
-    new Stylesheet("../boardStyles.ts").create().then((sheet) => {
+    new Stylesheet("../static/board-styles.ts").create().then((sheet) => {
       this.shadowRoot!.adoptedStyleSheets = [sheet];
     });
   }

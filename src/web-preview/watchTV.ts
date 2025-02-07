@@ -3,14 +3,14 @@ export function watchTV(onFrame: Function) {
   stream.then(readNdJson(onFrame)).then(() => console.log("End of stream"));
 }
 
-const readNdJson = processLine => response => {
+const readNdJson = (processLine: any) => (response: any) => {
   const stream = response.body.getReader();
   const matcher = /\r?\n/;
   const decoder = new TextDecoder();
   let buf = '';
 
   const loop = () =>
-    stream.read().then(({ done, value }) => {
+    stream.read().then(({ done, value }: any) => {
       if (done) {
         if (buf.length > 0) processLine(JSON.parse(buf));
       } else {
@@ -20,7 +20,7 @@ const readNdJson = processLine => response => {
         buf += chunk;
 
         const parts = buf.split(matcher);
-        buf = parts.pop();
+        buf = parts.pop() ?? "";
         for (const i of parts.filter(p => p)) processLine(JSON.parse(i));
         return loop();
       }

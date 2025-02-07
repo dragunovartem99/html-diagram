@@ -1,4 +1,4 @@
-export const defaultFontMap = new Map([
+export default new Map([
   // White
   ["K", { light: "k", dark: "K" }],
   ["Q", { light: "q", dark: "Q" }],

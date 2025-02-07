@@ -1,8 +1,8 @@
 import './css/style.css'
 
-import { HTMLDiagram } from './objects/HTMLDiagram.ts';
-import { defaultFontMap } from './defaultFontMap.ts'
-import { TVFrame } from './types';
+import type { TVFrame } from '../types';
+import { HTMLDiagram } from '../objects/HTMLDiagram.ts';
+import defaultFontMap from '../static/default-font-map.ts'
 import { watchTV } from './watchTV.ts';
 
 class MyDiagram extends HTMLDiagram {
