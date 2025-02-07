@@ -24,11 +24,9 @@
 		"web": "tsc && vite build --config web.config.ts"
 	},
 	"prettier": "@dragunovartem99/prettier-config",
-	"dependencies": {
-		"@types/node": "^22.13.1"
-	},
 	"devDependencies": {
 		"@dragunovartem99/prettier-config": "^1.1.3",
+		"@types/node": "^22.13.1",
 		"prettier": "^3.4.2",
 		"typescript": "~5.7.2",
 		"vite": "^6.1.0",
