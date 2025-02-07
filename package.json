@@ -1,18 +1,31 @@
 {
   "name": "html-diagram",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+  "exports": {
+    ".": {
+      "import": "./dist/html-diagram.js",
+      "require": "./dist/html-diagram.umd.cjs"
+    }
   },
-  "devDependencies": {
-    "typescript": "~5.7.2",
-    "vite": "^6.1.0"
+  "main": "./dist/html-diagram.umd.cjs",
+  "module": "./dist/html-diagram.js",
+  "types": "./dist/html-diagram.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && vite build",
+    "dev": "vite",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@types/node": "^22.13.1"
+  },
+  "devDependencies": {
+    "typescript": "~5.7.2",
+    "vite": "^6.1.0",
+    "vite-plugin-dts": "^4.5.0"
   }
 }

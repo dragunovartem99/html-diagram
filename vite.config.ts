@@ -1,8 +1,13 @@
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'vite'
+import dts from "vite-plugin-dts";
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
+
+const dtsPluginOptions = {
+	rollupTypes: true,
+};
 
 export default defineConfig({
   build: {
@@ -12,4 +17,5 @@ export default defineConfig({
       fileName: 'html-diagram',
     },
   },
+  plugins: [dts(dtsPluginOptions)]
 })
