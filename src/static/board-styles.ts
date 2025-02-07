@@ -1,6 +1,5 @@
 export default `
   svg {
-    display: block;
     width: 100%;
     line-height: 0;
   }
