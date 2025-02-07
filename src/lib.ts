@@ -1,4 +1,4 @@
 import { HTMLDiagram } from "./objects/HTMLDiagram";
-import { defaultFontMap } from "./defaultFontMap";
+import defaultFontMap from "./static/default-font-map";
 
 export { HTMLDiagram, defaultFontMap };
