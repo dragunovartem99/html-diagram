@@ -1,14 +1,14 @@
 export class Stylesheet {
-  #path;
+	#path;
 
-  constructor(path: string) {
-    this.#path = path;
-  }
+	constructor(path: string) {
+		this.#path = path;
+	}
 
-  async create() {
-    const sheet = new CSSStyleSheet();
-    const { default: rules } = await import(this.#path);
-    sheet.replaceSync(rules);
-    return sheet;
-  }
+	async create() {
+		const sheet = new CSSStyleSheet();
+		const { default: rules } = await import(this.#path);
+		sheet.replaceSync(rules);
+		return sheet;
+	}
 }

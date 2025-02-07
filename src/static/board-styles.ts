@@ -11,4 +11,4 @@ export default `
     line-break: anywhere;
     font-family: var(--html-diagram-font);
   }
-`
+`;

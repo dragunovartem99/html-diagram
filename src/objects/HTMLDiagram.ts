@@ -4,44 +4,44 @@ import { Caricature } from "./Caricature";
 import { Stylesheet } from "./Stylesheet";
 
 export class HTMLDiagram extends HTMLElement {
-  static observedAttributes = ["fen"];
+	static observedAttributes = ["fen"];
 
-  #fen: FenRecord = "8/8/8/8/8/8/8/8";
-  _fontMap!: FontMap;
+	#fen: FenRecord = "8/8/8/8/8/8/8/8";
+	_fontMap!: FontMap;
 
-  constructor() {
-    super();
-    this.attachShadow({ mode: "open" });
-  }
+	constructor() {
+		super();
+		this.attachShadow({ mode: "open" });
+	}
 
-  connectedCallback() {
-    this.#setStyles();
-    this.#render();
-  }
+	connectedCallback() {
+		this.#setStyles();
+		this.#render();
+	}
 
-  #setStyles() {
-    new Stylesheet("../static/board-styles.ts").create().then((sheet) => {
-      this.shadowRoot!.adoptedStyleSheets = [sheet];
-    });
-  }
+	#setStyles() {
+		new Stylesheet("../static/board-styles.ts").create().then((sheet) => {
+			this.shadowRoot!.adoptedStyleSheets = [sheet];
+		});
+	}
 
-  #render() {
-    const notation = new Enigma(this._fontMap).encode(this.#fen);
-    const graphic = new Caricature(notation).create();
-    this.shadowRoot!.replaceChildren(graphic);
-  }
+	#render() {
+		const notation = new Enigma(this._fontMap).encode(this.#fen);
+		const graphic = new Caricature(notation).create();
+		this.shadowRoot!.replaceChildren(graphic);
+	}
 
-  get fen(): FenRecord {
-    return this.#fen;
-  }
+	get fen(): FenRecord {
+		return this.#fen;
+	}
 
-  set fen(fen: FenRecord) {
-    this.#fen = fen;
-    this.#render(); // side effect?
-  }
+	set fen(fen: FenRecord) {
+		this.#fen = fen;
+		this.#render(); // side effect?
+	}
 
-  // @ts-ignore
-  attributeChangedCallback(name, _, newValue: string) {
-    this.fen = newValue;
-  }
+	// @ts-ignore
+	attributeChangedCallback(name, _, newValue: string) {
+		this.fen = newValue;
+	}
 }

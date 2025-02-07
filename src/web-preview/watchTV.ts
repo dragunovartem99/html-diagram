@@ -1,30 +1,30 @@
 export function watchTV(onFrame: Function) {
-  const stream = fetch('https://lichess.org/api/tv/feed');
-  stream.then(readNdJson(onFrame)).then(() => console.log("End of stream"));
+	const stream = fetch("https://lichess.org/api/tv/feed");
+	stream.then(readNdJson(onFrame)).then(() => console.log("End of stream"));
 }
 
 const readNdJson = (processLine: any) => (response: any) => {
-  const stream = response.body.getReader();
-  const matcher = /\r?\n/;
-  const decoder = new TextDecoder();
-  let buf = '';
+	const stream = response.body.getReader();
+	const matcher = /\r?\n/;
+	const decoder = new TextDecoder();
+	let buf = "";
 
-  const loop = () =>
-    stream.read().then(({ done, value }: any) => {
-      if (done) {
-        if (buf.length > 0) processLine(JSON.parse(buf));
-      } else {
-        const chunk = decoder.decode(value, {
-          stream: true
-        });
-        buf += chunk;
+	const loop = () =>
+		stream.read().then(({ done, value }: any) => {
+			if (done) {
+				if (buf.length > 0) processLine(JSON.parse(buf));
+			} else {
+				const chunk = decoder.decode(value, {
+					stream: true,
+				});
+				buf += chunk;
 
-        const parts = buf.split(matcher);
-        buf = parts.pop() ?? "";
-        for (const i of parts.filter(p => p)) processLine(JSON.parse(i));
-        return loop();
-      }
-    });
+				const parts = buf.split(matcher);
+				buf = parts.pop() ?? "";
+				for (const i of parts.filter((p) => p)) processLine(JSON.parse(i));
+				return loop();
+			}
+		});
 
-  return loop();
-}
+	return loop();
+};

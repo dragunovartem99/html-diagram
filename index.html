@@ -1,55 +1,53 @@
 <!doctype html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>HTML Diagram</title>
+	</head>
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HTML Diagram</title>
-</head>
-
-<body>
-  <div id="app" class="leipzig">
-    <header>
-      <h1 class="accent">HTML Diagram</h1>
-      <label>
-        typography:
-        <select id="typography">
-          <option value="leipzig">Leipzig</option>
-          <option value="kingdom">Kingdom</option>
-          <option value="merida">Merida</option>
-        </select>
-      </label>
-    </header>
-    <main>
-      <figure>
-        <p class="player accent">Yanofsky, Daniel Abraham</p>
-        <a href="https://lichess.org/8VDyOZ2f/black#42" target="_blank">
-          <my-diagram fen="1r3rk1/1p3p1p/p2pb2q/n1p3p1/P1PbP1nP/1PNQ2P1/1B1N1PB1/R4RK1 w - - 0 22"></my-diagram>
-        </a>
-        <p class="player">Robatsch, Karl</p>
-      </figure>
-      <figure id="live">
-        <p class="player accent">Please, wait</p>
-        <a target="_blank">
-          <my-diagram></my-diagram>
-        </a>
-        <p class="player">Please, wait</p>
-      </figure>
-      <figure>
-        <p class="player accent">Filip, Miroslav</p>
-        <my-diagram fen="2q5/8/6k1/3RK1p1/6Bp/3N3P/8/8 b - - 38 91"></my-diagram>
-        <p class="player">Smyslov, Vassily</p>
-      </figure>
-    </main>
-    <footer>
-      <p>Textual Chess Diagram Component</p>
-      <p>
-        <a class="accent">GitHub</a><span>MIT License</span>
-      </p>
-    </footer>
-  </div>
-  <script type="module" src="/src/web-preview/main.ts"></script>
-</body>
-
+	<body>
+		<div id="app" class="leipzig">
+			<header>
+				<h1 class="accent">HTML Diagram</h1>
+				<label>
+					typography:
+					<select id="typography">
+						<option value="leipzig">Leipzig</option>
+						<option value="kingdom">Kingdom</option>
+						<option value="merida">Merida</option>
+					</select>
+				</label>
+			</header>
+			<main>
+				<figure>
+					<p class="player accent">Yanofsky, Daniel Abraham</p>
+					<a href="https://lichess.org/8VDyOZ2f/black#42" target="_blank">
+						<my-diagram
+							fen="1r3rk1/1p3p1p/p2pb2q/n1p3p1/P1PbP1nP/1PNQ2P1/1B1N1PB1/R4RK1 w - - 0 22"
+						></my-diagram>
+					</a>
+					<p class="player">Robatsch, Karl</p>
+				</figure>
+				<figure id="live">
+					<p class="player accent">Please, wait</p>
+					<a target="_blank">
+						<my-diagram></my-diagram>
+					</a>
+					<p class="player">Please, wait</p>
+				</figure>
+				<figure>
+					<p class="player accent">Filip, Miroslav</p>
+					<my-diagram fen="2q5/8/6k1/3RK1p1/6Bp/3N3P/8/8 b - - 38 91"></my-diagram>
+					<p class="player">Smyslov, Vassily</p>
+				</figure>
+			</main>
+			<footer>
+				<p>Textual Chess Diagram Component</p>
+				<p><a class="accent">GitHub</a><span>MIT License</span></p>
+			</footer>
+		</div>
+		<script type="module" src="/src/web-preview/main.ts"></script>
+	</body>
 </html>
