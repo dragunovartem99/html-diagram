@@ -20,7 +20,8 @@
 		"build": "tsc && vite build",
 		"dev": "vite",
 		"format": "prettier . --write",
-		"preview": "vite preview"
+		"preview": "vite preview --config web.config.ts",
+		"web": "tsc && vite build --config web.config.ts"
 	},
 	"prettier": "@dragunovartem99/prettier-config",
 	"dependencies": {
