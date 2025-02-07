@@ -18,7 +18,7 @@ const typography = document.querySelector("#typography")!;
 
 typography.addEventListener("change", (event) => {
 	const target = event.target as HTMLSelectElement;
-	document.querySelector("#app")!.className = target.value;
+	document.querySelector("#app")!.setAttribute("style", `--diagram-font: Chess ${target.value}`);
 });
 
 watchTV((frame: TVFrame) => {

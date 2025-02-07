@@ -8,15 +8,20 @@
 	</head>
 
 	<body>
-		<div id="app" class="leipzig">
+		<div id="app" style="--diagram-font: Chess Leipzig">
 			<header>
 				<h1 class="accent">HTML Diagram</h1>
 				<label>
 					typography:
 					<select id="typography">
-						<option value="leipzig">Leipzig</option>
-						<option value="kingdom">Kingdom</option>
-						<option value="merida">Merida</option>
+						<optgroup label="Classical">
+							<option>Leipzig</option>
+							<option>Kingdom</option>
+						</optgroup>
+						<optgroup label="Modern">
+							<option>Cases</option>
+							<option>Merida</option>
+						</optgroup>
 					</select>
 				</label>
 			</header>

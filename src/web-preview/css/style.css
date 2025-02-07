@@ -5,7 +5,7 @@
 	line-height: 1.5;
 	font-weight: 400;
 
-	--html-diagram-color: #000;
+	--diagram-color: #000;
 	color: #000;
 	background-color: #fff;
 
@@ -21,7 +21,6 @@ body {
 	align-items: center;
 	min-width: 320px;
 	min-height: 100vh;
-	background-image: url("noise.svg");
 }
 
 /* Typography */
@@ -32,9 +31,8 @@ h1 {
 }
 
 .accent {
-	background-color: #000;
+	background-color: #444;
 	color: #fff;
-	background-image: url("noise.svg");
 }
 
 a:hover {
@@ -62,18 +60,6 @@ select {
 	margin: 0 auto;
 	padding: 2rem;
 	text-align: center;
-}
-
-#app.kingdom {
-	--html-diagram-font: "Chess Kingdom";
-}
-
-#app.leipzig {
-	--html-diagram-font: "Chess Leipzig";
-}
-
-#app.merida {
-	--html-diagram-font: "Chess Merida";
 }
 
 /* Main view */
