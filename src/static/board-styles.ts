@@ -7,7 +7,8 @@ export default `
     line-height: 1;
     font-size: 10px;
     color: var(--diagram-color);
-    line-break: anywhere;
     font-family: var(--diagram-font);
+    line-break: anywhere;
+    white-space: break-spaces;
   }
 `;
