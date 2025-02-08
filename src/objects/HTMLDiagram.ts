@@ -45,6 +45,10 @@ export default (fontMap: FontMap = standardFontMap) =>
 			this.#render();
 		}
 
+		get fontMap(): FontMap {
+			return this.#fontMap;
+		}
+
 		set fontMap(fontMap: FontMap) {
 			this.#fontMap = fontMap;
 			this.#render();
