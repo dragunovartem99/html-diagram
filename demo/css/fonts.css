@@ -49,3 +49,8 @@
 	font-family: "Chess Merida";
 	src: url("../fonts/chess-merida.ttf");
 }
+
+@font-face {
+	font-family: "Chess Smart";
+	src: url("../fonts/chess-smart.ttf");
+}
