@@ -3,50 +3,52 @@ import { Enigma } from "./Enigma";
 import { Caricature } from "./Caricature";
 import { Stylesheet } from "./Stylesheet";
 
-export class HTMLDiagram extends HTMLElement {
-	static observedAttributes = ["fen"];
+export const HTMLDiagram = (fontMap: FontMap) =>
+	class extends HTMLElement {
+		static observedAttributes = ["fen"];
 
-	#fen: FenRecord = "8/8/8/8/8/8/8/8";
-	_fontMap!: FontMap;
+		#fen: FenRecord = "8/8/8/8/8/8/8/8";
+		#fontMap: FontMap;
 
-	constructor() {
-		super();
-		this.attachShadow({ mode: "open" });
-	}
+		constructor() {
+			super();
+			this.#fontMap = fontMap;
+		}
 
-	connectedCallback() {
-		this.#setStyles();
-		this.#render();
-	}
+		connectedCallback() {
+			this.attachShadow({ mode: "open" });
+			this.#setStyles();
+			this.#render();
+		}
 
-	#setStyles() {
-		new Stylesheet("../static/board-styles.ts").create().then((sheet) => {
-			this.shadowRoot!.adoptedStyleSheets = [sheet];
-		});
-	}
+		#setStyles() {
+			new Stylesheet("../static/board-styles.ts").create().then((sheet) => {
+				this.shadowRoot!.adoptedStyleSheets = [sheet];
+			});
+		}
 
-	#render() {
-		const notation = new Enigma(this._fontMap).encode(this.#fen);
-		const graphic = new Caricature(notation).create();
-		this.shadowRoot!.replaceChildren(graphic);
-	}
+		#render() {
+			const notation = new Enigma(this.#fontMap).encode(this.#fen);
+			const graphic = new Caricature(notation).create();
+			this.shadowRoot!.replaceChildren(graphic);
+		}
 
-	get fen(): FenRecord {
-		return this.#fen;
-	}
+		get fen(): FenRecord {
+			return this.#fen;
+		}
 
-	set fen(fen: FenRecord) {
-		this.#fen = fen;
-		this.#render();
-	}
+		set fen(fen: FenRecord) {
+			this.#fen = fen;
+			this.#render();
+		}
 
-	set fontMap(fontMap: FontMap) {
-		this._fontMap = fontMap;
-		this.#render();
-	}
+		set fontMap(fontMap: FontMap) {
+			this.#fontMap = fontMap;
+			this.#render();
+		}
 
-	// @ts-ignore
-	attributeChangedCallback(name, _, newValue: string) {
-		this.fen = newValue;
-	}
-}
+		// @ts-ignore
+		attributeChangedCallback(name, _, newValue: string) {
+			this.fen = newValue;
+		}
+	};
