@@ -10,11 +10,10 @@ export default (fontMap: FontMap) =>
 		static observedAttributes = ["fen"];
 
 		#fen: FenRecord = "8/8/8/8/8/8/8/8";
-		#fontMap: FontMap;
+		#fontMap = fontMap;
 
 		constructor() {
 			super();
-			this.#fontMap = fontMap;
 			this.attachShadow({ mode: "open" });
 		}
 

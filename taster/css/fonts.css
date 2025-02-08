@@ -41,6 +41,11 @@
 }
 
 @font-face {
+	font-family: "Chess Mark";
+	src: url("../fonts/chess-mark.ttf");
+}
+
+@font-face {
 	font-family: "Chess Merida";
 	src: url("../fonts/chess-merida.ttf");
 }
