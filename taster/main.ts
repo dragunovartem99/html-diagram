@@ -1,35 +1,27 @@
 import "./css/style.css";
 
 import { defineHtmlDiagram } from "../src/createHtmlDiagram";
-import { IHTMLDiagram as HTMLDiagram } from "../src/types/index";
-import standardFontMap from "../src/static/standard-font-map";
+import { IHTMLDiagram } from "../src/types/index";
 
-import nonStandardMaps from "./non-standard-maps.ts";
+import { useTypography } from "./useTypography.ts";
 import { watchTV } from "./watchTV.ts";
 
 defineHtmlDiagram("my-diagram");
 
-const typography = document.querySelector("#typography")!;
+const typography: HTMLSelectElement = document.querySelector("#typography")!;
 
-typography.addEventListener("change", (event) => {
-	const { value: font } = event.target as HTMLSelectElement;
-	document.querySelector("#app")!.setAttribute("style", `--diagram-font: Chess ${font}`);
+useTypography(typography.value);
 
-	const diagrams: NodeListOf<HTMLDiagram> = document.querySelectorAll("my-diagram");
-
-	diagrams.forEach(
-		(diagram) =>
-			(diagram.fontMap = nonStandardMaps.has(font)
-				? nonStandardMaps.get(font)
-				: standardFontMap),
-	);
+typography.addEventListener("change", ({ target }) => {
+	const { value: font } = target as HTMLSelectElement;
+	useTypography(font);
 });
 
 watchTV((frame: any) => {
 	const { t: type, d: data } = frame;
 
 	const live = document.querySelector("#live")!;
-	const diagram: HTMLDiagram = live.querySelector("my-diagram")!;
+	const diagram: IHTMLDiagram = live.querySelector("my-diagram")!;
 
 	diagram.fen = data.fen;
 
