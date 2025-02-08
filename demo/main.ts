@@ -1,12 +1,11 @@
 import "./css/style.css";
 
-import { defineHtmlDiagram } from "../src/defineHtmlDiagram";
-import { IHTMLDiagram } from "../src/types/index";
+import { htmlDiagram, type HTMLDiagram } from "../src/lib.ts";
 
 import { useTypography } from "./useTypography";
 import { watchTV } from "./watchTV";
 
-defineHtmlDiagram("my-diagram");
+customElements.define("my-diagram", htmlDiagram());
 
 const typography: HTMLSelectElement = document.querySelector("#typography")!;
 
@@ -21,7 +20,7 @@ watchTV((frame: any) => {
 	const { t: type, d: data } = frame;
 
 	const live = document.querySelector("#live")!;
-	const diagram: IHTMLDiagram = live.querySelector("my-diagram")!;
+	const diagram: HTMLDiagram = live.querySelector("my-diagram")!;
 
 	diagram.fen = data.fen;
 

@@ -1,11 +1,13 @@
+import boardStyles from "../static/board-styles";
+import standardFontMap from "../static/standard-font-map";
+
 import type { IHTMLDiagram } from "../types";
 
 import type { FenRecord, FontMap } from "../types";
 import { Enigma } from "./Enigma";
 import { Caricature } from "./Caricature";
-import boardStyles from "../static/board-styles";
 
-export default (fontMap: FontMap) =>
+export default (fontMap: FontMap = standardFontMap) =>
 	class extends HTMLElement implements IHTMLDiagram {
 		static observedAttributes = ["fen"];
 

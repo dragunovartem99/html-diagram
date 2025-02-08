@@ -1,4 +1,3 @@
-import { defineHtmlDiagram } from "./defineHtmlDiagram";
+import { default as htmlDiagram } from "./objects/HTMLDiagram";
 import type { IHTMLDiagram as HTMLDiagram } from "./types";
-
-export { defineHtmlDiagram, type HTMLDiagram };
+export { htmlDiagram, type HTMLDiagram };
