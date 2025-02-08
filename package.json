@@ -18,10 +18,10 @@
 	],
 	"scripts": {
 		"build": "tsc && vite build",
-		"build-taster": "tsc && vite build --config taster.config.ts",
+		"build-demo": "tsc && vite build --config demo.config.ts",
 		"dev": "vite",
 		"format": "prettier . --write",
-		"preview": "vite preview --config taster.config.ts"
+		"preview": "vite preview --config demo.config.ts"
 	},
 	"prettier": "@dragunovartem99/prettier-config",
 	"devDependencies": {
