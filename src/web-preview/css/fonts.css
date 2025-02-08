@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap");
+
+@font-face {
+	font-family: "Chess Kingdom";
+	src: url("../fonts/chess-kingdom.ttf");
+}
+
+@font-face {
+	font-family: "Chess Leipzig";
+	src: url("../fonts/chess-leipzig.ttf");
+}
+
+@font-face {
+	font-family: "Chess Condal";
+	src: url("../fonts/chess-condal.ttf");
+}
+
+@font-face {
+	font-family: "Chess Merida";
+	src: url("../fonts/chess-merida.ttf");
+}
