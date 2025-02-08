@@ -37,7 +37,12 @@ export class HTMLDiagram extends HTMLElement {
 
 	set fen(fen: FenRecord) {
 		this.#fen = fen;
-		this.#render(); // side effect?
+		this.#render();
+	}
+
+	set fontMap(fontMap: FontMap) {
+		this._fontMap = fontMap;
+		this.#render();
 	}
 
 	// @ts-ignore
