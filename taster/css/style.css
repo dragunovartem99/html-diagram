@@ -26,6 +26,7 @@ body {
 	align-items: center;
 	min-width: 320px;
 	min-height: 100vh;
+	background-image: url("../assets/texture-light.jpg");
 }
 
 /* Typography */
@@ -36,8 +37,8 @@ h1 {
 }
 
 .accent {
-	background-color: var(--color-dark);
 	color: var(--color-light);
+	background-image: url("../assets/texture-dark.jpg");
 }
 
 a {
