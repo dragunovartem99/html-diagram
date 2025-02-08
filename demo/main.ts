@@ -1,10 +1,10 @@
 import "./css/style.css";
 
-import { defineHtmlDiagram } from "../src/createHtmlDiagram";
+import { defineHtmlDiagram } from "../src/defineHtmlDiagram";
 import { IHTMLDiagram } from "../src/types/index";
 
-import { useTypography } from "./useTypography.ts";
-import { watchTV } from "./watchTV.ts";
+import { useTypography } from "./useTypography";
+import { watchTV } from "./watchTV";
 
 defineHtmlDiagram("my-diagram");
 
