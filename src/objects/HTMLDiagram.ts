@@ -1,10 +1,12 @@
+import type { IHTMLDiagram } from "../types";
+
 import type { FenRecord, FontMap } from "../types";
 import { Enigma } from "./Enigma";
 import { Caricature } from "./Caricature";
-import { Stylesheet } from "./Stylesheet";
+import boardStyles from "../static/board-styles";
 
-export const HTMLDiagram = (fontMap: FontMap) =>
-	class extends HTMLElement {
+export default (fontMap: FontMap) =>
+	class extends HTMLElement implements IHTMLDiagram {
 		static observedAttributes = ["fen"];
 
 		#fen: FenRecord = "8/8/8/8/8/8/8/8";
@@ -13,18 +15,18 @@ export const HTMLDiagram = (fontMap: FontMap) =>
 		constructor() {
 			super();
 			this.#fontMap = fontMap;
+			this.attachShadow({ mode: "open" });
 		}
 
 		connectedCallback() {
-			this.attachShadow({ mode: "open" });
 			this.#setStyles();
 			this.#render();
 		}
 
 		#setStyles() {
-			new Stylesheet("../static/board-styles.ts").create().then((sheet) => {
-				this.shadowRoot!.adoptedStyleSheets = [sheet];
-			});
+			const sheet = new CSSStyleSheet();
+			sheet.replaceSync(boardStyles);
+			this.shadowRoot!.adoptedStyleSheets = [sheet];
 		}
 
 		#render() {

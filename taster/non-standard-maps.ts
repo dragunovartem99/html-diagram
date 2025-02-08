@@ -36,7 +36,7 @@ const berlin = new Map([
 	[" ", { light: " ", dark: "+" }],
 ]);
 
-export const nonStandardMaps = new Map([
+export default new Map([
 	["Alpha2", alpha2],
 	["Berlin", berlin],
 ]);
