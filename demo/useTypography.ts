@@ -1,5 +1,5 @@
 import type { IHTMLDiagram } from "../src/types";
-import standardFontMap from "../src/static/standard-font-map";
+import standardFontMap from "../src/static/standardFontMap";
 import nonStandardMaps from "./non-standard-maps.ts";
 
 export function useTypography(font: string) {

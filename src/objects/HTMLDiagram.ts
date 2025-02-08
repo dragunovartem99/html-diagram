@@ -1,9 +1,7 @@
-import boardStyles from "../static/board-styles";
-import standardFontMap from "../static/standard-font-map";
+import graphicStyles from "../static/graphicStyles";
+import standardFontMap from "../static/standardFontMap";
 
-import type { IHTMLDiagram } from "../types";
-
-import type { FenRecord, FontMap } from "../types";
+import type { FenRecord, FontMap, IHTMLDiagram } from "../types";
 import { Enigma } from "./Enigma";
 import { Caricature } from "./Caricature";
 
@@ -25,9 +23,7 @@ export default (fontMap: FontMap = standardFontMap) =>
 		}
 
 		#setStyles() {
-			const sheet = new CSSStyleSheet();
-			sheet.replaceSync(boardStyles);
-			this.shadowRoot!.adoptedStyleSheets = [sheet];
+			this.shadowRoot!.adoptedStyleSheets = [graphicStyles()];
 		}
 
 		#render() {
@@ -56,6 +52,9 @@ export default (fontMap: FontMap = standardFontMap) =>
 
 		// @ts-ignore
 		attributeChangedCallback(name, _, newValue: string) {
-			this.fen = newValue;
+			switch (name) {
+				case "fen":
+					this.fen = newValue;
+			}
 		}
 	};

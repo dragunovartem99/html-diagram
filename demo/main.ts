@@ -1,7 +1,5 @@
 import "./css/style.css";
-
 import { htmlDiagram, type HTMLDiagram } from "../src/lib.ts";
-
 import { useTypography } from "./useTypography";
 import { watchTV } from "./watchTV";
 
