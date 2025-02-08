@@ -23,5 +23,5 @@ dist-ssr
 *.sln
 *.sw?
 
-# Web preview
-web
+# Demo preview
+dist-demo

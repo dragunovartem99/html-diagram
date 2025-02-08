@@ -1,14 +1,14 @@
-import type { FenRecord, FigurineNotation, FontMap } from "../types";
+import type { FenRecord, FigurineNotation, FontMap, IEnigma } from "../types";
 
-export class Enigma {
+export class Enigma implements IEnigma {
 	#fontMap;
 
 	constructor(fontMap: FontMap) {
 		this.#fontMap = fontMap;
 	}
 
-	encode(fenRecord: FenRecord): FigurineNotation {
-		return fenRecord
+	encode(fen: FenRecord): FigurineNotation {
+		return fen
 			.split(" ")[0]
 			.replace(/\//g, "")
 			.replace(/\d/g, (digit) => " ".repeat(+digit))

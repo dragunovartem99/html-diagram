@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap");
+
+@font-face {
+	font-family: "Chess Adventurer";
+	src: url("../fonts/chess-adventurer.ttf");
+}
+
+@font-face {
+	font-family: "Chess Alfonso X";
+	src: url("../fonts/chess-alfonso-x.ttf");
+}
+
+@font-face {
+	font-family: "Chess Alpha2";
+	src: url("../fonts/chess-alpha2.ttf");
+}
+
+@font-face {
+	font-family: "Chess Berlin";
+	src: url("../fonts/chess-berlin.ttf");
+}
+
+@font-face {
+	font-family: "Chess Cases";
+	src: url("../fonts/chess-cases.ttf");
+}
+
+@font-face {
+	font-family: "Chess Condal";
+	src: url("../fonts/chess-condal.ttf");
+}
+
+@font-face {
+	font-family: "Chess Kingdom";
+	src: url("../fonts/chess-kingdom.ttf");
+}
+
+@font-face {
+	font-family: "Chess Leipzig";
+	src: url("../fonts/chess-leipzig.ttf");
+}
+
+@font-face {
+	font-family: "Chess Mark";
+	src: url("../fonts/chess-mark.ttf");
+}
+
+@font-face {
+	font-family: "Chess Merida";
+	src: url("../fonts/chess-merida.ttf");
+}
+
+@font-face {
+	font-family: "Chess Smart";
+	src: url("../fonts/chess-smart.ttf");
+}

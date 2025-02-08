@@ -8,15 +8,28 @@
 	</head>
 
 	<body>
-		<div id="app" class="leipzig">
+		<div id="app">
 			<header>
 				<h1 class="accent">HTML Diagram</h1>
 				<label>
 					typography:
 					<select id="typography">
-						<option value="leipzig">Leipzig</option>
-						<option value="kingdom">Kingdom</option>
-						<option value="merida">Merida</option>
+						<optgroup label="Classical">
+							<option>Alpha2</option>
+							<option>Leipzig</option>
+							<option selected>Kingdom</option>
+						</optgroup>
+						<optgroup label="Modern">
+							<option>Berlin</option>
+							<option>Cases</option>
+							<option>Merida</option>
+							<option>Smart</option>
+						</optgroup>
+						<optgroup label="Creative">
+							<option>Adventurer</option>
+							<option>Alfonso X</option>
+							<option>Mark</option>
+						</optgroup>
 					</select>
 				</label>
 			</header>
@@ -44,19 +57,23 @@
 				</figure>
 			</main>
 			<footer>
-				<p>Textual Chess Diagram Component</p>
 				<p>
-					<a
-						class="accent"
-						href="https://github.com/dragunovartem99/html-diagram"
-						target="_blank"
-					>
-						GitHub
+					Fonts:
+					<a href="https://www.enpassant.dk/chess/fonteng.htm" target="_blank">
+						Nørresundby Chess Club
 					</a>
-					<span>MIT License</span>
+				</p>
+				<p>
+					<span class="accent">Before use:</span>
+					please review and comply with the licensing terms of any font used in this demo
+				</p>
+				<p>
+					<a href="https://github.com/dragunovartem99/html-diagram" target="_blank">
+						<img src="/demo/assets/github.svg" alt="GitHub Logo" />
+					</a>
 				</p>
 			</footer>
 		</div>
-		<script type="module" src="/src/web-preview/main.ts"></script>
+		<script type="module" src="/demo/main.ts"></script>
 	</body>
 </html>
