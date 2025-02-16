@@ -1,16 +1,22 @@
-export function watchTV(onFrame: Function) {
+// https://gist.github.com/ornicar/a097406810939cf7be1df8ea30e94f3e
+
+export function watchTV(onFrame) {
 	const stream = fetch("https://lichess.org/api/tv/feed");
-	stream.then(readNdJson(onFrame)).then(() => console.log("End of stream"));
+
+	const onMessage = (obj) => onFrame(obj);
+	const onComplete = () => console.log("The stream has completed");
+
+	stream.then(readStream(onMessage)).then(onComplete);
 }
 
-const readNdJson = (processLine: any) => (response: any) => {
+const readStream = (processLine) => (response) => {
 	const stream = response.body.getReader();
 	const matcher = /\r?\n/;
 	const decoder = new TextDecoder();
 	let buf = "";
 
 	const loop = () =>
-		stream.read().then(({ done, value }: any) => {
+		stream.read().then(({ done, value }) => {
 			if (done) {
 				if (buf.length > 0) processLine(JSON.parse(buf));
 			} else {
@@ -20,7 +26,7 @@ const readNdJson = (processLine: any) => (response: any) => {
 				buf += chunk;
 
 				const parts = buf.split(matcher);
-				buf = parts.pop() ?? "";
+				buf = parts.pop();
 				for (const i of parts.filter((p) => p)) processLine(JSON.parse(i));
 				return loop();
 			}

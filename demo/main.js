@@ -1,5 +1,5 @@
 // Lib
-import { htmlDiagram, type HTMLDiagram } from "../src/lib";
+import { htmlDiagram } from "../src/lib";
 
 // Demo
 import "./css/style.css";
@@ -13,32 +13,26 @@ import { watchTV } from "./scripts/watchTV";
 
 {
 	// Demo: Typography select
-	const typography: HTMLSelectElement = document.querySelector("#typography")!;
+	const typography = document.querySelector("#typography");
 	useTypography(typography.value);
-
-	typography.addEventListener("change", ({ target }) => {
-		const { value: font } = target as HTMLSelectElement;
-		useTypography(font);
-	});
+	typography.addEventListener("change", (event) => useTypography(event.target.value));
 }
 
 {
 	// Demo: Lichess Stream
-	watchTV((frame: any) => {
-		const { t: type, d: data } = frame;
-
-		const live = document.querySelector("#live")!;
-		const diagram: HTMLDiagram = live.querySelector("my-diagram")!;
-
-		diagram.fen = data.fen;
+	watchTV(({ t: type, d: data }) => {
+		const live = document.querySelector("#live");
+		const diagram = live.querySelector("my-diagram");
 
 		if (type === "featured") {
 			const [white, black] = live.querySelectorAll(".player");
-			const link: HTMLAnchorElement = live.querySelector("a")!;
+			const link = live.querySelector("a");
 
 			link.href = "https://lichess.org/" + data.id;
 			white.textContent = data.players[0].user.name;
 			black.textContent = data.players[1].user.name;
 		}
+
+		diagram.fen = data.fen;
 	});
 }
