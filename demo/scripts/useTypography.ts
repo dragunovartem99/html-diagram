@@ -1,6 +1,6 @@
-import type { IHTMLDiagram } from "../src/types";
-import standardFontMap from "../src/static/standardFontMap";
-import nonStandardMaps from "./non-standard-maps.ts";
+import type { IHTMLDiagram } from "../../src/types";
+import standardFontMap from "../../src/static/standardFontMap";
+import customMaps from "./customMaps.ts";
 
 export function useTypography(font: string) {
 	const diagrams: NodeListOf<IHTMLDiagram> = document.querySelectorAll("my-diagram");
@@ -10,8 +10,8 @@ export function useTypography(font: string) {
 }
 
 function updateFontMap(diagram: IHTMLDiagram, font: string) {
-	const isNonStandard = nonStandardMaps.has(font);
-	const map = isNonStandard ? nonStandardMaps.get(font) : standardFontMap;
+	const isCustom = customMaps.has(font);
+	const map = isCustom ? customMaps.get(font) : standardFontMap;
 
 	if (diagram.fontMap !== map) {
 		diagram.fontMap = map;

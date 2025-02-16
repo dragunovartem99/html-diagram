@@ -1,33 +1,44 @@
+// Lib
+import { htmlDiagram, type HTMLDiagram } from "../src/lib";
+
+// Demo
 import "./css/style.css";
-import { htmlDiagram, type HTMLDiagram } from "../src/lib.ts";
-import { useTypography } from "./useTypography";
-import { watchTV } from "./watchTV";
+import { useTypography } from "./scripts/useTypography";
+import { watchTV } from "./scripts/watchTV";
 
-customElements.define("my-diagram", htmlDiagram());
+{
+	// Lib: Usage
+	customElements.define("my-diagram", htmlDiagram());
+}
 
-const typography: HTMLSelectElement = document.querySelector("#typography")!;
+{
+	// Demo: Typography select
+	const typography: HTMLSelectElement = document.querySelector("#typography")!;
+	useTypography(typography.value);
 
-useTypography(typography.value);
+	typography.addEventListener("change", ({ target }) => {
+		const { value: font } = target as HTMLSelectElement;
+		useTypography(font);
+	});
+}
 
-typography.addEventListener("change", ({ target }) => {
-	const { value: font } = target as HTMLSelectElement;
-	useTypography(font);
-});
+{
+	// Demo: Lichess Stream
+	watchTV((frame: any) => {
+		const { t: type, d: data } = frame;
 
-watchTV((frame: any) => {
-	const { t: type, d: data } = frame;
+		const live = document.querySelector("#live")!;
+		const diagram: HTMLDiagram = live.querySelector("my-diagram")!;
 
-	const live = document.querySelector("#live")!;
-	const diagram: HTMLDiagram = live.querySelector("my-diagram")!;
+		diagram.fen = data.fen;
 
-	diagram.fen = data.fen;
+		if (type === "featured") {
+			const [white, black] = live.querySelectorAll(".player");
+			const link: HTMLAnchorElement = live.querySelector("a")!;
 
-	if (type === "featured") {
-		const [white, black] = live.querySelectorAll(".player");
-		const link: HTMLAnchorElement = live.querySelector("a")!;
-
-		link.href = "https://lichess.org/" + data.id;
-		white.textContent = data.players[0].user.name;
-		black.textContent = data.players[1].user.name;
-	}
-});
+			link.href = "https://lichess.org/" + data.id;
+			white.textContent = data.players[0].user.name;
+			black.textContent = data.players[1].user.name;
+		}
+	});
+}
