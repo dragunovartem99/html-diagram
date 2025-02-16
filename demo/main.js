@@ -19,20 +19,27 @@ import { watchTV } from "./scripts/watchTV";
 }
 
 {
-	// Demo: Lichess Stream
+	// Demo: Lichess stream
+	function setGameInfo({ gameId, players }) {
+		const [white, black] = live.querySelectorAll(".player");
+		const boardLink = live.querySelector("a");
+
+		boardLink.href = `https://lichess.org/${gameId}`;
+
+		white.textContent = players[0].user.name;
+		black.textContent = players[1].user.name;
+	}
+
 	watchTV(({ t: type, d: data }) => {
+		const { id: gameId, players, fen } = data;
+
 		const live = document.querySelector("#live");
 		const diagram = live.querySelector("my-diagram");
 
+		diagram.fen = fen;
+
 		if (type === "featured") {
-			const [white, black] = live.querySelectorAll(".player");
-			const link = live.querySelector("a");
-
-			link.href = "https://lichess.org/" + data.id;
-			white.textContent = data.players[0].user.name;
-			black.textContent = data.players[1].user.name;
+			setGameInfo({ gameId, players });
 		}
-
-		diagram.fen = data.fen;
 	});
 }
