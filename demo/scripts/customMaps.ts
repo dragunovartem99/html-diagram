@@ -1,4 +1,6 @@
-const alpha2 = new Map([
+import { FontMap } from "../../src/types";
+
+const alpha2: FontMap = new Map([
 	// White
 	["K", { light: "È", dark: "É" }],
 	["Q", { light: "Æ", dark: "Ç" }],
@@ -17,7 +19,7 @@ const alpha2 = new Map([
 	[" ", { light: "'", dark: "#" }],
 ]);
 
-const berlin = new Map([
+const berlin: FontMap = new Map([
 	// White
 	["K", { light: "k", dark: "K" }],
 	["Q", { light: "q", dark: "Q" }],
@@ -36,7 +38,7 @@ const berlin = new Map([
 	[" ", { light: " ", dark: "+" }],
 ]);
 
-const smart = new Map([
+const smart: FontMap = new Map([
 	// White
 	["K", { light: "F", dark: "L" }],
 	["Q", { light: "E", dark: "K" }],

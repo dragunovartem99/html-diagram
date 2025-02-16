@@ -1,4 +1,4 @@
-import type { FenRecord, FigurineNotation, FontMap, IEnigma } from "../types";
+import type { BoardObject, FenRecord, FigurineNotation, FontMap, IEnigma } from "../types";
 
 export class Enigma implements IEnigma {
 	#fontMap;
@@ -9,13 +9,15 @@ export class Enigma implements IEnigma {
 
 	encode(fen: FenRecord): FigurineNotation {
 		return fen
-			.split(" ")[0]
-			.replace(/\//g, "")
-			.replace(/\d/g, (digit) => " ".repeat(+digit))
-			.replace(/./g, (match, offset) => {
-				const entry = this.#fontMap.get(match);
-				const color = (offset * 9) & 8 ? "dark" : "light";
-				return entry?.[color] || match;
+			.split(" ")[0] // extract position
+			.replace(/\//g, "") // remove slashes
+			.replace(/\d/g, (digit) => " ".repeat(+digit)) // expand empty squares
+			.replace(/./g, (char, offset) => {
+				const boardObject = this.#fontMap.get(char as BoardObject);
+				if (!boardObject) return char;
+
+				const squareColor = (offset * 9) & 8 ? "dark" : "light";
+				return boardObject[squareColor];
 			});
 	}
 }

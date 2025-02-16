@@ -1,9 +1,11 @@
-import graphicStyles from "../static/graphicStyles";
-import standardFontMap from "../static/standardFontMap";
+import boardStyles from "../static/boardStyles";
+import { standardFontMap } from "../static/standardFontMap";
 
 import type { FenRecord, FontMap, IHTMLDiagram } from "../types";
 import { Enigma } from "./Enigma";
 import { Caricature } from "./Caricature";
+
+// This encapsulates user's font map in class returned
 
 export default (fontMap: FontMap = standardFontMap) =>
 	class extends HTMLElement implements IHTMLDiagram {
@@ -23,7 +25,7 @@ export default (fontMap: FontMap = standardFontMap) =>
 		}
 
 		#setStyles() {
-			this.shadowRoot!.adoptedStyleSheets = [graphicStyles()];
+			this.shadowRoot!.adoptedStyleSheets = [boardStyles()];
 		}
 
 		#render() {
