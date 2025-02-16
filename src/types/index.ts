@@ -28,8 +28,6 @@ export interface IEnigma {
 }
 
 export interface IHTMLDiagram extends HTMLElement {
-	get fen(): FenRecord;
-	set fen(fen: FenRecord);
-	get fontMap(): FontMap;
-	set fontMap(fontMap: FontMap);
+	fen: FenRecord;
+	fontMap: FontMap;
 }

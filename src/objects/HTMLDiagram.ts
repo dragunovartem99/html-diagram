@@ -6,7 +6,6 @@ import { Enigma } from "./Enigma";
 import { Caricature } from "./Caricature";
 
 // This encapsulates user's font map in class returned
-
 export default (fontMap: FontMap = standardFontMap) =>
 	class extends HTMLElement implements IHTMLDiagram {
 		static observedAttributes = ["fen"];
