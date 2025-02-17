@@ -13,40 +13,32 @@
 				<label>
 					typography:
 					<select id="typography">
-						<optgroup label="Classical">
-							<option>Alpha2</option>
-							<option>Leipzig</option>
-							<option selected>Kingdom</option>
-						</optgroup>
-						<optgroup label="Modern">
-							<option>Berlin</option>
-							<option>Cases</option>
-							<option>Merida</option>
-							<option>Smart</option>
-						</optgroup>
-						<optgroup label="Creative">
-							<option>Adventurer</option>
-							<option>Alfonso X</option>
-							<option>Mark</option>
-						</optgroup>
+						<option>Cases</option>
+						<option>Adventurer</option>
+						<option>Alfonso X</option>
+						<option disabled>Alpha</option> <!-- broken white squares -->
+						<option>Alpha2</option>
+						<option>Berlin</option>
+						<option>Kingdom</option>
+						<option>Leipzig</option>
+						<option>Mark</option>
+						<option>Merida</option>
+						<option>Smart</option>
 					</select>
 				</label>
 			</header>
 			<main>
 				<figure>
 					<p class="player accent">Yanofsky, Daniel Abraham</p>
-					<a href="https://lichess.org/8VDyOZ2f/black#42" target="_blank">
-						<my-diagram
-							fen="1r3rk1/1p3p1p/p2pb2q/n1p3p1/P1PbP1nP/1PNQ2P1/1B1N1PB1/R4RK1 w - - 0 22"
-						></my-diagram>
-					</a>
+					<my-diagram
+						fen="1r3rk1/1p3p1p/p2pb2q/n1p3p1/P1PbP1nP/1PNQ2P1/1B1N1PB1/R4RK1 w - - 0 22"
+					>
+					</my-diagram>
 					<p class="player">Robatsch, Karl</p>
 				</figure>
 				<figure id="live">
 					<p class="player accent">Please, wait</p>
-					<a target="_blank">
-						<my-diagram></my-diagram>
-					</a>
+					<a target="_blank"><my-diagram></my-diagram></a>
 					<p class="player">Please, wait</p>
 				</figure>
 				<figure>
