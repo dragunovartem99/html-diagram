@@ -7,7 +7,10 @@ export const demoFonts: FontName[] = [
 	"Alpha2",
 	"Berlin",
 	"Cases",
+	"Cheq",
+	"Chess-7",
 	"Condal",
+	// "Echecs", // rejected by sanitizer
 	"Harlequin",
 	"Kingdom",
 	"Leipzig",
@@ -16,7 +19,9 @@ export const demoFonts: FontName[] = [
 	"Magnetic",
 	"Mark",
 	"Merida",
-	// "Miscel", // rejected by sanitizer (misaligned table)
+	// "Miscel", // rejected by sanitizer
+	// "Pirat", // rejected by sanitizer
 	"Smart",
 	"Tasc",
+	"Traveller",
 ];

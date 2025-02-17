@@ -76,9 +76,29 @@ const tasc: FontMap = new Map([
 	[" ", { light: "A", dark: "a" }],
 ]);
 
+const traveller: FontMap = new Map([
+	// White
+	["K", { light: "K", dark: "(" }],
+	["Q", { light: "Q", dark: "+" }],
+	["R", { light: "R", dark: "," }],
+	["B", { light: "B", dark: "'" }],
+	["N", { light: "N", dark: ")" }],
+	["P", { light: "P", dark: "*" }],
+	// Black
+	["k", { light: "k", dark: "-" }],
+	["q", { light: "q", dark: "%" }],
+	["r", { light: "r", dark: "&" }],
+	["b", { light: "b", dark: "!" }],
+	["n", { light: "n", dark: "#" }],
+	["p", { light: "p", dark: "$" }],
+	// Empty
+	[" ", { light: "S", dark: "0" }],
+]);
+
 export default new Map([
 	["Alpha2", alpha2],
 	["Berlin", berlin],
 	["Smart", smart],
 	["Tasc", tasc],
+	["Traveller", traveller],
 ]);
