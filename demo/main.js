@@ -7,6 +7,7 @@ import { fonts } from "./scripts/fonts";
 import { renderFontOptions } from "./scripts/renderFontOptions";
 import { setTypography } from "./scripts/setTypography";
 import { watchTV } from "./scripts/watchTV";
+import { watchBronstein } from "./scripts/watchBronstein";
 
 {
 	// Lib: Usage
@@ -50,5 +51,14 @@ import { watchTV } from "./scripts/watchTV";
 		if (type === "featured") {
 			setGameInfo(data);
 		}
+	});
+}
+
+{
+	// Demo: Bronstein
+	watchBronstein(({ d: data }) => {
+		const bronstein = document.querySelector("#bronstein");
+		const diagram = bronstein.querySelector("my-diagram");
+		diagram.fen = data.fen;
 	});
 }

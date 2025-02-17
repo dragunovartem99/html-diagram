@@ -32,7 +32,7 @@ Fonts: Nørresundby Chess Club
 [+] Chess Mediaeval
 [+] Chess Mérida
 [+] Chess Millennia
-[ ] Chess Regular
+[+] Chess Regular
 [+] Chess-7
 [+] Smart Regular
 [+] Tasc Chess Figurine
