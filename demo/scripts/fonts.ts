@@ -1,8 +1,9 @@
 export const fonts = {
-	supported: [ 
+	supported: [
 		"Adventurer",
 		"Alfonso-X",
 		"Alpha2",
+		"Assistant",
 		"Berlin",
 		"Cases",
 		"Chess-7",
@@ -20,15 +21,10 @@ export const fonts = {
 		"Merida",
 		"Millenia Light",
 		"Millenia Dark",
+		"Regular",
 		"Smart",
 		"Tasc",
 		"Traveller",
 	],
-	unsupported: [
-		"Alpha",
-		"Cheq",
-		"Echecs",
-		"Miscel",
-		"Pirat",
-	],
+	unsupported: ["Alpha", "Cheq", "Echecs", "Miscel", "Pirat"],
 };

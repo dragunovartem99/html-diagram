@@ -1,17 +1,19 @@
-import boardStyles from "../static/boardStyles";
-import { standardFontMap } from "../static/standardFontMap";
-
 import type { FenRecord, FontMap, IHTMLDiagram } from "../types";
+
+import { defaultFontMap } from "../static/defaultFontMap";
+import { getBoardHTML } from "../static/getBoardHTML";
+import { getBoardCSS } from "../static/getBoardCSS";
+
 import { Enigma } from "./Enigma";
-import { Caricature } from "./Caricature";
 
 // This encapsulates user's font map in class returned
-export default (fontMap: FontMap = standardFontMap) =>
+export default (fontMap: FontMap = defaultFontMap) =>
 	class extends HTMLElement implements IHTMLDiagram {
 		static observedAttributes = ["fen"];
 
-		#fen: FenRecord = "8/8/8/8/8/8/8/8";
 		#fontMap = fontMap;
+		#fen: FenRecord = "8/8/8/8/8/8/8/8";
+		#domNode!: HTMLSpanElement;
 
 		constructor() {
 			super();
@@ -19,18 +21,20 @@ export default (fontMap: FontMap = standardFontMap) =>
 		}
 
 		connectedCallback() {
-			this.#setStyles();
-			this.#render();
+			const { shadowRoot } = this;
+
+			shadowRoot!.appendChild(getBoardHTML());
+			shadowRoot!.adoptedStyleSheets.push(getBoardCSS());
+
+			this.#domNode = this.shadowRoot!.querySelector("span")!;
+			this.#setPosition();
 		}
 
-		#setStyles() {
-			this.shadowRoot!.adoptedStyleSheets = [boardStyles()];
-		}
+		#setPosition() {
+			if (!this.#domNode) return;
 
-		#render() {
 			const notation = new Enigma(this.#fontMap).encode(this.#fen);
-			const graphic = new Caricature(notation).create();
-			this.shadowRoot!.replaceChildren(graphic);
+			this.#domNode.textContent = notation;
 		}
 
 		get fen(): FenRecord {
@@ -39,7 +43,7 @@ export default (fontMap: FontMap = standardFontMap) =>
 
 		set fen(fen: FenRecord) {
 			this.#fen = fen;
-			this.#render();
+			this.#setPosition();
 		}
 
 		get fontMap(): FontMap {
@@ -48,14 +52,11 @@ export default (fontMap: FontMap = standardFontMap) =>
 
 		set fontMap(fontMap: FontMap) {
 			this.#fontMap = fontMap;
-			this.#render();
+			this.#setPosition();
 		}
 
 		// @ts-ignore
 		attributeChangedCallback(name, _, newValue: string) {
-			switch (name) {
-				case "fen":
-					this.fen = newValue;
-			}
+			this.fen = newValue;
 		}
 	};

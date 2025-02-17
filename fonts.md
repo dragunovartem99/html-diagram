@@ -6,11 +6,8 @@ Fonts: Nørresundby Chess Club
 [ ] Chess Motif
 [ ] ChessOle
 [ ] Chess Plain
-[ ] Chess Regular
 [ ] Chess Utrecht
 [ ] ChessDW & CuSymbol
-[ ] Latex Fonts
-[ ] MacIntosh Fonts
 [ ] Good Companion
 [ ] CA Chess
 [ ] Chessmaster
@@ -35,10 +32,11 @@ Fonts: Nørresundby Chess Club
 [+] Chess Mediaeval
 [+] Chess Mérida
 [+] Chess Millennia
+[ ] Chess Regular
 [+] Chess-7
 [+] Smart Regular
-[+] Traveller Standard
 [+] Tasc Chess Figurine
+[+] Traveller Standard
 
 ## Unsupported
 
