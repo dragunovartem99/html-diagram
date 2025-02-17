@@ -20,6 +20,7 @@ body {
 	min-width: 320px;
 	min-height: 100vh;
 	background-image: url("../assets/texture-light.jpg");
+	background-size: min(100vh, 700px);
 }
 
 /* Typography */
@@ -27,11 +28,14 @@ body {
 h1 {
 	font-size: 3.2rem;
 	margin-block: 0 0.3rem;
+	padding-block: 0.33em;
+	line-height: 1;
 }
 
 .accent {
 	color: var(--color-light);
 	background-image: url("../assets/texture-dark.jpg");
+	background-size: 300px;
 }
 
 a {
@@ -75,11 +79,10 @@ main {
 	flex-wrap: wrap;
 	border: 1px solid #bbb;
 	gap: 2rem 4rem;
-	padding: 2rem 4rem;
+	padding: 2rem 2rem 0.5rem;
 }
 
 figure {
-	flex: 1 0 300px;
 	margin: 0;
 }
 
