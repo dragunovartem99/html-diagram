@@ -13,7 +13,7 @@ export default (fontMap: FontMap = defaultFontMap) =>
 
 		#fontMap = fontMap;
 		#fen: FenRecord = "8/8/8/8/8/8/8/8";
-		#domNode!: HTMLSpanElement;
+		#position!: HTMLSpanElement;
 
 		constructor() {
 			super();
@@ -22,19 +22,20 @@ export default (fontMap: FontMap = defaultFontMap) =>
 
 		connectedCallback() {
 			const { shadowRoot } = this;
+			const { svg: board, span: position } = getBoardHTML();
 
-			shadowRoot!.appendChild(getBoardHTML());
+			shadowRoot!.appendChild(board);
 			shadowRoot!.adoptedStyleSheets.push(getBoardCSS());
 
-			this.#domNode = this.shadowRoot!.querySelector("span")!;
+			this.#position = position;
 			this.#setPosition();
 		}
 
 		#setPosition() {
-			if (!this.#domNode) return;
+			if (!this.#position) return;
 
 			const notation = new Enigma(this.#fontMap).encode(this.#fen);
-			this.#domNode.textContent = notation;
+			this.#position.textContent = notation;
 		}
 
 		get fen(): FenRecord {

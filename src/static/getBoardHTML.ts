@@ -4,18 +4,13 @@ export function getBoardHTML() {
 	const foreignObject = document.createElementNS(svgNS, "foreignObject");
 	const span = document.createElement("span");
 
-	{
-		// svg > foreignObject > span
-		foreignObject.appendChild(span);
-		svg.appendChild(foreignObject);
-	}
+	// svg > foreignObject > span
+	foreignObject.appendChild(span);
+	svg.appendChild(foreignObject);
 
 	svg.setAttribute("viewBox", "0 0 80 80");
-
-	foreignObject.setAttribute("x", "0");
-	foreignObject.setAttribute("y", "0");
 	foreignObject.setAttribute("width", "80");
 	foreignObject.setAttribute("height", "80");
 
-	return svg;
+	return { svg, span };
 }

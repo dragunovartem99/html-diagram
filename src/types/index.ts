@@ -9,10 +9,6 @@ export type FigurineNotation = string;
 
 export type FontName = string;
 
-export interface ICaricature {
-	create(): Board;
-}
-
 export interface IEnigma {
 	encode(fen: FenRecord): FigurineNotation;
 }
