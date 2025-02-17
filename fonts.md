@@ -8,7 +8,6 @@ Fonts: Nørresundby Chess Club
 [ ] Chess Plain
 [ ] Chess Regular
 [ ] Chess Utrecht
-[ ] FigurineSymbol
 [ ] ChessDW & CuSymbol
 [ ] Latex Fonts
 [ ] MacIntosh Fonts

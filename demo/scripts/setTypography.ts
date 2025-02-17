@@ -20,7 +20,6 @@ function updateFontMap(diagram: IHTMLDiagram, font: FontName) {
 function updateFontMaps(font: FontName) {
 	const diagrams: NodeListOf<IHTMLDiagram> = document.querySelectorAll("my-diagram");
 	diagrams.forEach((diagram) => updateFontMap(diagram, font));
-
 }
 
 function registerFontFamily(font: FontName) {
@@ -29,7 +28,9 @@ function registerFontFamily(font: FontName) {
 	const fontFamily = `Chess ${font}`;
 	const fontFile = `chess-${font.toLowerCase().replace(" ", "-")}.ttf`;
 
-	stylesheet.insertRule(`@font-face { font-family: "${fontFamily}"; src: url(${fontsDir}/${fontFile}) }`);
+	stylesheet.insertRule(
+		`@font-face { font-family: "${fontFamily}"; src: url(${fontsDir}/${fontFile}) }`
+	);
 
 	document.adoptedStyleSheets.push(stylesheet);
 }

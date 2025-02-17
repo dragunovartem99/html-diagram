@@ -5,7 +5,6 @@ export const fonts = {
 		"Alpha2",
 		"Berlin",
 		"Cases",
-		"Cheq",
 		"Chess-7",
 		"Condal",
 		"Harlequin",
@@ -26,9 +25,10 @@ export const fonts = {
 		"Traveller",
 	],
 	unsupported: [
-		"Alpha", // problems with empty light sqare
-		"Echecs", // rejected by sanitizer
-		"Miscel", // rejected by sanitizer
-		"Pirat", // rejected by sanitizer
+		"Alpha",
+		"Cheq",
+		"Echecs",
+		"Miscel",
+		"Pirat",
 	],
 };
