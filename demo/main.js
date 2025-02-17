@@ -3,6 +3,7 @@ import { htmlDiagram } from "../src/lib";
 
 // Demo
 import "./css/style.css";
+import { demoFonts } from "./scripts/demoFonts";
 import { registerFont } from "./scripts/registerFont";
 import { setTypography } from "./scripts/setTypography";
 import { watchTV } from "./scripts/watchTV";
@@ -16,10 +17,14 @@ import { watchTV } from "./scripts/watchTV";
 	// Demo: Typography select
 	const typography = document.querySelector("#typography");
 
+	demoFonts.forEach((font) => {
+		const option = document.createElement("option");
+		option.textContent = font;
+		typography.appendChild(option);
+	})
+
 	const useFont = (font) => registerFont(font) ?? setTypography(font);
-
 	useFont(typography.value);
-
 	typography.addEventListener("change", ({ target }) => useFont(target.value));
 }
 
