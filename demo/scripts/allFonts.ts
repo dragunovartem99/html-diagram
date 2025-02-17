@@ -1,8 +1,8 @@
 import { FontName } from "../../src/types";
 
-export const demoFonts: FontName[] = [
+export const allFonts: FontName[] = [
 	"Adventurer",
-	"Alfonso X",
+	"Alfonso-X",
 	// "Alpha", // problems with empty light sqare
 	"Alpha2",
 	"Berlin",
@@ -10,7 +10,6 @@ export const demoFonts: FontName[] = [
 	"Cheq",
 	"Chess-7",
 	"Condal",
-	// "Echecs", // rejected by sanitizer
 	"Harlequin",
 	"Kingdom",
 	"Leipzig",
@@ -18,10 +17,16 @@ export const demoFonts: FontName[] = [
 	"Lucena",
 	"Magnetic",
 	"Mark",
+	"Marroquin",
+	"Maya",
+	"Mediaeval",
 	"Merida",
+	"Millenia Light",
+	"Millenia Dark",
 	// "Miscel", // rejected by sanitizer
 	// "Pirat", // rejected by sanitizer
 	"Smart",
 	"Tasc",
 	"Traveller",
+	// "1Echecs", // rejected by sanitizer
 ];

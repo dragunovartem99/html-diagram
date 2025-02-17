@@ -3,8 +3,8 @@ import { htmlDiagram } from "../src/lib";
 
 // Demo
 import "./css/style.css";
-import { demoFonts } from "./scripts/demoFonts";
-import { registerFont } from "./scripts/registerFont";
+import { fonts } from "./scripts/fonts";
+import { renderFontOptions } from "./scripts/renderFontOptions";
 import { setTypography } from "./scripts/setTypography";
 import { watchTV } from "./scripts/watchTV";
 
@@ -16,16 +16,17 @@ import { watchTV } from "./scripts/watchTV";
 {
 	// Demo: Typography select
 	const typography = document.querySelector("#typography");
+	renderFontOptions(fonts.supported, typography);
 
-	demoFonts.forEach((font) => {
-		const option = document.createElement("option");
-		option.textContent = font;
-		typography.appendChild(option);
-	})
+	if (import.meta.env.MODE === "development") {
+		const optgroup = document.createElement("optgroup");
+		optgroup.label = "Development";
+		renderFontOptions(fonts.unsupported, optgroup);
+		typography.appendChild(optgroup);
+	}
 
-	const useFont = (font) => registerFont(font) ?? setTypography(font);
-	useFont(typography.value);
-	typography.addEventListener("change", ({ target }) => useFont(target.value));
+	setTypography(typography.value);
+	typography.addEventListener("change", ({ target }) => setTypography(target.value));
 }
 
 {
