@@ -1,4 +1,4 @@
-@import "fonts.css";
+@import url("https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap");
 
 :root {
 	--color-dark: #333;
@@ -12,11 +12,6 @@
 	font-weight: 400;
 
 	color: var(--color-dark);
-
-	font-synthesis: none;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
 }
 
 body {

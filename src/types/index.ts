@@ -7,6 +7,8 @@ export type Board = SVGElement;
 export type FenRecord = string;
 export type FigurineNotation = string;
 
+export type FontName = string;
+
 export interface ICaricature {
 	create(): Board;
 }

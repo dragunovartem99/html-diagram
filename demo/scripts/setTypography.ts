@@ -3,7 +3,8 @@ import { standardFontMap } from "../../src/static/standardFontMap";
 import customMaps from "./customMaps";
 
 function setAppStyle(font: string) {
-	document.querySelector("#app")!.setAttribute("style", `--diagram-font: Chess ${font}`);
+	const app = document.querySelector("#app")!;
+	app.setAttribute("style", `--diagram-font: Chess ${font}`);
 }
 
 function updateFontMap(diagram: IHTMLDiagram, font: string) {
@@ -14,8 +15,9 @@ function updateFontMap(diagram: IHTMLDiagram, font: string) {
 	}
 }
 
-export function useTypography(font: string) {
+export function setTypography(font: string) {
 	const diagrams: NodeListOf<IHTMLDiagram> = document.querySelectorAll("my-diagram");
 	diagrams.forEach((diagram) => updateFontMap(diagram, font));
+
 	setAppStyle(font);
 }
