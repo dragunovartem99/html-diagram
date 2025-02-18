@@ -1,4 +1,6 @@
-Fonts: Nørresundby Chess Club
+# Fonts
+[Nørresundby Chess Club](https://www.enpassant.dk/chess/fonteng.htm)
+(extraction from the page)
 
 ## TODO
 
@@ -14,29 +16,31 @@ Fonts: Nørresundby Chess Club
 
 ## Supported
 
-- [x] Cases
-- [x] Chess Adventurer
-- [x] Chess Alfonso-X
-- [x] Chess Alpha2
-- [x] Chess Berlin
-- [x] Chess Condal
-- [x] Chess Harlequin
-- [x] Chess Kingdom
-- [x] Chess Leipzig
-- [x] Chess Line
-- [x] Chess Lucena
-- [x] Chess Magnetic
-- [x] Chess Mark
-- [x] Chess Marroquin
-- [x] Chess Maya
-- [x] Chess Mediaeval
-- [x] Chess Mérida
-- [x] Chess Millennia
-- [x] Chess Regular
-- [x] Chess-7
-- [x] Smart Regular
-- [x] Tasc Chess Figurine
-- [x] Traveller Standard
+| Font                | Needs custom map |
+|---------------------|------------------|
+| Cases               |                  |
+| Chess Adventurer    |                  |
+| Chess Alfonso-X     |                  |
+| Chess Alpha2        | Yes              |
+| Chess Berlin        | Yes              |
+| Chess Condal        |                  |
+| Chess Harlequin     |                  |
+| Chess Kingdom       |                  |
+| Chess Leipzig       |                  |
+| Chess Line          |                  |
+| Chess Lucena        |                  |
+| Chess Magnetic      |                  |
+| Chess Mark          |                  |
+| Chess Marroquin     |                  |
+| Chess Maya          |                  |
+| Chess Mediaeval     |                  |
+| Chess Mérida        |                  |
+| Chess Millennia     |                  |
+| Chess Regular       | Yes              |
+| Chess-7             |                  |
+| Smart Regular       | Yes              |
+| Tasc Chess Figurine | Yes              |
+| Traveller Standard  | Yes              |
 
 ## Unsupported
 
