@@ -5,17 +5,14 @@ import dts from "vite-plugin-dts";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const dtsPluginOptions = {
-	rollupTypes: true,
-};
-
 export default defineConfig({
 	build: {
 		lib: {
-			entry: resolve(__dirname, "src/lib.ts"),
+			entry: resolve(__dirname, "lib/index.ts"),
 			name: "HTMLDiagram",
 			fileName: "html-diagram",
 		},
+		copyPublicDir: false,
 	},
-	plugins: [dts(dtsPluginOptions)],
+	plugins: [dts({ rollupTypes: true })],
 });

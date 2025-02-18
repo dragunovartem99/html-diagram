@@ -1,5 +1,5 @@
 // Lib
-import { createDiagram } from "../src/lib";
+import { createDiagram } from "../lib";
 
 // Demo
 import "./css/style.css";

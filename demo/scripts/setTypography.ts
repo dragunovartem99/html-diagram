@@ -1,8 +1,6 @@
-import type { FontName, IHTMLDiagram } from "../../src/types";
-import { defaultFontMap } from "../../src/static/defaultFontMap";
+import type { FontName, IHTMLDiagram } from "../../lib/types";
+import { defaultFontMap } from "../../lib/static/defaultFontMap";
 import customFontMaps from "../custom-font-maps";
-
-const fontsDir = import.meta.env.MODE === "development" ? "./demo/fonts/" : "";
 
 function setAppStyle(font: FontName) {
 	const app = document.querySelector("#app")!;
@@ -34,7 +32,7 @@ function registerFontFamily(font: FontName) {
 	const fontFile = `chess-${font.toLowerCase().replace(" ", "-")}.ttf`;
 
 	stylesheet.insertRule(
-		`@font-face { font-family: "${fontFamily}"; src: url(${fontsDir}${fontFile}) }`
+		`@font-face { font-family: "${fontFamily}"; src: url("./fonts/${fontFile}") }`
 	);
 
 	document.adoptedStyleSheets.push(stylesheet);
