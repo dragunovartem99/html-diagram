@@ -1,4 +1,4 @@
-import { FontMap } from "../../src/types";
+import { FontMap } from "../../lib/types";
 
 export const berlin: FontMap = new Map([
 	// White

@@ -1,4 +1,4 @@
-import { FontMap } from "../../src/types";
+import { FontMap } from "../../lib/types";
 
 export const smart: FontMap = new Map([
 	// White

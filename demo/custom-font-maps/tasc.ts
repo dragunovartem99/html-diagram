@@ -1,4 +1,4 @@
-import { FontMap } from "../../src/types";
+import { FontMap } from "../../lib/types";
 
 export const tasc: FontMap = new Map([
 	// White
