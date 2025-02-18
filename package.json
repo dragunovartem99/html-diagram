@@ -17,11 +17,11 @@
 		"dist"
 	],
 	"scripts": {
-		"build": "tsc && vite build",
-		"build-demo": "tsc && vite build --config demo.config.ts",
-		"dev": "vite",
+		"build": "tsc && vite build -c lib.config.ts",
+		"build-demo": "tsc && vite build -c demo.config.ts",
+		"dev": "vite -c lib.config.ts",
 		"format": "prettier . --write",
-		"preview": "vite preview --config demo.config.ts"
+		"preview": "vite preview -c demo.config.ts"
 	},
 	"prettier": "@dragunovartem99/prettier-config",
 	"devDependencies": {

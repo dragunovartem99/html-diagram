@@ -1,4 +1,4 @@
-import { FontName } from "../../src/types";
+import { FontName } from "../../lib/types";
 
 export function renderFontOptions(fonts: FontName[], element: HTMLElement) {
 	fonts.forEach((font) => {
