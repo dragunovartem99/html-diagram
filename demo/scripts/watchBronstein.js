@@ -56,9 +56,12 @@ function randomDelay() {
 
 	const result = rnd();
 
-	if (result < 0.05) return rnd() * 200; // premove-like
-	else if (result < 0.1) return rnd() * 1000 + 2000; // deep thought
-	else if (result < 0.35) return rnd() * 600 + 900; // solid
+	if (result < 0.05)
+		return rnd() * 200; // premove-like
+	else if (result < 0.1)
+		return rnd() * 1000 + 2000; // deep thought
+	else if (result < 0.35)
+		return rnd() * 600 + 900; // solid
 	else return rnd() * 600 + 300; // confident
 }
 
