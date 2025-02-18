@@ -1,6 +1,6 @@
 # HTML Diagram
 
-Demo: <a href="https://dragunovartem99.github.io/html-diagram" target="_blank">https://dragunovartem99.github.io/html-diagram</a>
+Demo: https://dragunovartem99.github.io/html-diagram
 
 ```html
 <html-diagram>
@@ -14,21 +14,21 @@ Demo: <a href="https://dragunovartem99.github.io/html-diagram" target="_blank">h
 > [!WARNING]
 > **Before use:** Please review and comply with the licensing terms of any font used in the demo.
 
-The **HTML Diagram** itself does not include any fonts, as you can see in the <a href="https://www.npmjs.com/package/html-diagram?activeTab=code">npm package files</a> of `html-diagram`.
+The **HTML Diagram** itself does not include any fonts, as you can see in the [npm package files](https://www.npmjs.com/package/html-diagram?activeTab=code) of `html-diagram`.
 
-However, the _demo_ (which shows the general idea) at <a href="https://dragunovartem99.github.io/html-diagram" target="_blank">https://dragunovartem99.github.io/html-diagram</a> uses multiple fonts.
+However, the _demo_ (which shows the general idea) at [https://dragunovartem99.github.io/html-diagram](https://dragunovartem99.github.io/html-diagram) uses multiple fonts.
 
 The demo was created for **two purposes only**:
 1. To test how HTML Diagram can support different chess fonts.
 2. To give users an opportunity to explore various chess fonts and find inspiration.
 
-All fonts in the demo were downloaded from the amazing <a href="https://www.enpassant.dk/chess/fonteng.htm" target="_blank">Nørresundby Chess Club.</a>
+All fonts in the demo were downloaded from the amazing [Nørresundby Chess Club](https://www.enpassant.dk/chess/fonteng.htm).
 
 > [!IMPORTANT]
 > All fonts in the demo were marked as **Freeware**.  
 > However, it is strongly recommended to review the license of any font you intend to use.
 >
-> You can redownload the desired font from the <a href="https://www.enpassant.dk/chess/fonteng.htm" target="_blank">Nørresundby Chess Club.</a>.  
+> You can redownload the desired font from the [Nørresundby Chess Club](https://www.enpassant.dk/chess/fonteng.htm).  
 > The font archive may contain additional information about its terms of usage.
 
 ## Features
