@@ -60,8 +60,8 @@ export default ({ fen, flipped, fontMap }: Options) => {
 			return this.#flipped;
 		}
 
-		set flipped(isFlipped) {
-			this.#flipped = isFlipped;
+		set flipped(flipped) {
+			this.#flipped = flipped;
 			this.#render();
 		}
 
@@ -76,15 +76,11 @@ export default ({ fen, flipped, fontMap }: Options) => {
 
 		attributeChangedCallback(name: string, oldValue: string, newValue: string) {
 			if (newValue === oldValue) return;
-
-			if (name === "flipped") {
+			else if (name === "flipped") {
 				// https://html.spec.whatwg.org/dev/common-microsyntaxes.html#boolean-attributes
 				const validValues = ["", "flipped"];
-				const isFlipped = validValues.includes(newValue?.toLowerCase());
-				this.flipped = isFlipped;
-			} else {
-				this.fen = newValue;
-			}
+				this.flipped = validValues.includes(newValue?.toLowerCase());
+			} else this.fen = newValue;
 		}
 	};
 };
