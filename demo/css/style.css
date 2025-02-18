@@ -132,7 +132,8 @@ footer img {
 }
 
 @media (min-width: 480px) {
-	#app, main {
+	#app,
+	main {
 		padding: 2rem;
 	}
 }

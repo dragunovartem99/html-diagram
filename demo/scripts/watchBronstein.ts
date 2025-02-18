@@ -47,27 +47,28 @@ const game = [
 	"rn2Qb1r/p1N1kp1p/3q4/1p2P3/3P4/8/PP3KPP/n6R b - - 1 23",
 ];
 
-function delay(ms) {
-	return new Promise((resolve) => setTimeout(resolve, ms));
+function getHumanLikeDelay() {
+	const { random } = Math;
+
+	const x = random();
+	const range = (min: number, potential: number) => min + random() * potential;
+
+	if (x < 0.05) {
+		return range(0, 200); // premove-like - 5%
+	} else if (x < 0.1) {
+		return range(2000, 1000); // deep thought - 5%
+	} else if (x < 0.35) {
+		return range(900, 600); // solid - 25%
+	} else {
+		return range(300, 600); // confident - 65%
+	}
 }
 
-function randomDelay() {
-	const { random: rnd } = Math;
+const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-	const result = rnd();
-
-	if (result < 0.05)
-		return rnd() * 200; // premove-like
-	else if (result < 0.1)
-		return rnd() * 1000 + 2000; // deep thought
-	else if (result < 0.35)
-		return rnd() * 600 + 900; // solid
-	else return rnd() * 600 + 300; // confident
-}
-
-export async function watchBronstein(onFrame) {
+export async function watchBronstein(onFrame: Function) {
 	for (const position of game) {
 		onFrame({ d: { fen: position } });
-		await delay(randomDelay());
+		await wait(getHumanLikeDelay());
 	}
 }

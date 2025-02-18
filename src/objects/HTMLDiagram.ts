@@ -24,7 +24,7 @@ export default (fontMap: FontMap = defaultFontMap) =>
 		connectedCallback() {
 			this.#setHTML();
 			this.#setCSS();
-			this.#insertPosition();
+			this.#render();
 		}
 
 		#setHTML() {
@@ -38,7 +38,7 @@ export default (fontMap: FontMap = defaultFontMap) =>
 			this.#shadow.adoptedStyleSheets.push(getBoardCSS());
 		}
 
-		#insertPosition() {
+		#render() {
 			if (!this.#div) return;
 
 			const enigma = new Enigma(this.#fontMap);
@@ -55,7 +55,7 @@ export default (fontMap: FontMap = defaultFontMap) =>
 
 		set fen(fen: FenRecord) {
 			this.#fen = fen;
-			this.#insertPosition();
+			this.#render();
 		}
 
 		get flipped(): boolean {
@@ -64,7 +64,7 @@ export default (fontMap: FontMap = defaultFontMap) =>
 
 		set flipped(isFlipped: boolean) {
 			this.#isFlipped = isFlipped;
-			this.#insertPosition();
+			this.#render();
 		}
 
 		get fontMap(): FontMap {
@@ -73,7 +73,7 @@ export default (fontMap: FontMap = defaultFontMap) =>
 
 		set fontMap(fontMap: FontMap) {
 			this.#fontMap = fontMap;
-			this.#insertPosition();
+			this.#render();
 		}
 
 		attributeChangedCallback(name: string, oldValue: any, newValue: any) {
@@ -83,14 +83,10 @@ export default (fontMap: FontMap = defaultFontMap) =>
 
 			if (name === "fen") {
 				this.fen = newValue;
-				return;
-			}
-
-			if (name === "flipped") {
+			} else if (name === "flipped") {
 				const validValues = ["flipped", ""];
 				const isFlipped = validValues.includes(newValue?.toLowerCase());
 				this.flipped = isFlipped;
-				return;
 			}
 		}
 	};
