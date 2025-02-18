@@ -1,6 +1,6 @@
 import type { FontMap } from "../types";
 
-export const standardFontMap: FontMap = new Map([
+export const defaultFontMap: FontMap = new Map([
 	// White
 	["K", { light: "k", dark: "K" }],
 	["Q", { light: "q", dark: "Q" }],

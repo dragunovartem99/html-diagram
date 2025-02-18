@@ -12,47 +12,27 @@
 				<h1 class="accent">HTML Diagram</h1>
 				<label>
 					typography:
-					<select id="typography">
-						<optgroup label="Classical">
-							<option>Alpha2</option>
-							<option>Leipzig</option>
-							<option selected>Kingdom</option>
-						</optgroup>
-						<optgroup label="Modern">
-							<option>Berlin</option>
-							<option>Cases</option>
-							<option>Merida</option>
-							<option>Smart</option>
-						</optgroup>
-						<optgroup label="Creative">
-							<option>Adventurer</option>
-							<option>Alfonso X</option>
-							<option>Mark</option>
-						</optgroup>
-					</select>
+					<select id="typography"></select>
 				</label>
 			</header>
 			<main>
 				<figure>
-					<p class="player accent">Yanofsky, Daniel Abraham</p>
-					<a href="https://lichess.org/8VDyOZ2f/black#42" target="_blank">
-						<my-diagram
-							fen="1r3rk1/1p3p1p/p2pb2q/n1p3p1/P1PbP1nP/1PNQ2P1/1B1N1PB1/R4RK1 w - - 0 22"
-						></my-diagram>
-					</a>
-					<p class="player">Robatsch, Karl</p>
+					<p class="player accent">Black</p>
+					<my-diagram fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1">
+					</my-diagram>
+					<p class="player">White</p>
 				</figure>
 				<figure id="live">
-					<p class="player accent">Please, wait</p>
-					<a target="_blank">
-						<my-diagram></my-diagram>
-					</a>
+					<p class="player">Please, wait</p>
+					<a target="_blank" href="https://lichess.org/tv"><my-diagram></my-diagram></a>
 					<p class="player">Please, wait</p>
 				</figure>
-				<figure>
-					<p class="player accent">Filip, Miroslav</p>
-					<my-diagram fen="2q5/8/6k1/3RK1p1/6Bp/3N3P/8/8 b - - 38 91"></my-diagram>
-					<p class="player">Smyslov, Vassily</p>
+				<figure id="bronstein">
+					<p class="player accent">M20</p>
+					<a target="_blank" href="https://www.chessgames.com/perl/chessgame?gid=1238081">
+						<my-diagram></my-diagram>
+					</a>
+					<p class="player">DavidBronstein</p>
 				</figure>
 			</main>
 			<footer>
