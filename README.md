@@ -16,7 +16,7 @@ Demo: https://dragunovartem99.github.io/html-diagram
 
 The **HTML Diagram** itself does not include any fonts, as you can see in the [npm package files](https://www.npmjs.com/package/html-diagram?activeTab=code) of `html-diagram`.
 
-However, the _demo_ (which shows the general idea) at [https://dragunovartem99.github.io/html-diagram](https://dragunovartem99.github.io/html-diagram) uses multiple fonts.
+However, the _demo_ (which shows the general idea) at https://dragunovartem99.github.io/html-diagram uses multiple fonts.
 
 The demo was created for **two purposes only**:
 1. To test how HTML Diagram can support different chess fonts.
