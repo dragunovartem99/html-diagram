@@ -1,4 +1,5 @@
 # Fonts
+
 [Nørresundby Chess Club](https://www.enpassant.dk/chess/fonteng.htm)
 (extraction from the page)
 
@@ -17,7 +18,7 @@
 ## Supported
 
 | Font                | Needs custom map |
-|---------------------|------------------|
+| ------------------- | ---------------- |
 | Cases               |                  |
 | Chess Adventurer    |                  |
 | Chess Alfonso-X     |                  |
