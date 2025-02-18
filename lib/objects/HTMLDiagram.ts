@@ -76,11 +76,14 @@ export default ({ fen, flipped, fontMap }: Options) => {
 
 		attributeChangedCallback(name: string, oldValue: string, newValue: string) {
 			if (newValue === oldValue) return;
-			else if (name === "flipped") {
+
+			if (name === "flipped") {
 				// https://html.spec.whatwg.org/dev/common-microsyntaxes.html#boolean-attributes
 				const validValues = ["", "flipped"];
 				this.flipped = validValues.includes(newValue?.toLowerCase());
-			} else this.fen = newValue;
+			} else {
+				this.fen = newValue;
+			}
 		}
 	};
 };
