@@ -1,18 +1,16 @@
-import type { FenRecord, FontMap, IHTMLDiagram } from "../types";
-
-import { defaultFontMap } from "../static/defaultFontMap";
+import type { IHTMLDiagram, Options } from "../types";
+import { Enigma } from "./Enigma";
 import { getBoardHTML } from "../static/getBoardHTML";
 import { getBoardCSS } from "../static/getBoardCSS";
 
-import { Enigma } from "./Enigma";
-
-export default (fontMap: FontMap = defaultFontMap) =>
-	class extends HTMLElement implements IHTMLDiagram {
+export default ({ fen, flipped, fontMap }: Options) => {
+	return class extends HTMLElement implements IHTMLDiagram {
 		static observedAttributes = ["fen", "flipped"];
 
-		#fen: FenRecord = "8/8/8/8/8/8/8/8";
-		#isFlipped = false;
+		#fen = fen;
+		#flipped = flipped;
 		#fontMap = fontMap;
+
 		#shadow;
 		#div!: HTMLDivElement;
 
@@ -44,49 +42,49 @@ export default (fontMap: FontMap = defaultFontMap) =>
 			const enigma = new Enigma(this.#fontMap);
 
 			let position = enigma.encode(this.#fen);
-			this.#isFlipped && (position = enigma.reverse(position));
+			this.#flipped && (position = enigma.reverse(position));
 
 			this.#div.textContent = position;
 		}
 
-		get fen(): FenRecord {
+		get fen() {
 			return this.#fen;
 		}
 
-		set fen(fen: FenRecord) {
+		set fen(fen) {
 			this.#fen = fen;
 			this.#render();
 		}
 
-		get flipped(): boolean {
-			return this.#isFlipped;
+		get flipped() {
+			return this.#flipped;
 		}
 
-		set flipped(isFlipped: boolean) {
-			this.#isFlipped = isFlipped;
+		set flipped(isFlipped) {
+			this.#flipped = isFlipped;
 			this.#render();
 		}
 
-		get fontMap(): FontMap {
+		get fontMap() {
 			return this.#fontMap;
 		}
 
-		set fontMap(fontMap: FontMap) {
+		set fontMap(fontMap) {
 			this.#fontMap = fontMap;
 			this.#render();
 		}
 
-		attributeChangedCallback(name: string, oldValue: any, newValue: any) {
-			if (newValue === oldValue) {
-				return;
-			}
+		attributeChangedCallback(name: string, oldValue: string, newValue: string) {
+			if (newValue === oldValue) return;
 
-			if (name === "fen") {
-				this.fen = newValue;
-			} else if (name === "flipped") {
-				const validValues = ["flipped", ""];
+			if (name === "flipped") {
+				// https://html.spec.whatwg.org/dev/common-microsyntaxes.html#boolean-attributes
+				const validValues = ["", "flipped"];
 				const isFlipped = validValues.includes(newValue?.toLowerCase());
 				this.flipped = isFlipped;
+			} else {
+				this.fen = newValue;
 			}
 		}
 	};
+};

@@ -1,5 +1,5 @@
-import { default as htmlDiagram } from "./objects/HTMLDiagram";
+import { createDiagram } from "./createDiagram";
 
 import type { IHTMLDiagram as HTMLDiagram, FontMap } from "./types";
 
-export { htmlDiagram, type HTMLDiagram, type FontMap };
+export { createDiagram, type HTMLDiagram, type FontMap };

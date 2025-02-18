@@ -1,5 +1,5 @@
 // Lib
-import { htmlDiagram } from "../src/lib";
+import { createDiagram } from "../src/lib";
 
 // Demo
 import "./css/style.css";
@@ -11,7 +11,7 @@ import { watchBronstein } from "./scripts/watchBronstein";
 
 {
 	// Lib: Usage
-	customElements.define("my-diagram", htmlDiagram());
+	customElements.define("my-diagram", createDiagram());
 }
 
 {
@@ -48,7 +48,7 @@ import { watchBronstein } from "./scripts/watchBronstein";
 
 	watchTV(({ t: type, d: data }) => {
 		const figure = document.querySelector("figure#live");
-		const diagram = live.querySelector("my-diagram");
+		const diagram = figure.querySelector("my-diagram");
 
 		diagram.fen = data.fen;
 
