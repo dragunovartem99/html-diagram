@@ -32,8 +32,8 @@ import { watchBronstein } from "./scripts/watchBronstein";
 
 {
 	// Demo: Lichess stream
-	function setGameInfo({ players, isFlipped }) {
-		let [black, white] = live.querySelectorAll(".player");
+	function setGameInfo({ players, isFlipped, figure }) {
+		let [black, white] = figure.querySelectorAll(".player");
 
 		if (isFlipped) {
 			[black, white] = [white, black];
@@ -47,8 +47,7 @@ import { watchBronstein } from "./scripts/watchBronstein";
 	}
 
 	watchTV(({ t: type, d: data }) => {
-		console.log(data);
-		const live = document.querySelector("#live");
+		const figure = document.querySelector("figure#live");
 		const diagram = live.querySelector("my-diagram");
 
 		diagram.fen = data.fen;
@@ -57,7 +56,7 @@ import { watchBronstein } from "./scripts/watchBronstein";
 			const isFlipped = data.orientation === "black" ? "flipped" : null;
 
 			diagram.flipped = isFlipped;
-			setGameInfo({ ...data, isFlipped });
+			setGameInfo({ ...data, isFlipped, figure });
 		}
 	});
 }
@@ -65,8 +64,8 @@ import { watchBronstein } from "./scripts/watchBronstein";
 {
 	// Demo: Bronstein
 	watchBronstein(({ d: data }) => {
-		const bronstein = document.querySelector("#bronstein");
-		const diagram = bronstein.querySelector("my-diagram");
+		const figure = document.querySelector("figure#bronstein");
+		const diagram = figure.querySelector("my-diagram");
 		diagram.fen = data.fen;
 	});
 }
