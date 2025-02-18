@@ -1,26 +1,22 @@
-const board = `
-svg {
-	display: block;
-	width: 100%;
-	line-height: 0;
-}
-`;
+const css = `
+div {
+	text-align: center;
 
-const position = `
-span {
 	line-break: anywhere;
 	white-space: break-spaces;
-	line-height: 1;
 
-	color: var(--diagram-color, #000);
-	font-size: var(--diagram-font-size, 10px);
-	font-family: var(--diagram-font-family);
+	aspect-ratio: 1 / 1;
+	line-height: 1;
+	font-size: 12.5cqw;
+
+	color: var(--diagram-color, black);
+	font-family: var(--diagram-font);
+	letter-spacing: var(--diagram-spacing, -0.1cqw);
 }
 `;
 
 export function getBoardCSS() {
 	const sheet = new CSSStyleSheet();
-	sheet.insertRule(board);
-	sheet.insertRule(position);
+	sheet.insertRule(css);
 	return sheet;
 }

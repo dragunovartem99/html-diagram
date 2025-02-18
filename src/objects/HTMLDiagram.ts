@@ -6,36 +6,47 @@ import { getBoardCSS } from "../static/getBoardCSS";
 
 import { Enigma } from "./Enigma";
 
-// This encapsulates user's font map in class returned
 export default (fontMap: FontMap = defaultFontMap) =>
 	class extends HTMLElement implements IHTMLDiagram {
-		static observedAttributes = ["fen"];
+		static observedAttributes = ["fen", "flipped"];
 
-		#fontMap = fontMap;
 		#fen: FenRecord = "8/8/8/8/8/8/8/8";
-		#position!: HTMLSpanElement;
+		#isFlipped = false;
+		#fontMap = fontMap;
+		#shadow;
+		#div!: HTMLDivElement;
 
 		constructor() {
 			super();
-			this.attachShadow({ mode: "open" });
+			this.#shadow = this.attachShadow({ mode: "closed" });
 		}
 
 		connectedCallback() {
-			const { shadowRoot } = this;
-			const { svg: board, span: position } = getBoardHTML();
-
-			shadowRoot!.appendChild(board);
-			shadowRoot!.adoptedStyleSheets.push(getBoardCSS());
-
-			this.#position = position;
-			this.#setPosition();
+			this.#setHTML();
+			this.#setCSS();
+			this.#insertPosition();
 		}
 
-		#setPosition() {
-			if (!this.#position) return;
+		#setHTML() {
+			this.#div = getBoardHTML();
+			this.#shadow.appendChild(this.#div);
+		}
 
-			const notation = new Enigma(this.#fontMap).encode(this.#fen);
-			this.#position.textContent = notation;
+		#setCSS() {
+			this.style.display = "block";
+			this.style.containerType = "inline-size";
+			this.#shadow.adoptedStyleSheets.push(getBoardCSS());
+		}
+
+		#insertPosition() {
+			if (!this.#div) return;
+
+			const enigma = new Enigma(this.#fontMap);
+
+			let position = enigma.encode(this.#fen);
+			this.#isFlipped && (position = enigma.reverse(position));
+
+			this.#div.textContent = position;
 		}
 
 		get fen(): FenRecord {
@@ -44,7 +55,16 @@ export default (fontMap: FontMap = defaultFontMap) =>
 
 		set fen(fen: FenRecord) {
 			this.#fen = fen;
-			this.#setPosition();
+			this.#insertPosition();
+		}
+
+		get flipped(): boolean {
+			return this.#isFlipped;
+		}
+
+		set flipped(isFlipped: boolean) {
+			this.#isFlipped = isFlipped;
+			this.#insertPosition();
 		}
 
 		get fontMap(): FontMap {
@@ -53,11 +73,24 @@ export default (fontMap: FontMap = defaultFontMap) =>
 
 		set fontMap(fontMap: FontMap) {
 			this.#fontMap = fontMap;
-			this.#setPosition();
+			this.#insertPosition();
 		}
 
-		// @ts-ignore
-		attributeChangedCallback(name, _, newValue: string) {
-			this.fen = newValue;
+		attributeChangedCallback(name: string, oldValue: any, newValue: any) {
+			if (newValue === oldValue) {
+				return;
+			}
+
+			if (name === "fen") {
+				this.fen = newValue;
+				return;
+			}
+
+			if (name === "flipped") {
+				const validValues = ["flipped", ""];
+				const isFlipped = validValues.includes(newValue?.toLowerCase());
+				this.flipped = isFlipped;
+				return;
+			}
 		}
 	};

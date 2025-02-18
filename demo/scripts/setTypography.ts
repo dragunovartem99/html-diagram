@@ -6,7 +6,12 @@ const fontsDir = import.meta.env.MODE === "development" ? "./demo/fonts/" : "";
 
 function setAppStyle(font: FontName) {
 	const app = document.querySelector("#app")!;
-	app.setAttribute("style", `--diagram-font-family: Chess ${font}`);
+
+	if (font === "Assistant") {
+		app.setAttribute("style", `--diagram-font: Chess ${font}; --diagram-spacing: -0.4cqw`);
+	} else {
+		app.setAttribute("style", `--diagram-font: Chess ${font}`);
+	}
 }
 
 function updateFontMap(diagram: IHTMLDiagram, font: FontName) {
