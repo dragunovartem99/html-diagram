@@ -14,7 +14,7 @@ function registerFontFamily(font: FontName) {
 	const stylesheet = new CSSStyleSheet();
 
 	const fontFamily = `Diagram ${font}`;
-	const fontFile = `diagram-${font.toLowerCase().replace(" ", "-")}.ttf`;
+	const fontFile = `diagram-${font.toLowerCase().replace(" ", "-")}.woff2`;
 
 	stylesheet.insertRule(
 		`@font-face { font-family: "${fontFamily}"; src: url("./woff2/${fontFile}"); font-display: block; }`

@@ -65,15 +65,6 @@ export class HTMLDiagram extends HTMLElement implements IHTMLDiagram {
 		this.#render();
 	}
 
-	get fontMap() {
-		return this.#fontMap;
-	}
-
-	set fontMap(fontMap) {
-		this.#fontMap = fontMap;
-		this.#render();
-	}
-
 	attributeChangedCallback(name: string, oldValue: string, newValue: string) {
 		if (newValue === oldValue) return;
 
