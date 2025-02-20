@@ -3,5 +3,6 @@ export const fonts = {
 		"Adventurer",
 		"Kingdom",
 		"Leipzig",
+		"Smart",
 	],
 };

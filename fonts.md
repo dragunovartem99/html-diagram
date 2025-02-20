@@ -1,5 +1,8 @@
-# Fonts by Armando H. Marroquin
+# Adapted Fonts
 
-- [x] Adventurer
-- [x] Kingdom
-- [x] Leipzig
+| Font       | Author               | Year |
+| ---------- | -------------------- | ---- |
+| Adventurer | Armando H. Marroquin | 2000 |
+| Kingdom    | Armando H. Marroquin | 1998 |
+| Leipzig    | Armando H. Marroquin | 1998 |
+| Smart      | Christoph Wirth      | 1992 |
