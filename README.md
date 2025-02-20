@@ -8,7 +8,7 @@ Demo: https://dragunovartem99.github.io/html-diagram
 </html-diagram>
 ```
 
-<img src="https://github.com/user-attachments/assets/acb26d89-d62e-4044-9fb1-b77c4869c877" width="240" alt="Screenshot of HTML Diagram with Adventurer font">
+<img src="https://github.com/user-attachments/assets/e7e6acac-8058-4e49-9b97-dad1f90e2346" width="240" alt="Screenshot of HTML Diagram with Adventurer font">
 
 ## Features
 
