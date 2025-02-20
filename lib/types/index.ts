@@ -15,11 +15,4 @@ export interface IEnigma {
 export interface IHTMLDiagram extends HTMLElement {
 	fen: FenRecord;
 	flipped: boolean;
-	fontMap: FontMap;
 }
-
-export type Options = {
-	fen: FenRecord;
-	flipped: boolean;
-	fontMap: FontMap;
-};
