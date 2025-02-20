@@ -2,15 +2,13 @@ import type { IHTMLDiagram } from "../types";
 import { Enigma } from "./Enigma";
 import { getBoardHTML } from "../static/getBoardHTML";
 import { getBoardCSS } from "../static/getBoardCSS";
-import { defaultFontMap } from "../static/defaultFontMap";
 
 export class HTMLDiagram extends HTMLElement implements IHTMLDiagram {
 	static observedAttributes = ["fen", "flipped"];
 
 	#fen = "8/8/8/8/8/8/8/8";
 	#flipped = false;
-	#fontMap = defaultFontMap;
-
+	#enigma = new Enigma();
 	#shadow;
 	#div!: HTMLDivElement;
 
@@ -39,10 +37,11 @@ export class HTMLDiagram extends HTMLElement implements IHTMLDiagram {
 	#render() {
 		if (!this.#div) return;
 
-		const enigma = new Enigma(this.#fontMap);
+		let position = this.#enigma.encode(this.#fen);
 
-		let position = enigma.encode(this.#fen);
-		this.#flipped && (position = enigma.reverse(position));
+		if (this.#flipped) {
+			position = this.#enigma.reverse(position);
+		}
 
 		this.#div.textContent = position;
 	}

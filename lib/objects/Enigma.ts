@@ -1,11 +1,8 @@
-import type { BoardObject, FenRecord, FontMap, IEnigma, Position } from "../types";
+import { getFontMap } from "../static/getFontMap";
+import type { BoardObject, FenRecord, IEnigma, Position } from "../types";
 
 export class Enigma implements IEnigma {
-	#fontMap;
-
-	constructor(fontMap: FontMap) {
-		this.#fontMap = fontMap;
-	}
+	#fontMap = getFontMap();
 
 	encode(fen: FenRecord) {
 		return fen
