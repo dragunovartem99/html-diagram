@@ -48,15 +48,17 @@ All fonts in the demo were downloaded from the amazing [Nørresundby Chess Club]
 
 ### 1. Installation
 
-- ...
+```shell
+npm install html-diagram
+```
 
 ### 2. JavaScript
 
 Import the `createDiagram` function; then use it to create custom HTML element:
 
 ```js
-import { createDiagram } from "html-diagram";
-customElements.define("my-diagram", createDiagram())
+import { HTMLDiagram } from "html-diagram";
+customElements.define("my-diagram", HTMLDiagram)
 ```
 
 [Learn more about "customElements" on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements)
@@ -95,10 +97,6 @@ Use element on your page
 <my-diagram fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></my-diagram>
 ```
 
-## Default Options
-
-- ...
-
 ## Styling Options
 
 - Font
@@ -111,9 +109,6 @@ How to interact with component with JavaScript
 
 - fen
 - flipped
-- fontMap
-
-## What is a FontMap?
 
 ## TypeScript
 
