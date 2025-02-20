@@ -1,3 +1,8 @@
 export function getBoardHTML() {
-	return document.createElement("div");
+	const parent = document.createElement("div");
+	const child = document.createElement("div");
+
+	parent.appendChild(child);
+
+	return { parent, child }
 }

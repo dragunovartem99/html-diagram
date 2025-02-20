@@ -24,13 +24,12 @@ export class HTMLDiagram extends HTMLElement implements IHTMLDiagram {
 	}
 
 	#setHTML() {
-		this.#div = getBoardHTML();
-		this.#shadow.appendChild(this.#div);
+		const { parent, child } = getBoardHTML();
+		this.#div = child;
+		this.#shadow.appendChild(parent);
 	}
 
 	#setCSS() {
-		this.style.display = "block";
-		this.style.containerType = "inline-size";
 		this.#shadow.adoptedStyleSheets.push(getBoardCSS());
 	}
 

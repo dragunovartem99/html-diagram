@@ -1,5 +1,12 @@
-const css = `
+const parent = `
 div {
+	container-type: inline-size;
+}
+`;
+
+const child = `
+div > div {
+	container-type: normal;
 	aspect-ratio: 1 / 1;
 	line-height: 1;
 	font-size: 12.5cqw;
@@ -15,6 +22,7 @@ div {
 
 export function getBoardCSS() {
 	const sheet = new CSSStyleSheet();
-	sheet.insertRule(css);
+	sheet.insertRule(parent);
+	sheet.insertRule(child);
 	return sheet;
 }
