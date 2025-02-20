@@ -2,3 +2,4 @@
 
 - [x] Adventurer
 - [x] Kingdom
+- [x] Leipzig
