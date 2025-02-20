@@ -1,5 +1,5 @@
 // Lib
-import { createDiagram } from "../lib";
+import { HTMLDiagram } from "../lib";
 
 // Demo
 import "./css/style.css";
@@ -11,7 +11,7 @@ import { watchBronstein } from "./scripts/watchBronstein";
 
 {
 	// Lib: Usage
-	customElements.define("my-diagram", createDiagram());
+	customElements.define("my-diagram", HTMLDiagram);
 }
 
 {
@@ -19,12 +19,12 @@ import { watchBronstein } from "./scripts/watchBronstein";
 	const typography = document.querySelector("#typography");
 	renderFontOptions(fonts.supported, typography);
 
-	if (import.meta.env.MODE === "development") {
-		const optgroup = document.createElement("optgroup");
-		optgroup.label = "Development";
-		renderFontOptions(fonts.unsupported, optgroup);
-		typography.appendChild(optgroup);
-	}
+	//if (import.meta.env.MODE === "development") {
+	//	const optgroup = document.createElement("optgroup");
+	//	optgroup.label = "Development";
+	//	renderFontOptions(fonts.unsupported, optgroup);
+	//	typography.appendChild(optgroup);
+	//}
 
 	setTypography(typography.value);
 	typography.addEventListener("change", ({ target }) => setTypography(target.value));
