@@ -32,7 +32,7 @@ function registerFontFamily(font: FontName) {
 	const fontFile = `chess-${font.toLowerCase().replace(" ", "-")}.ttf`;
 
 	stylesheet.insertRule(
-		`@font-face { font-family: "${fontFamily}"; src: url("./fonts/${fontFile}") }`
+		`@font-face { font-family: "${fontFamily}"; src: url("./fonts/${fontFile}"); font-display: block; }`
 	);
 
 	document.adoptedStyleSheets.push(stylesheet);
