@@ -62,7 +62,7 @@ The `woff2` version remaps pieces into the following:
 | Black Bishop | С        | с       |
 | Black Knight | К        | к       |
 | Black Pawn   | П        | п       |
-| Emptyness    | +        | -       |
+| Emptiness    | +        | -       |
 
 > The `woff2` versions were created with FontForge (version: 20230101), using encoding ISO 8859-5 (Cyrillic).
 
