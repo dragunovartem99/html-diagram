@@ -21,7 +21,7 @@ Demo: https://dragunovartem99.github.io/html-diagram
 
 ## Note About Fonts
 
-Full list of Fonts and their Authors: [Adapted Fonts](#adapted-fonts)
+Full list of Fonts and their Authors: [List of Supported Fonts](#list-of-supported-fonts)
 
 > [!IMPORTANT]
 > All fonts in the demo are marked as **Freeware**.  
@@ -89,7 +89,7 @@ customElements.define("my-diagram", HTMLDiagram)
 
 Pick the chess font you like; then define it in CSS.
 
-You can look in "./public/fonts" in this repository (but make sure you've read, find alternative online, or make your own as font designer!
+After you've read [note about fonts](#note-about-fonts), you can look in [./public/fonts](https://github.com/dragunovartem99/html-diagram/tree/main/public/fonts) directory, and pick something you like.
 
 In this example, we'll use the lovely "Adventurer" font by chess fonts _champion_ - Armando H. Marroquin:
 
@@ -132,7 +132,23 @@ How to interact with component with JavaScript
 
 - fen
 - flipped
+- ...
 
 ## TypeScript
 
-## Adapted fonts
+- ...
+
+## List of Supported Fonts
+
+[Note About Fonts](#note-about-fonts)
+A big thank you to all the people and companies who created these amazing fonts:
+
+| Font       | Author               | Year |
+| ---------- | -------------------- | ---- |
+| Adventurer | Armando H. Marroquin | 2000 |
+| Kingdom    | Armando H. Marroquin | 1998 |
+| Leipzig    | Armando H. Marroquin | 1998 |
+| Smart      | Christoph Wirth      | 1992 |
+| Tasc       | Tasc B.V.            | 1995 |
+
+If you know of any more **Freeware** chess fonts, or if you've created your own, feel free to let me know!
