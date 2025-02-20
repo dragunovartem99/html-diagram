@@ -1,45 +1,32 @@
-import type { FontName, IHTMLDiagram } from "../../lib/types";
-import { defaultFontMap } from "../../lib/static/defaultFontMap";
-import customFontMaps from "../custom-font-maps";
-
-function setAppStyle(font: FontName) {
-	const app = document.querySelector("#app")!;
-
-	if (font === "Assistant") {
-		app.setAttribute("style", `--diagram-font: Chess ${font}; --diagram-spacing: -0.4cqw`);
-	} else {
-		app.setAttribute("style", `--diagram-font: Chess ${font}`);
-	}
-}
-
-function updateFontMap(diagram: IHTMLDiagram, font: FontName) {
-	const fontMap = customFontMaps.has(font) ? customFontMaps.get(font)! : defaultFontMap;
-
-	if (diagram.fontMap !== fontMap) {
-		diagram.fontMap = fontMap;
-	}
-}
-
-function updateFontMaps(font: FontName) {
-	const diagrams: NodeListOf<IHTMLDiagram> = document.querySelectorAll("my-diagram");
-	diagrams.forEach((diagram) => updateFontMap(diagram, font));
-}
+import type { FontName } from "../../lib/types";
 
 function registerFontFamily(font: FontName) {
 	const stylesheet = new CSSStyleSheet();
 
-	const fontFamily = `Chess ${font}`;
-	const fontFile = `chess-${font.toLowerCase().replace(" ", "-")}.ttf`;
+	const fullName = `Diagram${font}`;
+	const dirName = `./fonts/${fullName}`;
+	const fileName = `${fullName}.woff2`;
 
 	stylesheet.insertRule(
-		`@font-face { font-family: "${fontFamily}"; src: url("./fonts/${fontFile}") }`
+		`@font-face { font-family: "Diagram ${font}"; src: url("${dirName}/${fileName}"); font-display: block; }`
 	);
 
 	document.adoptedStyleSheets.push(stylesheet);
 }
 
+function setAppStyle(font: FontName) {
+	const app = document.querySelector("#app")!;
+
+	let style = `--diagram-font: Diagram ${font};`;
+
+	if (font === "Assistant") {
+		style += " --diagram-spacing: -0.4cqw";
+	}
+
+	app.setAttribute("style", style);
+}
+
 export function setTypography(font: FontName) {
-	updateFontMaps(font);
 	registerFontFamily(font);
 	setAppStyle(font);
 }
