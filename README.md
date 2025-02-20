@@ -7,42 +7,64 @@ Demo: https://dragunovartem99.github.io/html-diagram
     Render chess diagrams with plain text – a lightweight Web Component
 </html-diagram>
 ```
-<img src="https://github.com/user-attachments/assets/acb26d89-d62e-4044-9fb1-b77c4869c877" width="240" alt="Screenshot of HTML Diagram with Adventurer font" >
 
-## Warning About Fonts
-
-> [!WARNING]
-> **Before use:** Please review and comply with the licensing terms of any font used in the demo.
-
-The **HTML Diagram** itself does not include any fonts, as you can see in the [npm package files](https://www.npmjs.com/package/html-diagram?activeTab=code) of `html-diagram`.
-
-However, the _demo_ (which shows the general idea) at https://dragunovartem99.github.io/html-diagram uses multiple fonts.
-
-The demo was created for **two purposes only**:
-1. To test how HTML Diagram can support different chess fonts.
-2. To give users an opportunity to explore various chess fonts and find inspiration.
-
-All fonts in the demo were downloaded from the amazing [Nørresundby Chess Club](https://www.enpassant.dk/chess/fonteng.htm).
-
-> [!IMPORTANT]
-> All fonts in the demo were marked as **Freeware**.  
-> However, it is strongly recommended to review the license of any font you intend to use.
->
-> You can redownload the desired font from the [Nørresundby Chess Club](https://www.enpassant.dk/chess/fonteng.htm).  
-> The font archive may contain additional information about its terms of usage.
+<img src="https://github.com/user-attachments/assets/acb26d89-d62e-4044-9fb1-b77c4869c877" width="240" alt="Screenshot of HTML Diagram with Adventurer font">
 
 ## Features
 
-- Allows creation of old-school and unique-looking diagrams
 - Perfect for printing on paper
-- Scales endlessly without quality loss (it doesn't uses image formats)
+- Allows creation of old-school and unique-looking diagrams
+- Scales endlessly without quality loss (as it doesn't use image formats)
 - Zero dependencies
-- Light: `< 5kb` uncompressed
-- Friendly to your CPU. Actually, it's just a `<div>` element with 64 characters
+- Light: whole library weights `< 10kb`
+- Friendly to your CPU. Actually, it's just two `<div>` elements and 64 characters
 
-## What it is (and what it's not)
+## Note About Fonts
 
-- ...
+Full list of Fonts and their Authors: [Adapted Fonts](#adapted-fonts)
+
+> [!IMPORTANT]
+> All fonts in the demo are marked as **Freeware**.  
+> However, it is strongly recommended to review the README file of any font you intend to use.
+
+The **HTML Diagram** itself does not include any fonts, as you can check in the [npm package files](https://www.npmjs.com/package/html-diagram?activeTab=code) of the `html-diagram` package.
+
+However, to ensure proper display, users needs to pick some chess font for rendering a diagram. For this demo, I've used **Freeware** fonts from the wonderful [Nørresundby Chess Club](https://www.enpassant.dk/chess/fonteng.htm).
+
+All fonts used in the demo are located in [./public/fonts](https://github.com/dragunovartem99/html-diagram/tree/main/public/fonts) directory. Each subdirectory follows this structure:
+
+```
+📂 Diagram<font-name>
+├── 📄 Diagram<font-name>.woff2
+├── 📄 ORIGINAL_FONT.ttf
+└── 📄 ORIGINAL_README.txt (if available)
+```
+
+### woff2 versions
+
+To achieve minimum file size and consistency, each original font is accompanied by a `woff2` version. The `woff2` files reuse the following glyphs: king, queen, rook, bishop, knight, pawn, and empty square.
+
+No modifications have been made to the design of the original glyphs.
+
+The `woff2` version remaps pieces into the following:
+
+| Board Object | On Light | On Dark |
+| ------------ | -------- | ------- |
+| White King   | K        | k       |
+| White Queen  | Q        | q       |
+| White Rook   | R        | r       |
+| White Bishop | B        | b       |
+| White Knight | N        | n       |
+| White Pawn   | P        | p       |
+| Black King   | Ц        | ц       |
+| Black Queen  | Ф        | ф       |
+| Black Rook   | Л        | л       |
+| Black Bishop | С        | с       |
+| Black Knight | К        | к       |
+| Black Pawn   | П        | п       |
+| Emptyness    | +        | -       |
+
+> The `woff2` versions were created with FontForge (version: 20230101), using encoding ISO 8859-5 (Cyrillic).
 
 ## Basic Usage
 
@@ -54,7 +76,7 @@ npm install html-diagram
 
 ### 2. JavaScript
 
-Import the `createDiagram` function; then use it to create custom HTML element:
+Import the `HTMLDiagram` class; then use it to create custom HTML element:
 
 ```js
 import { HTMLDiagram } from "html-diagram";
@@ -69,12 +91,12 @@ Pick the chess font you like; then define it in CSS.
 
 You can look in "./public/fonts" in this repository (but make sure you've read, find alternative online, or make your own as font designer!
 
-In this example, we'll use the popular Merida font by _true legend_ - Armando H. Marroquin:
+In this example, we'll use the lovely "Adventurer" font by chess fonts _champion_ - Armando H. Marroquin:
 
 ```css
 @font-face {
-    font-family: "Chess Merida";
-    src: "<your-path>.ttf";
+    font-family: "Diagram Adventurer";
+    src: "<your-path>/DiagramAdventurer.woff2";
 }
 ```
 
@@ -82,15 +104,16 @@ Then, you must tell your diagram to use this font. This is achieved by using CSS
 
 ```css
 my-diagram {
-    --diagram-font: "Chess Merida";
+    --diagram-font: "Diagram Adventurer";
 }
 ```
 
 ### 4. HTML
+
 Use element on your page
 
 ```html
-<!-- empty board position -->
+<!-- empty board -->
 <my-diagram></my-diagram>
 
 <!-- starting position -->
@@ -112,3 +135,4 @@ How to interact with component with JavaScript
 
 ## TypeScript
 
+## Adapted fonts
