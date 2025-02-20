@@ -1,5 +1,5 @@
-import { getFontMap } from "../static/getFontMap";
 import type { BoardObject, FenRecord, IEnigma, Position } from "../types";
+import { getFontMap } from "../static/getFontMap";
 
 export class Enigma implements IEnigma {
 	#fontMap = getFontMap();

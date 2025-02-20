@@ -4,7 +4,7 @@ function registerFontFamily(font: FontName) {
 	const stylesheet = new CSSStyleSheet();
 
 	const fullName = `Diagram${font}`;
-	const dirName = `./woff2/${fullName}`;
+	const dirName = `./fonts/${fullName}`;
 	const fileName = `${fullName}.woff2`;
 
 	stylesheet.insertRule(
