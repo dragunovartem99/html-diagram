@@ -17,7 +17,7 @@ Demo: https://dragunovartem99.github.io/html-diagram
 - Scales endlessly without quality loss (as it doesn't use image formats)
 - Zero dependencies
 - Light: used JavaScript module weights is `~5kb`
-- Friendly to your CPU. Actually, it's just two `<div>` elements and 64 characters
+- Friendly to your CPU. Actually, it's just three `<div>` elements and 64 characters
 
 ## Note About Fonts
 
