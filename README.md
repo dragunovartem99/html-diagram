@@ -16,7 +16,7 @@ Demo: https://dragunovartem99.github.io/html-diagram
 - Allows creation of old-school and unique-looking diagrams
 - Scales endlessly without quality loss (as it doesn't use image formats)
 - Zero dependencies
-- Light: whole library weights `< 10kb`
+- Light: used JavaScript module weights is `~5kb`
 - Friendly to your CPU. Actually, it's just two `<div>` elements and 64 characters
 
 ## Note About Fonts
@@ -46,25 +46,7 @@ To achieve minimum file size and consistency, each original font is accompanied 
 
 No modifications have been made to the design of the original glyphs.
 
-The `woff2` version remaps pieces into the following:
-
-| Board Object | On Light | On Dark |
-| ------------ | -------- | ------- |
-| White King   | K        | k       |
-| White Queen  | Q        | q       |
-| White Rook   | R        | r       |
-| White Bishop | B        | b       |
-| White Knight | N        | n       |
-| White Pawn   | P        | p       |
-| Black King   | Ц        | ц       |
-| Black Queen  | Ф        | ф       |
-| Black Rook   | Л        | л       |
-| Black Bishop | С        | с       |
-| Black Knight | К        | к       |
-| Black Pawn   | П        | п       |
-| Emptiness    | +        | -       |
-
-> The `woff2` versions were created with FontForge (version: 20230101), using encoding ISO 8859-5 (Cyrillic).
+> The `woff2` versions were created with FontForge, using encoding ISO 8859-5 (Cyrillic)
 
 ## Basic Usage
 
@@ -115,10 +97,11 @@ Use element on your page
 ```html
 <!-- empty board -->
 <my-diagram></my-diagram>
-
-<!-- starting position -->
-<my-diagram fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></my-diagram>
 ```
+
+## Attributes
+
+- ...
 
 ## Styling Options
 
@@ -126,17 +109,27 @@ Use element on your page
 - Color
 - Letter spacing
 
-## Programmatic Usage
+```css
+--diagram-font
+--diagram-color
+--diagram-border
+--diagram-spacing
 
-How to interact with component with JavaScript
+--diagram-coords-font
+--diagram-coords-color
+--diagram-coords-capitalize
+--diagram-coords-size
 
-- fen
-- flipped
-- ...
+--diagram-files-offset
+--diagram-files-start
+--diagram-files-gap
+--diagram-files-size
 
-## TypeScript
-
-- ...
+--diagram-ranks-offset
+--diagram-ranks-start
+--diagram-ranks-gap
+--diagram-ranks-size
+```
 
 ## List of Supported Fonts
 
