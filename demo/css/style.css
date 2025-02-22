@@ -90,16 +90,17 @@ figure a {
 }
 
 demo-diagram {
-	--diagram-color: black;
-	--diagram-files-size: 7cqw;
-	--diagram-ranks-size: 5cqw;
+	--diagram-color: #000;
 
+	--diagram-files-size: 7cqw;
+	--diagram-files-offset: 1cqw;
 	--diagram-files-start: 5cqw;
 	--diagram-files-gap: 9.5cqw;
 
-	--diagram-ranks-shift: 5.5cqw;
+	--diagram-ranks-size: 6cqw;
+	--diagram-ranks-offset: 5.5cqw;
 	--diagram-ranks-start: 4.5cqw;
-	--diagram-ranks-gap: 7.5cqw;
+	--diagram-ranks-gap: 6.2cqw;
 }
 
 .player {

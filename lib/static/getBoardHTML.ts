@@ -1,11 +1,14 @@
 export function getBoardHTML() {
-	const container = document.createElement("div");
-	const board = document.createElement("div");
+	const files = document.createElement("div");
+	const ranks = document.createElement("div");
+	const position = document.createElement("div");
 
-	container.classList.add("container");
-	board.classList.add("board");
+	files.classList.add("files");
+	ranks.classList.add("ranks");
+	position.classList.add("position");
 
-	container.appendChild(board);
+	ranks.appendChild(position);
+	files.appendChild(ranks);
 
-	return { parent: container, child: board }
+	return { parent: files, child: position };
 }
