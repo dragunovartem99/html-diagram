@@ -11,7 +11,7 @@ import { watchBronstein } from "./scripts/watchBronstein";
 
 {
 	// Lib: Usage
-	customElements.define("my-diagram", HTMLDiagram);
+	customElements.define("demo-diagram", HTMLDiagram);
 }
 
 {
@@ -19,7 +19,6 @@ import { watchBronstein } from "./scripts/watchBronstein";
 	const typography = document.querySelector("#typography");
 	renderFontOptions(fonts, typography);
 	setTypography(typography.value);
-
 	typography.addEventListener("change", ({ target }) => setTypography(target.value));
 }
 
@@ -41,14 +40,17 @@ import { watchBronstein } from "./scripts/watchBronstein";
 
 	watchTV(({ t: type, d: data }) => {
 		const figure = document.querySelector("figure#live");
-		const diagram = figure.querySelector("my-diagram");
+		const diagram = figure.querySelector("demo-diagram");
 
-		diagram.fen = data.fen;
+		diagram.setAttribute("fen", data.fen);
 
 		if (type === "featured") {
-			const isFlipped = data.orientation === "black" ? "flipped" : null;
+			const isFlipped = data.orientation === "black";
 
-			diagram.flipped = isFlipped;
+			isFlipped
+				? diagram.setAttribute("flipped", "flipped")
+				: diagram.removeAttribute("flipped");
+
 			setGameInfo({ ...data, isFlipped, figure });
 		}
 	});
@@ -58,7 +60,7 @@ import { watchBronstein } from "./scripts/watchBronstein";
 	// Demo: Bronstein
 	watchBronstein(({ d: data }) => {
 		const figure = document.querySelector("figure#bronstein");
-		const diagram = figure.querySelector("my-diagram");
-		diagram.fen = data.fen;
+		const diagram = figure.querySelector("demo-diagram");
+		diagram.setAttribute("fen", data.fen);
 	});
 }

@@ -1,4 +1,4 @@
-import type { BoardObject, FenRecord, IEnigma, Position } from "../types";
+import type { BoardObject, FenRecord, IEnigma, Cipher } from "../types";
 import { getFontMap } from "../static/getFontMap";
 
 export class Enigma implements IEnigma {
@@ -18,7 +18,7 @@ export class Enigma implements IEnigma {
 			});
 	}
 
-	reverse(position: Position) {
+	reverse(position: Cipher) {
 		return position.split("").reverse().join("");
 	}
 }

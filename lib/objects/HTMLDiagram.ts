@@ -1,16 +1,15 @@
-import type { IHTMLDiagram } from "../types";
 import { Enigma } from "./Enigma";
 import { getBoardHTML } from "../static/getBoardHTML";
 import { getBoardCSS } from "../static/getBoardCSS";
 
-export class HTMLDiagram extends HTMLElement implements IHTMLDiagram {
+export class HTMLDiagram extends HTMLElement {
 	static observedAttributes = ["fen", "flipped"];
 
 	#fen = "8/8/8/8/8/8/8/8";
 	#flipped = false;
 	#enigma = new Enigma();
 	#shadow;
-	#div!: HTMLDivElement;
+	#position!: HTMLDivElement;
 
 	constructor() {
 		super();
@@ -24,9 +23,9 @@ export class HTMLDiagram extends HTMLElement implements IHTMLDiagram {
 	}
 
 	#setHTML() {
-		const { parent, child } = getBoardHTML();
-		this.#div = child;
-		this.#shadow.appendChild(parent);
+		const { root, position } = getBoardHTML();
+		this.#position = position;
+		this.#shadow.appendChild(root);
 	}
 
 	#setCSS() {
@@ -34,44 +33,32 @@ export class HTMLDiagram extends HTMLElement implements IHTMLDiagram {
 	}
 
 	#render() {
-		if (!this.#div) return;
+		if (!this.#position) return;
 
-		let position = this.#enigma.encode(this.#fen);
-
+		let cipher = this.#enigma.encode(this.#fen);
 		if (this.#flipped) {
-			position = this.#enigma.reverse(position);
+			cipher = this.#enigma.reverse(cipher);
 		}
 
-		this.#div.textContent = position;
-	}
-
-	get fen() {
-		return this.#fen;
-	}
-
-	set fen(fen) {
-		this.#fen = fen;
-		this.#render();
-	}
-
-	get flipped() {
-		return this.#flipped;
-	}
-
-	set flipped(flipped) {
-		this.#flipped = flipped;
-		this.#render();
+		this.#position.textContent = cipher;
 	}
 
 	attributeChangedCallback(name: string, oldValue: string, newValue: string) {
-		if (newValue === oldValue) return;
-
-		if (name === "flipped") {
-			// https://html.spec.whatwg.org/dev/common-microsyntaxes.html#boolean-attributes
-			const validValues = ["", "flipped"];
-			this.flipped = validValues.includes(newValue?.toLowerCase());
-		} else {
-			this.fen = newValue;
+		if (newValue === oldValue) {
+			return;
 		}
+
+		switch (name) {
+			case "fen":
+				this.#fen = newValue;
+				break;
+			case "flipped":
+				// https://html.spec.whatwg.org/dev/common-microsyntaxes.html#boolean-attributes
+				const isValid = ["flipped", ""].includes(newValue?.toLowerCase());
+				this.#flipped = isValid;
+				isValid || this.removeAttribute("flipped");
+		}
+
+		this.#render();
 	}
 }

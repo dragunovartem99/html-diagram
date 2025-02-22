@@ -5,9 +5,6 @@
 	--color-subtle: #ddd;
 	--color-light: #f7f7f7;
 	--color-link: royalblue;
-}
-
-:root {
 	font-family: "Goudy Bookletter 1911", serif;
 	line-height: 1.5;
 	color: var(--color-dark);
@@ -90,6 +87,20 @@ figure {
 
 figure a {
 	text-decoration: none;
+}
+
+demo-diagram {
+	--diagram-color: #000;
+
+	--diagram-files-size: 7cqw;
+	--diagram-files-offset: 1cqw;
+	--diagram-files-start: 5cqw;
+	--diagram-files-gap: 9.5cqw;
+
+	--diagram-ranks-size: 6cqw;
+	--diagram-ranks-offset: 5.5cqw;
+	--diagram-ranks-start: 4.5cqw;
+	--diagram-ranks-gap: 6.2cqw;
 }
 
 .player {
