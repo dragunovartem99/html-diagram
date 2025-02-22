@@ -11,8 +11,3 @@ export interface IEnigma {
 	encode(fen: FenRecord): Position;
 	reverse(position: Position): Position;
 }
-
-export interface IHTMLDiagram extends HTMLElement {
-	fen: FenRecord;
-	flipped: boolean;
-}
