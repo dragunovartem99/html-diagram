@@ -1,7 +1,22 @@
 {
 	"name": "html-diagram",
-	"version": "0.3.0",
+	"version": "0.3.1",
+	"description": "",
+	"keywords": [],
+	"homepage": "https://github.com/dragunovartem99/html-diagram#readme",
+	"bugs": {
+		"url": "https://github.com/dragunovartem99/html-diagram/issues",
+		"email": "dragunovartem99@gmail.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/dragunovartem99/html-diagram.git"
+	},
 	"license": "MIT",
+	"author": {
+		"name": "Artem Dragunov",
+		"email": "dragunovartem99@gmail.com"
+	},
 	"type": "module",
 	"exports": {
 		".": {
