@@ -14,9 +14,9 @@ Demo: https://dragunovartem99.github.io/html-diagram
 
 - Perfect for printing on paper
 - Allows creation of old-school and unique-looking diagrams
-- Scales endlessly without quality loss (as it doesn't use image formats)
+- Scales infinitely without quality loss (as it doesn't rely on image formats)
 - Zero dependencies
-- Light: used JavaScript module weights is `~5kb`
+- Lightweight: the modules (CommonJS and ES) are each around `~5kb`
 - Friendly to your CPU. Actually, it's just three `<div>` elements and 64 characters
 
 ## Note About Fonts
@@ -62,7 +62,7 @@ Import the `HTMLDiagram` class; then use it to create custom HTML element:
 
 ```js
 import { HTMLDiagram } from "html-diagram";
-customElements.define("my-diagram", HTMLDiagram)
+customElements.define("my-diagram", HTMLDiagram);
 ```
 
 [Learn more about "customElements" on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements)
