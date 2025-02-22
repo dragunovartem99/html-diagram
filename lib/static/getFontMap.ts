@@ -10,7 +10,7 @@ export function getFontMap(): FontMap {
 		["N", { light: "N", dark: "n" }],
 		["P", { light: "P", dark: "p" }],
 		// Black (Russian)
-		["k", { light: "Ц", dark: "ц" }], // Царь
+		["k", { light: "Ц", dark: "ц" }],
 		["q", { light: "Ф", dark: "ф" }],
 		["r", { light: "Л", dark: "л" }],
 		["b", { light: "С", dark: "с" }],
