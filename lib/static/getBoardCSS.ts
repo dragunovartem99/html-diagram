@@ -4,10 +4,11 @@ const css = `
 		--diagram-files-content: "abcdefgh";
 		--diagram-ranks-content: "87654321";
 	}
-	:host([flipped]) {
-		--diagram-files-content: "hgfedcba";
-		--diagram-ranks-content: "12345678";
-	}
+	:host([flipped]) { --diagram-files-content: "hgfedcba"; --diagram-ranks-content: "12345678"; }
+	:host([coords~=left   i]) .ranks:before { content: var(--diagram-ranks-content); }
+	:host([coords~=top    i]) .files:before { content: var(--diagram-files-content); }
+	:host([coords~=right  i]) .ranks:after { content: var(--diagram-ranks-content); }
+	:host([coords~=bottom i]) .files:after { content: var(--diagram-files-content); }
 	.position {
 		aspect-ratio: 1 / 1;
 		font-size: 12.5cqw;
@@ -32,9 +33,7 @@ const css = `
 		container-type: inline-size;
 		line-height: 1;
 	}
-	.files:before,
-	.files:after {
-		content: var(--diagram-files-content);
+	.files:before, .files:after {
 		padding-inline-start: var(--diagram-files-start);
 		letter-spacing: var(--diagram-files-gap);
 		font-size: var(--diagram-files-size, var(--diagram-coords-size));
@@ -46,7 +45,6 @@ const css = `
 		container-type: inline-size;
 	}
 	.ranks:before, .ranks:after {
-		content: var(--diagram-ranks-content);
 		position: absolute;
 		top: 0;
 		writing-mode: vertical-rl;
