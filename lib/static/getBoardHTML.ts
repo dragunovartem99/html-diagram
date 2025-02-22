@@ -10,5 +10,5 @@ export function getBoardHTML() {
 	ranks.appendChild(position);
 	files.appendChild(ranks);
 
-	return { parent: files, child: position };
+	return { root: files, position };
 }

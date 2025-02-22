@@ -9,7 +9,7 @@ export class HTMLDiagram extends HTMLElement {
 	#flipped = false;
 	#enigma = new Enigma();
 	#shadow;
-	#div!: HTMLDivElement;
+	#position!: HTMLDivElement;
 
 	constructor() {
 		super();
@@ -23,9 +23,9 @@ export class HTMLDiagram extends HTMLElement {
 	}
 
 	#setHTML() {
-		const { parent, child } = getBoardHTML();
-		this.#div = child;
-		this.#shadow.appendChild(parent);
+		const { root, position } = getBoardHTML();
+		this.#position = position;
+		this.#shadow.appendChild(root);
 	}
 
 	#setCSS() {
@@ -33,14 +33,14 @@ export class HTMLDiagram extends HTMLElement {
 	}
 
 	#render() {
-		if (!this.#div) return;
+		if (!this.#position) return;
 
-		let position = this.#enigma.encode(this.#fen);
+		let cipher = this.#enigma.encode(this.#fen);
 		if (this.#flipped) {
-			position = this.#enigma.reverse(position);
+			cipher = this.#enigma.reverse(cipher);
 		}
 
-		this.#div.textContent = position;
+		this.#position.textContent = cipher;
 	}
 
 	attributeChangedCallback(name: string, oldValue: string, newValue: string) {
