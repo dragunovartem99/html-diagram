@@ -277,6 +277,7 @@ A big thank you to all the people and companies who created these amazing fonts:
 | Adventurer | Armando H. Marroquin | 2000 |
 | Kingdom    | Armando H. Marroquin | 1998 |
 | Leipzig    | Armando H. Marroquin | 1998 |
+| Merida     | Armando H. Marroquin | 1998 |
 | Smart      | Christoph Wirth      | 1992 |
 | Tasc       | Tasc B.V.            | 1995 |
 
