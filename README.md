@@ -192,19 +192,17 @@ myDiagram.removeAttribute("flipped");
 
 ## Styling Options
 
-- Font
-- Color
-- Letter spacing
-
 ```css
---diagram-font
---diagram-color
---diagram-border
+/* Diagram */
+
+--diagram-font: "Your fiagram font";
+--diagram-color: "Color of diagram font";
+--diagram-border: "Border around chessboard";
 --diagram-spacing
 
 --diagram-coords-font
 --diagram-coords-color
---diagram-coords-capitalize
+--diagram-coords-capitalize: "Text-transform for coordinates";
 --diagram-coords-size
 
 --diagram-files-offset
@@ -217,6 +215,57 @@ myDiagram.removeAttribute("flipped");
 --diagram-ranks-gap
 --diagram-ranks-size
 ```
+
+### Example of styling
+
+First, let's add the basic styling:
+
+```css
+my-diagram {
+	--diagram-font: "Diagram Smart";
+	--diagram-color: #000;
+	--diagram-border: 12px lightsteelblue solid;
+}
+```
+
+<img src="https://github.com/user-attachments/assets/34182789-de5a-4ca5-b4c7-09bafa66c3b9" width="240" alt="HTML Diagram">
+
+<hr>
+
+Then, add [`coords` attribute](#coords-attribute) and give basic theme for coordinates:
+
+```css
+my-diagram {
+	--diagram-coords-font: "Ubuntu";
+	--diagram-coords-color: steelblue;
+	--diagram-coords-capitalize: uppercase;
+	--diagram-coords-size: 6cqw;
+}
+```
+
+<img src="https://github.com/user-attachments/assets/e4a9deb7-ce33-45d5-94d2-42b074caf74c" width="240" alt="HTML Diagram">
+
+<hr>
+
+The coordinates need some positioning:
+
+<img src="./public/styling.gif" width="480" alt="HTML Diagram">
+
+```css
+my-diagram {
+	--diagram-files-offset: 1cqw;
+	--diagram-files-start: 6.8cqw;
+	--diagram-files-gap: 8cqw;
+	--diagram-ranks-offset: 9cqw;
+	--diagram-ranks-start: 3cqw;
+	--diagram-ranks-gap: 6.5cqw;
+}
+```
+
+Astonishing final result:
+
+<img src="https://github.com/user-attachments/assets/c292f853-0a89-47f5-a4d5-eec2ffb85c38" width="240" alt="HTML Diagram">
+
 
 ## List of Supported Fonts
 
