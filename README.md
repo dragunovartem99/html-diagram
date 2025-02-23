@@ -101,7 +101,94 @@ Use element on your page
 
 ## Attributes
 
-- ...
+This component is attribute-driven. You can use `html-diagram` element by creating HTML pages with in-place attribute values (pure static HTML / SSR), or update it dynamically - [Interacting With JavaScript](#interacting-with-javascript)
+
+### `fen` attribute
+
+[Forsyth–Edwards Notation.](https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation) The most widespread approach for describing chess positions in modern software. You can provide full FEN record:
+
+```html
+<!-- starting positiion -->
+
+<my-diagram fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></my-diagram>
+```
+
+Or, just a first field, piece placement data:
+
+```html
+<!-- starting positiion, using only piece placement data -->
+
+<my-diagram fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR"></my-diagram>
+```
+
+### `flipped` attribute
+
+Boolean attribute, that allows show the rotate the board to Black player's perspective
+
+```html
+<!-- starting positiion, from Black's point of view -->
+
+<my-diagram flipped fen="..."></my-diagram>
+```
+
+> [!Warning]
+> The only valid values are:
+> ```
+> flipped
+> flipped=""
+> flipped="flipped" (case-insensitive)
+> ```
+> Why: https://html.spec.whatwg.org/dev/common-microsyntaxes.html#boolean-attributes
+
+### coords attribute
+
+You can include list of board sides that you want to add a coordinates. The valid values are:
+
+- `top`
+- `bottom`
+- `left`
+- `right`
+
+```html
+<!-- starting positiion, file letters on the bottom, rank numbers on the right -->
+
+<my-diagram coords="bottom right" fen="..."></my-diagram>
+```
+
+(the order and capitalization don't matter)
+
+
+### Combining Attributes
+
+You can use all attributes in single diagram:
+
+```html
+<my-diagram
+    flipped
+    coords="top right left bottom"
+    fen="..."
+>
+</my-diagram>
+```
+
+### Interacting with Javascript
+
+You can update diagram attributes by using [Element interface](https://developer.mozilla.org/en-US/docs/Web/API/Element) from standard [HTML DOM API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API):
+
+```javascript
+const myDiagram = document.querySelector("my-diagram");
+
+myDiagram.setAttribute("fen", "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
+myDiagram.setAttribute("flipped", "flipped");
+myDiagram.setAttribute("coords", "bottom left");
+
+// to remove flipped state
+
+myDiagram.removeAttribute("flipped");
+```
+
+- [setAttribute() method](https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute)
+- [removeAttribute() method](https://developer.mozilla.org/en-US/docs/Web/API/Element/removeAttribute)
 
 ## Styling Options
 
