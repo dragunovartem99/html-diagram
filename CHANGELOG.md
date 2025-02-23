@@ -1,5 +1,11 @@
 # html-diagram
 
+## 0.3.2
+
+### Patch Changes
+
+- Add README draft for npm.js
+
 ## 0.3.1
 
 ### Patch Changes
