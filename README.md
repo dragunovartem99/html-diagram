@@ -157,7 +157,6 @@ You can include list of board sides that you want to add a coordinates. The vali
 
 (the order and capitalization don't matter)
 
-
 ### Combining Attributes
 
 You can use all attributes in single diagram:
@@ -187,36 +186,41 @@ myDiagram.setAttribute("coords", "bottom left");
 myDiagram.removeAttribute("flipped");
 ```
 
-- [setAttribute() method](https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute)
-- [removeAttribute() method](https://developer.mozilla.org/en-US/docs/Web/API/Element/removeAttribute)
+- [MDN: setAttribute() method](https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute)
+- [MDN: removeAttribute() method](https://developer.mozilla.org/en-US/docs/Web/API/Element/removeAttribute)
 
-## Styling Options
+## Styling
 
-```css
-/* Diagram */
+> [!NOTE]
+> Most styling options expect `cqw` (container query width) units. `1cqw` is equal to 1% of the diagram's width. This ensures the diagram remains responsive and proportional.
+> 
+> [MDN: Container query legnth units](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries#container_query_length_units)
 
---diagram-font: "Your fiagram font";
---diagram-color: "Color of diagram font";
---diagram-border: "Border around chessboard";
---diagram-spacing
+### Chessboard
+- `--diagram-font`: Font family for the chess pieces
+- `--diagram-color`: Color of the chess pieces
+- `--diagram-border`: Border around the chessboard
+- `--diagram-spacing`: Spacing between the chess pieces
 
---diagram-coords-font
---diagram-coords-color
---diagram-coords-capitalize: "Text-transform for coordinates";
---diagram-coords-size
+### Coordinates
+- `--diagram-coords-font`: Font family for the coordinates
+- `--diagram-coords-color`: Color of the coordinates
+- `--diagram-coords-capitalize`: Text-transform for coordinates (e.g., `uppercase`)
+- `--diagram-coords-size`: Font size for the coordinates
 
---diagram-files-offset
---diagram-files-start
---diagram-files-gap
---diagram-files-size
+### Files (letters)
+- `--diagram-files-offset`: Vertical distance between file letters and board
+- `--diagram-files-start`: Starting position for file letters
+- `--diagram-files-gap`: Gap between file letters
+- `--diagram-files-size`: Font size for file letters
 
---diagram-ranks-offset
---diagram-ranks-start
---diagram-ranks-gap
---diagram-ranks-size
-```
+### Ranks (numbers)
+- `--diagram-ranks-offset`: Horizontal distance between rank numbers and board
+- `--diagram-ranks-start`: Starting position for rank numbers
+- `--diagram-ranks-gap`: Gap between rank numbers
+- `--diagram-ranks-size`: Font size for rank numbers
 
-### Example of styling
+### Styling Example
 
 First, let's add the basic styling:
 
