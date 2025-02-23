@@ -279,6 +279,7 @@ A big thank you to all the people and companies who created these amazing fonts:
 | Font       | Author               | Year |
 | ---------- | -------------------- | ---- |
 | Adventurer | Armando H. Marroquin | 2000 |
+| Cases      | Matthieu Leschemelle | 1999 |
 | Kingdom    | Armando H. Marroquin | 1998 |
 | Leipzig    | Armando H. Marroquin | 1998 |
 | Merida     | Armando H. Marroquin | 1998 |
