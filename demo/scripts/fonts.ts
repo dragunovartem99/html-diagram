@@ -5,6 +5,7 @@ export const fonts: FontName[] = [
 	"Cases",
 	"Kingdom",
 	"Leipzig",
+	"Mark",
 	"Merida",
 	"Smart",
 	"Tasc",
