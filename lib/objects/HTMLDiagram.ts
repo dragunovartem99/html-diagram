@@ -17,8 +17,11 @@ export class HTMLDiagram extends HTMLElement {
 	}
 
 	connectedCallback() {
-		this.#setHTML();
-		this.#setCSS();
+		if (!this.#position) {
+			this.#setHTML();
+			this.#setCSS();
+		}
+
 		this.#render();
 	}
 
@@ -33,12 +36,9 @@ export class HTMLDiagram extends HTMLElement {
 	}
 
 	#render() {
-		if (!this.#position) return;
-
 		let cipher = this.#enigma.encode(this.#fen);
-		if (this.#flipped) {
-			cipher = this.#enigma.reverse(cipher);
-		}
+
+		this.#flipped && (cipher = this.#enigma.reverse(cipher));
 
 		this.#position.textContent = cipher;
 	}
@@ -59,6 +59,6 @@ export class HTMLDiagram extends HTMLElement {
 				isValid || this.removeAttribute("flipped");
 		}
 
-		this.#render();
+		this.#position && this.#render();
 	}
 }

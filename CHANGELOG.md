@@ -1,5 +1,11 @@
 # html-diagram
 
+## 0.3.3
+
+### Patch Changes
+
+- Prevent unnecessary rerendering
+
 ## 0.3.2
 
 ### Patch Changes
