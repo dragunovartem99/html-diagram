@@ -1,5 +1,11 @@
 # html-diagram
 
+## 0.3.4
+
+### Patch Changes
+
+- Cut possible extra symbols (e.g. Crazyhouse)
+
 ## 0.3.3
 
 ### Patch Changes
