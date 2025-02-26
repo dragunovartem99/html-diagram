@@ -9,6 +9,7 @@ export class Enigma implements IEnigma {
 			.split(" ")[0] // extract position
 			.replace(/\//g, "") // remove slashes
 			.replace(/\d/g, (digit) => " ".repeat(+digit)) // expand empty squares
+			.slice(0, 64) // cut possible extra symbols (e.g. Crazyhouse)
 			.replace(/./g, (char, offset) => {
 				const boardObject = this.#fontMap.get(char as BoardObject);
 				if (!boardObject) return char;
