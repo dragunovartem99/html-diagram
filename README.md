@@ -273,7 +273,7 @@ Astonishing final result:
 
 ## List of Supported Fonts
 
-[Note About Fonts](#note-about-fonts)
+[Note About Fonts](#note-about-fonts)  
 A big thank you to all the people and companies who created these amazing fonts:
 
 | Font       | Author               | Year |
