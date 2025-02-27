@@ -279,6 +279,7 @@ A big thank you to all the people and companies who created these amazing fonts:
 | Font       | Author               | Year |
 | ---------- | -------------------- | ---- |
 | Adventurer | Armando H. Marroquin | 2000 |
+| Alfonso-X  | Armando H. Marroquin | 1998 |
 | Alpha      | Eric Bentzen         | 1998 |
 | Cases      | Matthieu Leschemelle | 1999 |
 | Kingdom    | Armando H. Marroquin | 1998 |
