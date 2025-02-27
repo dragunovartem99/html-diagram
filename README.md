@@ -23,7 +23,7 @@ Demo: https://dragunovartem99.github.io/html-diagram
 
 Full list of Fonts and their Authors: [List of Supported Fonts](#list-of-supported-fonts)
 
-> [!IMPORTANT]
+> [!Warning]
 > All fonts in the demo are marked as **Freeware**.  
 > However, it is strongly recommended to review the README file of any font you intend to use.
 
@@ -36,8 +36,8 @@ All fonts used in the demo are located in [./public/fonts](https://github.com/dr
 ```
 📂 Diagram<font-name>
 ├── 📄 Diagram<font-name>.woff2
-├── 📄 ORIGINAL_FONT.ttf
-└── 📄 ORIGINAL_README.txt (if available)
+├── 📄 ORIGINAL_FONT
+└── 📄 ORIGINAL_README (if available)
 ```
 
 ### woff2 versions
@@ -131,7 +131,7 @@ Boolean attribute, that allows show the rotate the board to Black player's persp
 <my-diagram flipped fen="..."></my-diagram>
 ```
 
-> [!Warning]
+> [!Important]
 > The only valid values are:
 > ```
 > flipped
@@ -191,7 +191,7 @@ myDiagram.removeAttribute("flipped");
 
 ## Styling
 
-> [!NOTE]
+> [!Note]
 > Most styling options expect `cqw` (container query width) units. `1cqw` is equal to 1% of the diagram's width. This ensures the diagram remains responsive and proportional.
 > 
 > [MDN: Container query legnth units](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries#container_query_length_units)
@@ -279,6 +279,7 @@ A big thank you to all the people and companies who created these amazing fonts:
 | Font       | Author               | Year |
 | ---------- | -------------------- | ---- |
 | Adventurer | Armando H. Marroquin | 2000 |
+| Alpha      | Eric Bentzen         | 1998 |
 | Cases      | Matthieu Leschemelle | 1999 |
 | Kingdom    | Armando H. Marroquin | 1998 |
 | Leipzig    | Armando H. Marroquin | 1998 |
