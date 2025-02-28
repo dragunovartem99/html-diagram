@@ -1,4 +1,6 @@
-export function getMaskMap() {
+import { MaskMap } from "../types";
+
+export function getMaskMap(): MaskMap {
 	return new Map([
 		["K", "0"],
 		["Q", "1"],

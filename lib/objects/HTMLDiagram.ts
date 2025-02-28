@@ -1,14 +1,16 @@
 import { Enigma } from "./Enigma";
 import { getBoardHTML } from "../static/getBoardHTML";
 import { getBoardCSS } from "../static/getBoardCSS";
+import { validateBooleanAttribute } from "../utils/validateBooleanAttribute";
 
 export class HTMLDiagram extends HTMLElement {
 	static observedAttributes = ["fen", "flipped", "colored"];
 
+	#enigma = new Enigma();
+
 	#fen = "8/8/8/8/8/8/8/8";
 	#flipped = false;
 	#colored = false;
-	#enigma = new Enigma();
 
 	#shadow;
 	#board!: HTMLDivElement;
@@ -54,22 +56,16 @@ export class HTMLDiagram extends HTMLElement {
 		}
 	}
 
-	attributeChangedCallback(name: string, oldValue: string, newValue: string) {
-		if (newValue === oldValue) {
-			return;
-		}
-
-		if (name === "fen") {
-			this.#fen = newValue;
-		} else if (name === "flipped") {
-			// https://html.spec.whatwg.org/dev/common-microsyntaxes.html#boolean-attributes
-			const isValid = ["flipped", ""].includes(newValue?.toLowerCase());
-			this.#flipped = isValid;
-			isValid || this.removeAttribute("flipped");
-		} else if (name === "colored") {
-			const isValid2 = ["colored", ""].includes(newValue?.toLowerCase());
-			this.#colored = isValid2;
-			isValid2 || this.removeAttribute("colored");
+	attributeChangedCallback(name: string, _: string, newValue: string) {
+		switch (name) {
+			case "fen":
+				this.#fen = newValue;
+				break;
+			case "flipped":
+				this.#flipped = validateBooleanAttribute("flipped", newValue);
+				break;
+			case "colored":
+				this.#colored = validateBooleanAttribute("colored", newValue);
 		}
 
 		this.#board && this.#render();

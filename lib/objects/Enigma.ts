@@ -32,7 +32,7 @@ export class Enigma {
 
 		this.#encode(fen, (char: string) => {
 			board += this.#fontMap.get(char as BoardObject)!.light;
-			masks += this.#maskMap.get(char.toUpperCase()) ?? "+";
+			masks += this.#maskMap.get(char.toUpperCase() as BoardObject) ?? "+";
 		});
 
 		return { board, masks };
