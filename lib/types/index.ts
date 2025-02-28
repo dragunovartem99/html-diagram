@@ -8,6 +8,6 @@ export type FenRecord = string;
 export type Cipher = string;
 
 export interface IEnigma {
-	encode(fen: FenRecord): Cipher;
-	reverse(position: Cipher): Cipher;
+	encode(fen: FenRecord): any;
+	reverse(position: Cipher): any;
 }

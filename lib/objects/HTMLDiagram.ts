@@ -8,8 +8,10 @@ export class HTMLDiagram extends HTMLElement {
 	#fen = "8/8/8/8/8/8/8/8";
 	#flipped = false;
 	#enigma = new Enigma();
+
 	#shadow;
-	#position!: HTMLDivElement;
+	#board!: HTMLDivElement;
+	#masks?: HTMLDivElement;
 
 	constructor() {
 		super();
@@ -17,7 +19,7 @@ export class HTMLDiagram extends HTMLElement {
 	}
 
 	connectedCallback() {
-		if (!this.#position) {
+		if (!this.#board) {
 			this.#setHTML();
 			this.#setCSS();
 		}
@@ -26,9 +28,13 @@ export class HTMLDiagram extends HTMLElement {
 	}
 
 	#setHTML() {
-		const { root, position } = getBoardHTML();
-		this.#position = position;
-		this.#shadow.appendChild(root);
+		const { board, masks } = getBoardHTML();
+
+		this.#board = board;
+		this.#masks = masks;
+
+		this.#shadow.appendChild(this.#board);
+		this.#shadow.appendChild(this.#masks);
 	}
 
 	#setCSS() {
@@ -36,11 +42,13 @@ export class HTMLDiagram extends HTMLElement {
 	}
 
 	#render() {
-		let cipher = this.#enigma.encode(this.#fen);
+		let { board, masks } = this.#enigma.encode(this.#fen);
 
-		this.#flipped && (cipher = this.#enigma.reverse(cipher));
+		this.#flipped && (board = this.#enigma.reverse(board));
+		this.#flipped && (masks = this.#enigma.reverse(masks));
 
-		this.#position.textContent = cipher;
+		this.#board.textContent = board;
+		this.#masks!.textContent = masks;
 	}
 
 	attributeChangedCallback(name: string, oldValue: string, newValue: string) {
@@ -59,6 +67,6 @@ export class HTMLDiagram extends HTMLElement {
 				isValid || this.removeAttribute("flipped");
 		}
 
-		this.#position && this.#render();
+		this.#board && this.#render();
 	}
 }

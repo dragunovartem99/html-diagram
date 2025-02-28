@@ -1,6 +1,7 @@
 import { FontName } from "../../lib/types";
 
 export const fonts: FontName[] = [
+	"Smart",
 	"Adventurer",
 	"Alfonso-X",
 	"Alpha",
@@ -9,6 +10,5 @@ export const fonts: FontName[] = [
 	"Leipzig",
 	"Mark",
 	"Merida",
-	"Smart",
 	"Tasc",
 ];
