@@ -3,10 +3,11 @@ import { getBoardHTML } from "../static/getBoardHTML";
 import { getBoardCSS } from "../static/getBoardCSS";
 
 export class HTMLDiagram extends HTMLElement {
-	static observedAttributes = ["fen", "flipped"];
+	static observedAttributes = ["fen", "flipped", "colored"];
 
 	#fen = "8/8/8/8/8/8/8/8";
 	#flipped = false;
+	#colored = false;
 	#enigma = new Enigma();
 
 	#shadow;
@@ -42,13 +43,15 @@ export class HTMLDiagram extends HTMLElement {
 	}
 
 	#render() {
-		let { board, masks } = this.#enigma.encode(this.#fen);
+		let { board, masks } = this.#enigma.encode({ fen: this.#fen, colored: this.#colored });
 
 		this.#flipped && (board = this.#enigma.reverse(board));
-		this.#flipped && (masks = this.#enigma.reverse(masks));
-
 		this.#board.textContent = board;
-		this.#masks!.textContent = masks;
+
+		if (masks) {
+			this.#flipped && (masks = this.#enigma.reverse(masks));
+			this.#masks!.textContent = masks;
+		}
 	}
 
 	attributeChangedCallback(name: string, oldValue: string, newValue: string) {
@@ -65,6 +68,11 @@ export class HTMLDiagram extends HTMLElement {
 				const isValid = ["flipped", ""].includes(newValue?.toLowerCase());
 				this.#flipped = isValid;
 				isValid || this.removeAttribute("flipped");
+				break;
+			case "colored":
+				const isValid2 = ["colored", ""].includes(newValue?.toLowerCase());
+				this.#colored = isValid2;
+				isValid2 || this.removeAttribute("colored");
 		}
 
 		this.#board && this.#render();

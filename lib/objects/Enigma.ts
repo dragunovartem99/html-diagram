@@ -5,15 +5,29 @@ import { getMask } from "../static/getMask";
 export class Enigma implements IEnigma {
 	#fontMap = getFontMap();
 
-	encode(fen: FenRecord) {
+	encode({ fen, colored }: any) {
+		return colored ? this.#encodeColored(fen) : this.#encodeDefault(fen);
+	}
+
+	#encodeDefault(fen: FenRecord) {
 		let board = "";
-		let masks = "";
 
 		[...this.#prepare(fen)].forEach((char, index) => {
 			const boardObject = this.#fontMap.get(char as BoardObject)!;
-			//const background = (index * 9) & 8 ? "dark" : "light";
-			const background = (index * 9) & 8 ? "light" : "light";
+			const background = (index * 9) & 8 ? "dark" : "light";
 			board += boardObject[background];
+		});
+
+		return { board, masks: null };
+	}
+
+	#encodeColored(fen: FenRecord) {
+		let board = "";
+		let masks = "";
+
+		[...this.#prepare(fen)].forEach((char) => {
+			const boardObject = this.#fontMap.get(char as BoardObject)!;
+			board += boardObject.light;
 			masks += getMask(char);
 		});
 
