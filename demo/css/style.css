@@ -90,8 +90,9 @@ figure a {
 }
 
 demo-diagram {
-	--diagram-light: snow;
+	--diagram-light: #ecedf3;
 	--diagram-dark: lightsteelblue;
+	--diagram-outline: 0.1cqw;
 
 	--diagram-files-size: 7cqw;
 	--diagram-files-offset: 1cqw;
