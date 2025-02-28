@@ -1,21 +1,26 @@
-import type { BoardObject, FenRecord, IEnigma, Cipher } from "../types";
+import type { BoardObject, FenRecord, Cipher } from "../types";
+
 import { getFontMap } from "../static/getFontMap";
-import { getMask } from "../static/getMask";
+import { getMaskMap } from "../static/getMask";
 
-export class Enigma implements IEnigma {
+export class Enigma {
 	#fontMap = getFontMap();
+	#maskMap = getMaskMap();
 
-	encode({ fen, colored }: any) {
+	reverse(cipher: Cipher) {
+		return cipher.split("").reverse().join("");
+	}
+
+	encode({ fen, colored }: { fen: FenRecord; colored: boolean }) {
 		return colored ? this.#encodeColored(fen) : this.#encodeDefault(fen);
 	}
 
 	#encodeDefault(fen: FenRecord) {
 		let board = "";
 
-		[...this.#prepare(fen)].forEach((char, index) => {
-			const boardObject = this.#fontMap.get(char as BoardObject)!;
+		this.#encode(fen, (char: string, index: number) => {
 			const background = (index * 9) & 8 ? "dark" : "light";
-			board += boardObject[background];
+			board += this.#fontMap.get(char as BoardObject)![background];
 		});
 
 		return { board, masks: null };
@@ -25,13 +30,16 @@ export class Enigma implements IEnigma {
 		let board = "";
 		let masks = "";
 
-		[...this.#prepare(fen)].forEach((char) => {
-			const boardObject = this.#fontMap.get(char as BoardObject)!;
-			board += boardObject.light;
-			masks += getMask(char);
+		this.#encode(fen, (char: string) => {
+			board += this.#fontMap.get(char as BoardObject)!.light;
+			masks += this.#maskMap.get(char.toUpperCase()) ?? "+";
 		});
 
 		return { board, masks };
+	}
+
+	#encode(fen: FenRecord, callback: Function) {
+		[...this.#prepare(fen)].forEach((char, index) => callback(char, index));
 	}
 
 	#prepare(fen: FenRecord) {
@@ -40,9 +48,5 @@ export class Enigma implements IEnigma {
 			.replace(/\//g, "") // remove slashes
 			.replace(/\d/g, (digit) => " ".repeat(+digit)) // expand empty squares
 			.slice(0, 64); // cut possible extra symbols (e.g. Crazyhouse)
-	}
-
-	reverse(position: Cipher) {
-		return position.split("").reverse().join("");
 	}
 }

@@ -59,20 +59,17 @@ export class HTMLDiagram extends HTMLElement {
 			return;
 		}
 
-		switch (name) {
-			case "fen":
-				this.#fen = newValue;
-				break;
-			case "flipped":
-				// https://html.spec.whatwg.org/dev/common-microsyntaxes.html#boolean-attributes
-				const isValid = ["flipped", ""].includes(newValue?.toLowerCase());
-				this.#flipped = isValid;
-				isValid || this.removeAttribute("flipped");
-				break;
-			case "colored":
-				const isValid2 = ["colored", ""].includes(newValue?.toLowerCase());
-				this.#colored = isValid2;
-				isValid2 || this.removeAttribute("colored");
+		if (name === "fen") {
+			this.#fen = newValue;
+		} else if (name === "flipped") {
+			// https://html.spec.whatwg.org/dev/common-microsyntaxes.html#boolean-attributes
+			const isValid = ["flipped", ""].includes(newValue?.toLowerCase());
+			this.#flipped = isValid;
+			isValid || this.removeAttribute("flipped");
+		} else if (name === "colored") {
+			const isValid2 = ["colored", ""].includes(newValue?.toLowerCase());
+			this.#colored = isValid2;
+			isValid2 || this.removeAttribute("colored");
 		}
 
 		this.#board && this.#render();
