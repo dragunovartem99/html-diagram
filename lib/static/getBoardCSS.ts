@@ -11,7 +11,7 @@ const css = `
 			var(--diagram-light, #eee) 0% 50%
 		) 50% / 25% 25%;
 	}
-	:host > * {
+	.board, .masks {
 		user-select: none;
 		line-break: anywhere;
 		white-space: break-spaces;
@@ -20,9 +20,7 @@ const css = `
 		letter-spacing: -0.01cqw;
 		font-family: var(--diagram-font);
 	}
-	.board {
-		color: var(--diagram-stroke, #000);
-	}
+	.board { color: var(--diagram-stroke, #000); }
 	.masks { display: none; }
 	:host([colored]) .masks {
 		display: block;
