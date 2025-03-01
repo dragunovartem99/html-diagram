@@ -4,7 +4,6 @@
 	--color-dark: #333;
 	--color-subtle: #ddd;
 	--color-light: #f7f7f7;
-	--color-link: royalblue;
 	font-family: "Goudy Bookletter 1911", serif;
 	line-height: 1.5;
 	color: var(--color-dark);
@@ -40,7 +39,7 @@ footer {
 }
 
 a {
-	color: var(--color-link);
+	color: royalblue;
 }
 
 a:hover {
@@ -48,6 +47,10 @@ a:hover {
 }
 
 /* Form controls */
+
+label + label {
+	margin-left: 0.5rem;
+}
 
 label,
 select {
