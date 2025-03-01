@@ -4,7 +4,6 @@
 	--color-dark: #333;
 	--color-subtle: #ddd;
 	--color-light: #f7f7f7;
-	--color-link: royalblue;
 	font-family: "Goudy Bookletter 1911", serif;
 	line-height: 1.5;
 	color: var(--color-dark);
@@ -40,7 +39,7 @@ footer {
 }
 
 a {
-	color: var(--color-link);
+	color: royalblue;
 }
 
 a:hover {
@@ -48,6 +47,10 @@ a:hover {
 }
 
 /* Form controls */
+
+label + label {
+	margin-left: 0.5rem;
+}
 
 label,
 select {
@@ -90,17 +93,8 @@ figure a {
 }
 
 demo-diagram {
-	--diagram-color: #000;
-
-	--diagram-files-size: 7cqw;
-	--diagram-files-offset: 1cqw;
-	--diagram-files-start: 5cqw;
-	--diagram-files-gap: 9.5cqw;
-
-	--diagram-ranks-size: 6cqw;
-	--diagram-ranks-offset: 5.5cqw;
-	--diagram-ranks-start: 4.5cqw;
-	--diagram-ranks-gap: 6.2cqw;
+	--diagram-light: #ecedf3;
+	--diagram-dark: lightsteelblue;
 }
 
 .player {

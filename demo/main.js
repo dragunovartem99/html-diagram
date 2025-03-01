@@ -23,6 +23,25 @@ import { watchBronstein } from "./scripts/watchBronstein";
 }
 
 {
+	// Demo: Colored mode
+	const checkbox = document.querySelector("#colored");
+
+	function setColored(isColored) {
+		document
+			.querySelectorAll("demo-diagram")
+			.forEach((diagram) =>
+				isColored
+					? diagram.setAttribute("colored", "colored")
+					: diagram.removeAttribute("colored")
+			);
+	}
+
+
+	setColored(checkbox.checked);
+	checkbox.addEventListener("change", ({ target }) => setColored(target.checked));
+}
+
+{
 	// Demo: Lichess stream
 	function setGameInfo({ players, isFlipped, figure }) {
 		let [black, white] = figure.querySelectorAll(".player");

@@ -1,14 +1,9 @@
 export function getBoardHTML() {
-	const files = document.createElement("div");
-	const ranks = document.createElement("div");
-	const position = document.createElement("div");
+	const board = document.createElement("div");
+	const masks = document.createElement("div");
 
-	files.classList.add("files");
-	ranks.classList.add("ranks");
-	position.classList.add("position");
+	board.classList.add("board");
+	masks.classList.add("masks");
 
-	ranks.appendChild(position);
-	files.appendChild(ranks);
-
-	return { root: files, position };
+	return { board, masks };
 }

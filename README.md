@@ -8,7 +8,7 @@ Demo: https://dragunovartem99.github.io/html-diagram
 </html-diagram>
 ```
 
-<img src="https://github.com/user-attachments/assets/dc31400b-6dfb-4542-abd5-46a0f4f09c0f" width="240" alt="Screenshot of HTML Diagram with Adventurer font">
+<img src="https://github.com/user-attachments/assets/6ca21907-c507-4620-a11e-87699e52ad2f" width="240" alt="Screenshot of HTML Diagram with Adventurer font">
 
 ## Features
 
@@ -16,33 +16,33 @@ Demo: https://dragunovartem99.github.io/html-diagram
 - Allows creation of old-school and unique-looking diagrams
 - Scales infinitely without quality loss (as it doesn't rely on image formats)
 - Zero dependencies
-- Lightweight: the modules (CommonJS and ES) are each around `~5kb`
-- Friendly to your CPU. Actually, it's just three `<div>` elements and 64 characters
+- Lightweight: the modules (ES and CommonJS) are each around `~5kb`
+- Friendly to your CPU
 
 ## Note About Fonts
 
-Full list of Fonts and their Authors: [List of Supported Fonts](#list-of-supported-fonts)
+[List Of Supported Fonts](#list-of-supported-fonts)
 
 > [!Warning]
-> All fonts in the demo are marked as **Freeware**.  
+> All fonts used in the demo are marked as **Freeware** by their respective authors.  
 > However, it is strongly recommended to review the README file of any font you intend to use.
 
-The **HTML Diagram** itself does not include any fonts, as you can check in the [npm package files](https://www.npmjs.com/package/html-diagram?activeTab=code) of the `html-diagram` package.
+The **HTML Diagram** itself does not include any fonts, as you can verify in the [npm package files](https://www.npmjs.com/package/html-diagram?activeTab=code) of the `html-diagram` package.
 
-However, to ensure proper display, users needs to pick some chess font for rendering a diagram. For this demo, I've used **Freeware** fonts from the wonderful [Nørresundby Chess Club](https://www.enpassant.dk/chess/fonteng.htm).
+To display chess positions, users need to select a chess font for rendering diagrams. For this demo, I have used Freeware fonts generously provided by the [Nørresundby Chess Club](https://www.enpassant.dk/chess/fonteng.htm). Special thanks to them for making these fonts publicly available.
 
 All fonts used in the demo are located in [./public/fonts](https://github.com/dragunovartem99/html-diagram/tree/main/public/fonts) directory. Each subdirectory follows this structure:
 
 ```
-📂 Diagram<font-name>
-├── 📄 Diagram<font-name>.woff2
+📂 Diagram<name>
+├── 📄 Diagram<name>.woff2
 ├── 📄 ORIGINAL_FONT
 └── 📄 ORIGINAL_README (if available)
 ```
 
 ### woff2 versions
 
-To achieve minimum file size and consistency, each original font is accompanied by a `woff2` version. The `woff2` files reuse the following glyphs: king, queen, rook, bishop, knight, pawn, and empty square.
+To achieve compatibility and minimize file size, each original font is accompanied by a  `woff2` version. The `woff2` files reuse the following glyphs: king, queen, rook, bishop, knight, pawn, and empty square.
 
 No modifications have been made to the design of the original glyphs.
 
@@ -52,7 +52,7 @@ No modifications have been made to the design of the original glyphs.
 
 ### 1. Installation
 
-```shell
+```bash
 npm install html-diagram
 ```
 
@@ -60,7 +60,7 @@ npm install html-diagram
 
 Import the `HTMLDiagram` class; then use it to create custom HTML element:
 
-```js
+```javascript
 import { HTMLDiagram } from "html-diagram";
 customElements.define("my-diagram", HTMLDiagram);
 ```
@@ -96,6 +96,7 @@ Use element on your page
 
 ```html
 <!-- empty board -->
+
 <my-diagram></my-diagram>
 ```
 
@@ -108,7 +109,7 @@ This component is attribute-driven. You can use `html-diagram` element by creati
 [Forsyth–Edwards Notation.](https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation) The most widespread approach for describing chess positions in modern software. You can provide full FEN record:
 
 ```html
-<!-- starting positiion -->
+<!-- starting position -->
 
 <my-diagram fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></my-diagram>
 ```
@@ -116,56 +117,58 @@ This component is attribute-driven. You can use `html-diagram` element by creati
 Or, just a first field, piece placement data:
 
 ```html
-<!-- starting positiion, using only piece placement data -->
+<!-- starting position, using only piece placement data -->
 
 <my-diagram fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR"></my-diagram>
 ```
 
 ### `flipped` attribute
 
-Boolean attribute, that allows show the rotate the board to Black player's perspective
+Boolean attribute that rotates the board to show the perspective of the Black player.
 
 ```html
-<!-- starting positiion, from Black's point of view -->
+<!-- Black's point of view -->
 
-<my-diagram flipped fen="..."></my-diagram>
+<my-diagram flipped></my-diagram>
+
+<!-- or -->
+
+<my-diagram flipped="flipped"></my-diagram>
 ```
+
+### `colored` attribute
+
+Boolean attribute that enables a colored mode for the diagram.
+
+```html
+<!-- colored mode enabled-->
+
+<my-diagram colored></my-diagram>
+
+<!-- or -->
+
+<my-diagram colored="colored"></my-diagram>
+```
+
+### Boolean Atributes: Valid Values
 
 > [!Important]
-> The only valid values are:
-> ```
-> flipped
-> flipped=""
-> flipped="flipped" (case-insensitive)
-> ```
-> Why: https://html.spec.whatwg.org/dev/common-microsyntaxes.html#boolean-attributes
-
-### coords attribute
-
-You can include list of board sides that you want to add a coordinates. The valid values are:
-
-- `top`
-- `bottom`
-- `left`
-- `right`
-
-```html
-<!-- starting positiion, file letters on the bottom, rank numbers on the right -->
-
-<my-diagram coords="bottom right" fen="..."></my-diagram>
-```
-
-(the order and capitalization don't matter)
+> For boolean attributes like flipped and colored, the only valid values are:
+> - The attribute name alone (e.g., `flipped`).
+> - An empty string (e.g., `flipped=""`).
+> - The attribute name as its value, case-insensitive (e.g., `flipped="flipped"`)
+>
+> Explanation: https://html.spec.whatwg.org/dev/common-microsyntaxes.html#boolean-attributes
 
 ### Combining Attributes
 
-You can use all attributes in single diagram:
+You can combine multiple attributes in a single html-diagram element to customize its behavior and appearance.
 
 ```html
 <my-diagram
-    flipped
-    coords="top right left bottom"
-    fen="..."
+	fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+	flipped
+	colored
 >
 </my-diagram>
 ```
@@ -179,114 +182,36 @@ const myDiagram = document.querySelector("my-diagram");
 
 myDiagram.setAttribute("fen", "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
 myDiagram.setAttribute("flipped", "flipped");
-myDiagram.setAttribute("coords", "bottom left");
+myDiagram.setAttribute("colored", "colored");
 
-// to remove flipped state
-
-myDiagram.removeAttribute("flipped");
+myDiagram.removeAttribute("flipped"); // remove the flipped state
 ```
-
-- [MDN: setAttribute() method](https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute)
-- [MDN: removeAttribute() method](https://developer.mozilla.org/en-US/docs/Web/API/Element/removeAttribute)
 
 ## Styling
 
+Universal Settings:
+- `--diagram-font`: Font family for chess pieces
+- `--diagram-stroke`: Stroke color for pieces and board
+
+Colored Mode:
+- `--diagram-fill`: Fill color inside chess pieces
+- `--diagram-light`: Color of light squares
+- `--diagram-dark`: Color of dark squares
+- `--diagram-outline`: Outline around chess pieces. Use `cqw` units
+
 > [!Note]
-> Most styling options expect `cqw` (container query width) units. `1cqw` is equal to 1% of the diagram's width. This ensures the diagram remains responsive and proportional.
-> 
-> [MDN: Container query legnth units](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries#container_query_length_units)
-
-### Chessboard
-- `--diagram-font`: Font family for the chess pieces
-- `--diagram-color`: Color of the chess pieces
-- `--diagram-border`: Border around the chessboard
-- `--diagram-spacing`: Spacing between the chess pieces
-
-### Coordinates
-- `--diagram-coords-font`: Font family for the coordinates
-- `--diagram-coords-color`: Color of the coordinates
-- `--diagram-coords-capitalize`: Text-transform for coordinates (e.g., `uppercase`)
-- `--diagram-coords-size`: Font size for the coordinates
-
-### Files (letters)
-- `--diagram-files-offset`: Vertical distance between file letters and board
-- `--diagram-files-start`: Starting position for file letters
-- `--diagram-files-gap`: Gap between file letters
-- `--diagram-files-size`: Font size for file letters
-
-### Ranks (numbers)
-- `--diagram-ranks-offset`: Horizontal distance between rank numbers and board
-- `--diagram-ranks-start`: Starting position for rank numbers
-- `--diagram-ranks-gap`: Gap between rank numbers
-- `--diagram-ranks-size`: Font size for rank numbers
-
-### Styling Example
-
-First, let's add the basic styling:
-
-```css
-my-diagram {
-	--diagram-font: "Diagram Smart";
-	--diagram-color: #000;
-	--diagram-border: 12px lightsteelblue solid;
-}
-```
-
-<img src="https://github.com/user-attachments/assets/34182789-de5a-4ca5-b4c7-09bafa66c3b9" width="240" alt="HTML Diagram">
-
-<hr>
-
-Then, add [`coords` attribute](#coords-attribute) and give basic theme for coordinates:
-
-```css
-my-diagram {
-	--diagram-coords-font: "Ubuntu";
-	--diagram-coords-color: steelblue;
-	--diagram-coords-capitalize: uppercase;
-	--diagram-coords-size: 6cqw;
-}
-```
-
-<img src="https://github.com/user-attachments/assets/e4a9deb7-ce33-45d5-94d2-42b074caf74c" width="240" alt="HTML Diagram">
-
-<hr>
-
-The coordinates need some positioning:
-
-<img src="./public/styling.gif" width="480" alt="HTML Diagram">
-
-```css
-my-diagram {
-	--diagram-files-offset: 1cqw;
-	--diagram-files-start: 6.8cqw;
-	--diagram-files-gap: 8cqw;
-	--diagram-ranks-offset: 9cqw;
-	--diagram-ranks-start: 3cqw;
-	--diagram-ranks-gap: 6.5cqw;
-}
-```
-
-Astonishing final result:
-
-<img src="https://github.com/user-attachments/assets/c292f853-0a89-47f5-a4d5-eec2ffb85c38" width="240" alt="HTML Diagram">
-
+> `1cqw` is equal to 1% of the diagram's width. This ensures the diagram remains responsive and proportional.  
+> [MDN: Container query length units](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries#container_query_length_units)
 
 ## List of Supported Fonts
 
-[Note About Fonts](#note-about-fonts)  
-A big thank you to all the people and companies who created these amazing fonts:
+[Note About Fonts](#note-about-fonts)
 
-| Font       | Author               | Year |
+A heartfelt thank you to the creators and contributors of these exceptional **Freeware** fonts:
+
+| Font Name  | Author               | Year |
 | ---------- | -------------------- | ---- |
-| Adventurer | Armando H. Marroquin | 2000 |
-| Alfonso-X  | Armando H. Marroquin | 1998 |
-| Alpha      | Eric Bentzen         | 1998 |
 | Cases      | Matthieu Leschemelle | 1999 |
-| Kingdom    | Armando H. Marroquin | 1998 |
-| Leipzig    | Armando H. Marroquin | 1998 |
-| Mark       | Armando H. Marroquin | 1998 |
-| Merida     | Armando H. Marroquin | 1998 |
 | Smart      | Christoph Wirth      | 1992 |
-| Tasc       | Tasc B.V.            | 1995 |
 
-If you know of any more **Freeware** chess fonts, or if you've created your own, feel free to let me know!
+If you know of any additional **free** (or **Freeware**) chess fonts, or if you’ve created your own, please feel free to share them with me!

@@ -34,6 +34,7 @@
 		"build": "tsc && vite build -c lib.config.ts",
 		"build-demo": "tsc && vite build -c demo.config.ts",
 		"dev": "vite -c lib.config.ts",
+		"flow": "bash .flow",
 		"format": "prettier . --write",
 		"preview": "vite preview -c demo.config.ts"
 	},

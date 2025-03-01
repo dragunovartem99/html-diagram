@@ -1,15 +1,20 @@
 import { Enigma } from "./Enigma";
 import { getBoardHTML } from "../static/getBoardHTML";
 import { getBoardCSS } from "../static/getBoardCSS";
+import { validateBooleanAttribute } from "../utils/validateBooleanAttribute";
 
 export class HTMLDiagram extends HTMLElement {
-	static observedAttributes = ["fen", "flipped"];
+	static observedAttributes = ["fen", "flipped", "colored"];
+
+	#enigma = new Enigma();
 
 	#fen = "8/8/8/8/8/8/8/8";
 	#flipped = false;
-	#enigma = new Enigma();
+	#colored = false;
+
 	#shadow;
-	#position!: HTMLDivElement;
+	#board!: HTMLDivElement;
+	#masks?: HTMLDivElement;
 
 	constructor() {
 		super();
@@ -17,7 +22,7 @@ export class HTMLDiagram extends HTMLElement {
 	}
 
 	connectedCallback() {
-		if (!this.#position) {
+		if (!this.#board) {
 			this.#setHTML();
 			this.#setCSS();
 		}
@@ -26,9 +31,13 @@ export class HTMLDiagram extends HTMLElement {
 	}
 
 	#setHTML() {
-		const { root, position } = getBoardHTML();
-		this.#position = position;
-		this.#shadow.appendChild(root);
+		const { board, masks } = getBoardHTML();
+
+		this.#board = board;
+		this.#masks = masks;
+
+		this.#shadow.appendChild(this.#board);
+		this.#shadow.appendChild(this.#masks);
 	}
 
 	#setCSS() {
@@ -36,29 +45,29 @@ export class HTMLDiagram extends HTMLElement {
 	}
 
 	#render() {
-		let cipher = this.#enigma.encode(this.#fen);
+		let { board, masks } = this.#enigma.encode({ fen: this.#fen, colored: this.#colored });
 
-		this.#flipped && (cipher = this.#enigma.reverse(cipher));
+		this.#flipped && (board = this.#enigma.reverse(board));
+		this.#board.textContent = board;
 
-		this.#position.textContent = cipher;
+		if (masks) {
+			this.#flipped && (masks = this.#enigma.reverse(masks));
+			this.#masks!.textContent = masks;
+		}
 	}
 
-	attributeChangedCallback(name: string, oldValue: string, newValue: string) {
-		if (newValue === oldValue) {
-			return;
-		}
-
+	attributeChangedCallback(name: string, _: string, newValue: string) {
 		switch (name) {
 			case "fen":
 				this.#fen = newValue;
 				break;
 			case "flipped":
-				// https://html.spec.whatwg.org/dev/common-microsyntaxes.html#boolean-attributes
-				const isValid = ["flipped", ""].includes(newValue?.toLowerCase());
-				this.#flipped = isValid;
-				isValid || this.removeAttribute("flipped");
+				this.#flipped = validateBooleanAttribute("flipped", newValue);
+				break;
+			case "colored":
+				this.#colored = validateBooleanAttribute("colored", newValue);
 		}
 
-		this.#position && this.#render();
+		this.#board && this.#render();
 	}
 }

@@ -1,14 +1,6 @@
-import { FontName } from "../../lib/types";
+import { FontName } from "./types";
 
 export const fonts: FontName[] = [
-	"Adventurer",
-	"Alfonso-X",
-	"Alpha",
 	"Cases",
-	"Kingdom",
-	"Leipzig",
-	"Mark",
-	"Merida",
 	"Smart",
-	"Tasc",
 ];
