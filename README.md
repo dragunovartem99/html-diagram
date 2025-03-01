@@ -109,7 +109,7 @@ This component is attribute-driven. You can use `html-diagram` element by creati
 [Forsyth–Edwards Notation.](https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation) The most widespread approach for describing chess positions in modern software. You can provide full FEN record:
 
 ```html
-<!-- starting positiion -->
+<!-- starting position -->
 
 <my-diagram fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></my-diagram>
 ```
@@ -117,7 +117,7 @@ This component is attribute-driven. You can use `html-diagram` element by creati
 Or, just a first field, piece placement data:
 
 ```html
-<!-- starting positiion, using only piece placement data -->
+<!-- starting position, using only piece placement data -->
 
 <my-diagram fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR"></my-diagram>
 ```
@@ -141,7 +141,7 @@ Boolean attribute that rotates the board to show the perspective of the Black pl
 Boolean attribute that enables a colored mode for the diagram.
 
 ```html
-<!-- Black's point of view -->
+<!-- colored mode enabled-->
 
 <my-diagram colored></my-diagram>
 
