@@ -17,6 +17,6 @@ export function getFontMap(): FontMap {
 		["n", { light: "К", dark: "к" }],
 		["p", { light: "П", dark: "п" }],
 		// Empty
-		[" ", { light: "+", dark: "-" }],
+		[" ", { light: "_", dark: "-" }],
 	]);
 }

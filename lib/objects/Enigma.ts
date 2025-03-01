@@ -1,7 +1,7 @@
 import type { BoardObject, FenRecord, Cipher } from "../types";
 
 import { getFontMap } from "../static/getFontMap";
-import { getMaskMap } from "../static/getMask";
+import { getMaskMap } from "../static/getMaskMap";
 
 export class Enigma {
 	#fontMap = getFontMap();
@@ -32,7 +32,7 @@ export class Enigma {
 
 		this.#encode(fen, (char: string) => {
 			board += this.#fontMap.get(char as BoardObject)!.light;
-			masks += this.#maskMap.get(char.toUpperCase() as BoardObject) ?? "+";
+			masks += this.#maskMap.get(char as BoardObject);
 		});
 
 		return { board, masks };

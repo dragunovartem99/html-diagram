@@ -92,6 +92,11 @@ figure a {
 	text-decoration: none;
 }
 
+demo-diagram {
+	--diagram-light: #ecedf3;
+	--diagram-dark: lightsteelblue;
+}
+
 .player {
 	font-size: 1.6em;
 	border-bottom: 2px solid var(--color-subtle);
