@@ -17,6 +17,6 @@ export function getMaskMap(): MaskMap {
 		["n", ":"],
 		["p", ";"],
 		// Empty
-		[" ", "_"]
+		[" ", "_"],
 	]);
 }

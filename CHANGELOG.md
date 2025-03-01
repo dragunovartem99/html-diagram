@@ -1,5 +1,11 @@
 # html-diagram
 
+## 0.4.0
+
+### Minor Changes
+
+- a73364d: Add color support, remove coordinates from diagram component
+
 ## 0.3.4
 
 ### Patch Changes

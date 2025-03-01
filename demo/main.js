@@ -36,7 +36,6 @@ import { watchBronstein } from "./scripts/watchBronstein";
 			);
 	}
 
-
 	setColored(checkbox.checked);
 	checkbox.addEventListener("change", ({ target }) => setColored(target.checked));
 }
