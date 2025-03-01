@@ -60,7 +60,7 @@ npm install html-diagram
 
 Import the `HTMLDiagram` class; then use it to create custom HTML element:
 
-```javscript
+```javascript
 import { HTMLDiagram } from "html-diagram";
 customElements.define("my-diagram", HTMLDiagram);
 ```
