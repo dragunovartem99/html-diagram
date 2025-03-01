@@ -96,6 +96,7 @@ Use element on your page
 
 ```html
 <!-- empty board -->
+
 <my-diagram></my-diagram>
 ```
 
@@ -171,34 +172,31 @@ myDiagram.setAttribute("colored", "colored");
 // to remove flipped state
 myDiagram.removeAttribute("flipped");
 ```
-- [MDN: setAttribute() method](https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute)
-- [MDN: removeAttribute() method](https://developer.mozilla.org/en-US/docs/Web/API/Element/removeAttribute)
 
 ## Styling
 
 Universal Settings:
-- `--diagram-font`: Font family for the chess pieces
-- `--diagram-stroke`
+- `--diagram-font`: Font family for chess pieces
+- `--diagram-stroke`: Stroke color for pieces and board
 
 Colored Mode:
-- `--diagram-fill`
-- `--diagram-light`
-- `--diagram-dark`
-- `--diagram-outline`
+- `--diagram-fill`: Fill color inside chess pieces
+- `--diagram-light`: Color of light squares
+- `--diagram-dark`: Color of dark squares
+- `--diagram-outline`: Outline around chess pieces. Use `cqw` units
 
 > [!Note]
-> Most styling options expect `cqw` (container query width) units. `1cqw` is equal to 1% of the diagram's width. This ensures the diagram remains responsive and proportional.
-> 
+> `1cqw` is equal to 1% of the diagram's width. This ensures the diagram remains responsive and proportional.  
 > [MDN: Container query legnth units](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries#container_query_length_units)
 
 ## List of Supported Fonts
 
 [Note About Fonts](#note-about-fonts)  
-A big thank you to all the people and companies who created these amazing fonts:
+A heartfelt thank you to the creators and contributors of these exceptional **Freeware** fonts:
 
 | Font Name  | Author               | Year |
 | ---------- | -------------------- | ---- |
 | Cases      | Matthieu Leschemelle | 1999 |
 | Smart      | Christoph Wirth      | 1992 |
 
-If you know of any more **Freeware** chess fonts, or if you've created your own, feel free to let me know!
+If you know of any additional **free** (or **Freeware**) chess fonts, or if you’ve created your own, please feel free to share them with me!
