@@ -171,7 +171,6 @@ myDiagram.setAttribute("colored", "colored");
 // to remove flipped state
 myDiagram.removeAttribute("flipped");
 ```
-
 - [MDN: setAttribute() method](https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute)
 - [MDN: removeAttribute() method](https://developer.mozilla.org/en-US/docs/Web/API/Element/removeAttribute)
 
@@ -186,7 +185,6 @@ Colored Mode:
 - `--diagram-light`
 - `--diagram-dark`
 - `--diagram-outline`
-- `--diagram-shadow`
 
 > [!Note]
 > Most styling options expect `cqw` (container query width) units. `1cqw` is equal to 1% of the diagram's width. This ensures the diagram remains responsive and proportional.

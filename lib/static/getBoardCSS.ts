@@ -21,7 +21,6 @@ const css = `
 		position: absolute;
 		inset: 0;
 		z-index: -1;
-		text-shadow: var(--diagram-shadow);
 		-webkit-text-stroke-width: var(--diagram-outline);
 		color: var(--diagram-fill, #fff);
 		background: repeating-conic-gradient(
