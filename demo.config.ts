@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 
-let base = "./";
+let base = "";
 
 if (process.env.PREVIEW_PATH) {
 	base += `${process.env.PREVIEW_PATH}`;
