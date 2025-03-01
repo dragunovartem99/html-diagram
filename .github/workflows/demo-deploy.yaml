@@ -41,7 +41,9 @@ jobs:
               run: npm run build-demo
 
             - name: Deploy to GitHub Pages
-              uses: peaceiris/actions-gh-pages@v4
+              uses: JamesIves/github-pages-deploy-action@v4.7.3
               with:
-                  github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: ./dist-demo
+                   folder: ./dist-demo
+                   branch: gh-pages
+                   clean-exclude: pr-preview
+                   force: false
