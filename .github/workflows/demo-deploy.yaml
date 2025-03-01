@@ -26,6 +26,8 @@ jobs:
         environment:
             name: github-pages
             url: ${{ steps.deployment.outputs.page_url }}
+        permissions:
+            contents: write
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
@@ -43,7 +45,7 @@ jobs:
             - name: Deploy to GitHub Pages
               uses: JamesIves/github-pages-deploy-action@v4.7.3
               with:
-                   folder: ./dist-demo
-                   branch: gh-pages
-                   clean-exclude: pr-preview
-                   force: false
+                  folder: ./dist-demo
+                  branch: gh-pages
+                  clean-exclude: pr-preview
+                  force: false
