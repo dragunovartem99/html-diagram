@@ -16,7 +16,7 @@ Demo: https://dragunovartem99.github.io/html-diagram
 - Allows creation of old-school and unique-looking diagrams
 - Scales infinitely without quality loss (as it doesn't rely on image formats)
 - Zero dependencies
-- Lightweight: the modules (CommonJS and ES) are each around `~5kb`
+- Lightweight: the modules (ES and CommonJS) are each around `~5kb`
 - Friendly to your CPU
 
 ## Note About Fonts
@@ -24,12 +24,12 @@ Demo: https://dragunovartem99.github.io/html-diagram
 [List Of Supported Fonts](#list-of-supported-fonts)
 
 > [!Warning]
-> All fonts in the demo are marked as **Freeware**.  
+> All fonts used in the demo are marked as **Freeware** by their respective authors.  
 > However, it is strongly recommended to review the README file of any font you intend to use.
 
-The **HTML Diagram** itself does not include any fonts, as you can check in the [npm package files](https://www.npmjs.com/package/html-diagram?activeTab=code) of the `html-diagram` package.
+The **HTML Diagram** itself does not include any fonts, as you can verify in the [npm package files](https://www.npmjs.com/package/html-diagram?activeTab=code) of the `html-diagram` package.
 
-However, to ensure proper display, users needs to pick some chess font for rendering a diagram. For this demo, I've used **Freeware** fonts from the wonderful [Nørresundby Chess Club](https://www.enpassant.dk/chess/fonteng.htm).
+To display chess positions, users need to select a chess font for rendering diagrams. For this demo, I have used Freeware fonts generously provided by the [Nørresundby Chess Club](https://www.enpassant.dk/chess/fonteng.htm). Special thanks to them for making these fonts publicly available.
 
 All fonts used in the demo are located in [./public/fonts](https://github.com/dragunovartem99/html-diagram/tree/main/public/fonts) directory. Each subdirectory follows this structure:
 
@@ -42,7 +42,7 @@ All fonts used in the demo are located in [./public/fonts](https://github.com/dr
 
 ### woff2 versions
 
-To achieve minimum file size and consistency, each original font is accompanied by a `woff2` version. The `woff2` files reuse the following glyphs: king, queen, rook, bishop, knight, pawn, and empty square.
+To achieve compatibility and minimize file size, each original font is accompanied by a  `woff2` version. The `woff2` files reuse the following glyphs: king, queen, rook, bishop, knight, pawn, and empty square.
 
 No modifications have been made to the design of the original glyphs.
 
@@ -52,7 +52,7 @@ No modifications have been made to the design of the original glyphs.
 
 ### 1. Installation
 
-```shell
+```bash
 npm install html-diagram
 ```
 
@@ -60,7 +60,7 @@ npm install html-diagram
 
 Import the `HTMLDiagram` class; then use it to create custom HTML element:
 
-```js
+```javscript
 import { HTMLDiagram } from "html-diagram";
 customElements.define("my-diagram", HTMLDiagram);
 ```
@@ -198,15 +198,7 @@ A big thank you to all the people and companies who created these amazing fonts:
 
 | Font Name  | Author               | Year |
 | ---------- | -------------------- | ---- |
-| Adventurer | Armando H. Marroquin | 2000 |
-| Alfonso-X  | Armando H. Marroquin | 1998 |
-| Alpha      | Eric Bentzen         | 1998 |
 | Cases      | Matthieu Leschemelle | 1999 |
-| Kingdom    | Armando H. Marroquin | 1998 |
-| Leipzig    | Armando H. Marroquin | 1998 |
-| Mark       | Armando H. Marroquin | 1998 |
-| Merida     | Armando H. Marroquin | 1998 |
 | Smart      | Christoph Wirth      | 1992 |
-| Tasc       | Tasc B.V.            | 1995 |
 
 If you know of any more **Freeware** chess fonts, or if you've created your own, feel free to let me know!
