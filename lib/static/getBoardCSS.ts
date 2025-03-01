@@ -3,7 +3,6 @@ const css = `
 		display: block;
 		container-type: inline-size;
 		position: relative;
-		aspect-ratio: 1 / 1;
 	}
 	.board, .masks {
 		user-select: none;

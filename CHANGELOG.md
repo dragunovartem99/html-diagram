@@ -1,5 +1,11 @@
 # html-diagram
 
+## 0.4.1
+
+### Patch Changes
+
+- Remove non-flexible CSS rule
+
 ## 0.4.0
 
 ### Minor Changes
