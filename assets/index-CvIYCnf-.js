@@ -3,7 +3,6 @@ var H=Object.defineProperty;var w=p=>{throw TypeError(p)};var z=(p,e,t)=>e in p?
 		display: block;
 		container-type: inline-size;
 		position: relative;
-		aspect-ratio: 1 / 1;
 	}
 	.board, .masks {
 		user-select: none;
