@@ -17,11 +17,11 @@ Demo: https://dragunovartem99.github.io/html-diagram
 - Scales infinitely without quality loss (as it doesn't rely on image formats)
 - Zero dependencies
 - Lightweight: the modules (CommonJS and ES) are each around `~5kb`
-- Friendly to your CPU. Actually, it's just three `<div>` elements and 64 characters
+- Friendly to your CPU
 
 ## Note About Fonts
 
-Full list of Fonts and their Authors: [List of Supported Fonts](#list-of-supported-fonts)
+[List Of Supported Fonts](#list-of-supported-fonts)
 
 > [!Warning]
 > All fonts in the demo are marked as **Freeware**.  
@@ -34,8 +34,8 @@ However, to ensure proper display, users needs to pick some chess font for rende
 All fonts used in the demo are located in [./public/fonts](https://github.com/dragunovartem99/html-diagram/tree/main/public/fonts) directory. Each subdirectory follows this structure:
 
 ```
-📂 Diagram<font-name>
-├── 📄 Diagram<font-name>.woff2
+📂 Diagram<name>
+├── 📄 Diagram<name>.woff2
 ├── 📄 ORIGINAL_FONT
 └── 📄 ORIGINAL_README (if available)
 ```
@@ -140,22 +140,9 @@ Boolean attribute, that allows show the rotate the board to Black player's persp
 > ```
 > Why: https://html.spec.whatwg.org/dev/common-microsyntaxes.html#boolean-attributes
 
-### coords attribute
+### `colored` attribute
 
-You can include list of board sides that you want to add a coordinates. The valid values are:
-
-- `top`
-- `bottom`
-- `left`
-- `right`
-
-```html
-<!-- starting positiion, file letters on the bottom, rank numbers on the right -->
-
-<my-diagram coords="bottom right" fen="..."></my-diagram>
-```
-
-(the order and capitalization don't matter)
+...
 
 ### Combining Attributes
 
@@ -163,9 +150,9 @@ You can use all attributes in single diagram:
 
 ```html
 <my-diagram
-    flipped
-    coords="top right left bottom"
-    fen="..."
+	flipped
+	colored
+	fen="..."
 >
 </my-diagram>
 ```
@@ -179,10 +166,9 @@ const myDiagram = document.querySelector("my-diagram");
 
 myDiagram.setAttribute("fen", "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
 myDiagram.setAttribute("flipped", "flipped");
-myDiagram.setAttribute("coords", "bottom left");
+myDiagram.setAttribute("colored", "colored");
 
 // to remove flipped state
-
 myDiagram.removeAttribute("flipped");
 ```
 
@@ -191,92 +177,28 @@ myDiagram.removeAttribute("flipped");
 
 ## Styling
 
+Universal Settings:
+- `--diagram-font`: Font family for the chess pieces
+- `--diagram-stroke`
+
+Colored Mode:
+- `--diagram-fill`
+- `--diagram-light`
+- `--diagram-dark`
+- `--diagram-outline`
+- `--diagram-shadow`
+
 > [!Note]
 > Most styling options expect `cqw` (container query width) units. `1cqw` is equal to 1% of the diagram's width. This ensures the diagram remains responsive and proportional.
 > 
 > [MDN: Container query legnth units](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries#container_query_length_units)
-
-### Chessboard
-- `--diagram-font`: Font family for the chess pieces
-- `--diagram-color`: Color of the chess pieces
-- `--diagram-border`: Border around the chessboard
-- `--diagram-spacing`: Spacing between the chess pieces
-
-### Coordinates
-- `--diagram-coords-font`: Font family for the coordinates
-- `--diagram-coords-color`: Color of the coordinates
-- `--diagram-coords-capitalize`: Text-transform for coordinates (e.g., `uppercase`)
-- `--diagram-coords-size`: Font size for the coordinates
-
-### Files (letters)
-- `--diagram-files-offset`: Vertical distance between file letters and board
-- `--diagram-files-start`: Starting position for file letters
-- `--diagram-files-gap`: Gap between file letters
-- `--diagram-files-size`: Font size for file letters
-
-### Ranks (numbers)
-- `--diagram-ranks-offset`: Horizontal distance between rank numbers and board
-- `--diagram-ranks-start`: Starting position for rank numbers
-- `--diagram-ranks-gap`: Gap between rank numbers
-- `--diagram-ranks-size`: Font size for rank numbers
-
-### Styling Example
-
-First, let's add the basic styling:
-
-```css
-my-diagram {
-	--diagram-font: "Diagram Smart";
-	--diagram-color: #000;
-	--diagram-border: 12px lightsteelblue solid;
-}
-```
-
-<img src="https://github.com/user-attachments/assets/34182789-de5a-4ca5-b4c7-09bafa66c3b9" width="240" alt="HTML Diagram">
-
-<hr>
-
-Then, add [`coords` attribute](#coords-attribute) and give basic theme for coordinates:
-
-```css
-my-diagram {
-	--diagram-coords-font: "Ubuntu";
-	--diagram-coords-color: steelblue;
-	--diagram-coords-capitalize: uppercase;
-	--diagram-coords-size: 6cqw;
-}
-```
-
-<img src="https://github.com/user-attachments/assets/e4a9deb7-ce33-45d5-94d2-42b074caf74c" width="240" alt="HTML Diagram">
-
-<hr>
-
-The coordinates need some positioning:
-
-<img src="./public/styling.gif" width="480" alt="HTML Diagram">
-
-```css
-my-diagram {
-	--diagram-files-offset: 1cqw;
-	--diagram-files-start: 6.8cqw;
-	--diagram-files-gap: 8cqw;
-	--diagram-ranks-offset: 9cqw;
-	--diagram-ranks-start: 3cqw;
-	--diagram-ranks-gap: 6.5cqw;
-}
-```
-
-Astonishing final result:
-
-<img src="https://github.com/user-attachments/assets/c292f853-0a89-47f5-a4d5-eec2ffb85c38" width="240" alt="HTML Diagram">
-
 
 ## List of Supported Fonts
 
 [Note About Fonts](#note-about-fonts)  
 A big thank you to all the people and companies who created these amazing fonts:
 
-| Font       | Author               | Year |
+| Font Name  | Author               | Year |
 | ---------- | -------------------- | ---- |
 | Adventurer | Armando H. Marroquin | 2000 |
 | Alfonso-X  | Armando H. Marroquin | 1998 |
