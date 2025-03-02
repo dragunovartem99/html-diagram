@@ -1,31 +1,27 @@
 const css = `
 	:host {
 		display: block;
-		container-type: inline-size;
 		position: relative;
 	}
-	.board, .masks {
-		user-select: none;
-		line-break: anywhere;
-		white-space: break-spaces;
-		line-height: 1;
-		font-size: 12.5cqw;
-		letter-spacing: -0.01cqw;
+	svg {
 		font-family: var(--diagram-font);
+		user-select: none;
 	}
-	.board { color: var(--diagram-stroke, #000); }
-	.masks { display: none; }
-	:host([colored]) .masks {
-		display: block;
+	text {
+		font-size: 8px;
+		fill: var(--diagram-stroke, #000);
+		dominant-baseline: text-after-edge;
+	}
+	svg + svg {
 		position: absolute;
-		inset: 0;
+		top: 0;
+		left: 0;
+		width: 100%;
+		heigth: 100%;
 		z-index: -1;
-		-webkit-text-stroke-width: var(--diagram-outline);
-		color: var(--diagram-fill, #fff);
-		background: repeating-conic-gradient(
-			var(--diagram-dark, #bbb) 0% 25%,
-			var(--diagram-light, #eee) 0% 50%
-		) 50% / 25% 25%;
+	}
+	svg + svg text {
+		fill: var(--diagram-fill, #fff);
 	}
 `;
 

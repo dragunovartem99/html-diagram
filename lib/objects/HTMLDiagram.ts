@@ -9,12 +9,14 @@ export class HTMLDiagram extends HTMLElement {
 	#enigma = new Enigma();
 
 	#fen = "8/8/8/8/8/8/8/8";
+	// @ts-ignore
 	#flipped = false;
 	#colored = false;
 
 	#shadow;
-	#board!: HTMLDivElement;
-	#masks?: HTMLDivElement;
+
+	#board!: SVGElement[];
+	#masks?: SVGElement[] | null = null;
 
 	constructor() {
 		super();
@@ -23,36 +25,48 @@ export class HTMLDiagram extends HTMLElement {
 
 	connectedCallback() {
 		if (!this.#board) {
-			this.#setHTML();
 			this.#setCSS();
+			this.#initBoard();
+		}
+
+		if (this.#colored) {
+			this.#initMasks();
 		}
 
 		this.#render();
-	}
-
-	#setHTML() {
-		const { board, masks } = getBoardHTML();
-
-		this.#board = board;
-		this.#masks = masks;
-
-		this.#shadow.appendChild(this.#board);
-		this.#shadow.appendChild(this.#masks);
 	}
 
 	#setCSS() {
 		this.#shadow.adoptedStyleSheets.push(getBoardCSS());
 	}
 
-	#render() {
-		let { board, masks } = this.#enigma.encode({ fen: this.#fen, colored: this.#colored });
+	#initBoard() {
+		const { svg, ranks } = getBoardHTML();
+		this.#board = ranks;
+		this.#shadow.appendChild(svg);
+	}
 
-		this.#flipped && (board = this.#enigma.reverse(board));
-		this.#board.textContent = board;
+	#initMasks() {
+		const { svg, ranks } = getBoardHTML(true);
+		this.#masks = ranks;
+		this.#shadow.appendChild(svg);
+	}
+
+	#destroyMasks() {
+		this.#masks = null;
+		this.#shadow.removeChild(this.#shadow.lastChild!);
+	}
+
+	#render() {
+		const { board, masks } = this.#enigma.encode({
+			fen: this.#fen,
+			colored: this.#colored,
+		});
+
+		this.#board.forEach((rank, index) => (rank.textContent = board![index]));
 
 		if (masks) {
-			this.#flipped && (masks = this.#enigma.reverse(masks));
-			this.#masks!.textContent = masks;
+			this.#masks!.forEach((rank, index) => (rank.textContent = masks![index]));
 		}
 	}
 
@@ -66,6 +80,7 @@ export class HTMLDiagram extends HTMLElement {
 				break;
 			case "colored":
 				this.#colored = validateBooleanAttribute("colored", newValue);
+				this.#colored ? this.#initMasks() : this.#destroyMasks();
 		}
 
 		this.#board && this.#render();
