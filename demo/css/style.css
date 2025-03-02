@@ -99,7 +99,7 @@ demo-diagram {
 
 svg text {
 	font-family: var(--diagram-font);
-	font-size: 100px;
+	font-size: 8px;
 	dominant-baseline: text-after-edge;
 }
 

@@ -34,10 +34,8 @@ export class HTMLDiagram extends HTMLElement {
 		const { board, masks } = getBoardHTML();
 
 		this.#board = board;
-		this.#masks = masks;
 
 		this.#shadow.appendChild(this.#board);
-		this.#shadow.appendChild(this.#masks);
 	}
 
 	#setCSS() {
@@ -47,13 +45,15 @@ export class HTMLDiagram extends HTMLElement {
 	#render() {
 		let { board, masks } = this.#enigma.encode({ fen: this.#fen, colored: this.#colored });
 
-		this.#flipped && (board = this.#enigma.reverse(board));
-		this.#board.textContent = board;
+		const textElements = this.#board.querySelectorAll("text");
 
-		if (masks) {
-			this.#flipped && (masks = this.#enigma.reverse(masks));
-			this.#masks!.textContent = masks;
-		}
+		textElements.forEach((textElement, index) => {
+			// Calculate the start and end index for the substring
+			const start = index * 8;
+			const end = start + 8;
+			// Insert the substring into the <text> element
+			textElement.textContent = board.substring(start, end);
+		});
 	}
 
 	attributeChangedCallback(name: string, _: string, newValue: string) {

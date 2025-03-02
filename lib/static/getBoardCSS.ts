@@ -1,19 +1,15 @@
 const css = `
 	:host {
 		display: block;
-		container-type: inline-size;
-		position: relative;
 	}
-	.board, .masks {
-		user-select: none;
-		line-break: anywhere;
-		white-space: break-spaces;
-		line-height: 1;
-		font-size: 12.5cqw;
-		letter-spacing: -0.01cqw;
+	svg {
 		font-family: var(--diagram-font);
+		user-select: none;
 	}
-	.board { color: var(--diagram-stroke, #000); }
+	text {
+		font-size: 8px;
+		fill: var(--diagram-stroke, #000);
+	}
 	.masks { display: none; }
 	:host([colored]) .masks {
 		display: block;
