@@ -15,6 +15,7 @@ const css = `
 	text {
 		font-size: 8px;
 		fill: var(--diagram-stroke, #000);
+		dominant-baseline: text-after-edge;
 	}
 	svg + svg text {
 		fill: var(--diagram-fill, #fff);

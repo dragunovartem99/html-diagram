@@ -97,12 +97,6 @@ demo-diagram {
 	--diagram-dark: lightsteelblue;
 }
 
-svg text {
-	font-family: var(--diagram-font);
-	font-size: 8px;
-	dominant-baseline: text-after-edge;
-}
-
 .player {
 	font-size: 1.6em;
 	border-bottom: 2px solid var(--color-subtle);
