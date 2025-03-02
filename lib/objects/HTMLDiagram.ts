@@ -43,8 +43,12 @@ export class HTMLDiagram extends HTMLElement {
 	}
 
 	#render() {
-		const board = this.#enigma.encode({ fen: this.#fen });
-		board.forEach((rank, index) => (this.#board![index].textContent = rank));
+		const { board, masks } = this.#enigma.encode({
+			fen: this.#fen,
+			colored: this.#colored
+		});
+
+		board!.forEach((rank, index) => (this.#board![index].textContent = rank));
 	}
 
 	attributeChangedCallback(name: string, _: string, newValue: string) {

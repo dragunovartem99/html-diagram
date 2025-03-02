@@ -11,15 +11,24 @@ export class Enigma {
 		return cipher.split("").reverse().join("");
 	}
 
-	encode({ fen }: { fen: FenRecord; colored: boolean }) {
-		return this.#encodeDefault(fen);
+	encode({ fen, colored }: { fen: FenRecord; colored: boolean }) {
+		return colored
+			? { board: this.#encodeLight(fen), masks: this.#encodeMasks(fen) }
+			: { board: this.#encodeDefault(fen), masks: null };
+	}
+
+	#encodeMasks(fen: FenRecord) {
+		return this.#encode(fen, (char: string) => this.#maskMap.get(char as BoardObject));
+	}
+
+	#encodeLight(fen: FenRecord) {
+		return this.#encode(fen, (char: string) => this.#fontMap.get(char as BoardObject)!.light);
 	}
 
 	#encodeDefault(fen: FenRecord) {
 		return this.#encode(fen, (char: string, offset: number) => {
-			const boardObject = this.#fontMap.get(char as BoardObject);
 			const background = (offset * 9) & 8 ? "dark" : "light";
-			return boardObject![background];
+			return this.#fontMap.get(char as BoardObject)![background];
 		});
 	}
 
