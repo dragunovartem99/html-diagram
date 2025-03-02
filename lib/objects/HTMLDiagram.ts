@@ -9,6 +9,7 @@ export class HTMLDiagram extends HTMLElement {
 	#enigma = new Enigma();
 
 	#fen = "8/8/8/8/8/8/8/8";
+	// @ts-ignore
 	#flipped = false;
 	#colored = false;
 

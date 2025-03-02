@@ -1,4 +1,4 @@
-export function getBoardHTML(bg: boolean) {
+export function getBoardHTML(bg?: boolean) {
 	const svgNS = "http://www.w3.org/2000/svg";
 
 	const svg = document.createElementNS(svgNS, "svg");
