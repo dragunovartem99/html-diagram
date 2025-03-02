@@ -13,8 +13,8 @@ export class HTMLDiagram extends HTMLElement {
 	#colored = false;
 
 	#shadow;
-	#board!: HTMLDivElement;
-	#masks?: HTMLDivElement;
+
+	#board?: SVGElement[];
 
 	constructor() {
 		super();
@@ -31,11 +31,11 @@ export class HTMLDiagram extends HTMLElement {
 	}
 
 	#setHTML() {
-		const { board, masks } = getBoardHTML();
+		const { board, ranks } = getBoardHTML();
 
-		this.#board = board;
+		this.#board = ranks;
 
-		this.#shadow.appendChild(this.#board);
+		this.#shadow.appendChild(board);
 	}
 
 	#setCSS() {
@@ -43,17 +43,8 @@ export class HTMLDiagram extends HTMLElement {
 	}
 
 	#render() {
-		let { board, masks } = this.#enigma.encode({ fen: this.#fen, colored: this.#colored });
-
-		const textElements = this.#board.querySelectorAll("text");
-
-		textElements.forEach((textElement, index) => {
-			// Calculate the start and end index for the substring
-			const start = index * 8;
-			const end = start + 8;
-			// Insert the substring into the <text> element
-			textElement.textContent = board.substring(start, end);
-		});
+		const board = this.#enigma.encode({ fen: this.#fen });
+		board.forEach((rank, index) => (this.#board![index].textContent = rank));
 	}
 
 	attributeChangedCallback(name: string, _: string, newValue: string) {
