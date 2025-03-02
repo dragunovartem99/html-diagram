@@ -7,15 +7,18 @@ const css = `
 		font-family: var(--diagram-font);
 		user-select: none;
 	}
-	svg + svg {
-		position: absolute;
-		inset: 0;
-		z-index: -1;
-	}
 	text {
 		font-size: 8px;
 		fill: var(--diagram-stroke, #000);
 		dominant-baseline: text-after-edge;
+	}
+	svg + svg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		heigth: 100%;
+		z-index: -1;
 	}
 	svg + svg text {
 		fill: var(--diagram-fill, #fff);

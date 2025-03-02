@@ -14,7 +14,8 @@ export class HTMLDiagram extends HTMLElement {
 
 	#shadow;
 
-	#board?: SVGElement[];
+	#board!: SVGElement[];
+	#masks?: SVGElement[] | null = null;
 
 	constructor() {
 		super();
@@ -23,32 +24,49 @@ export class HTMLDiagram extends HTMLElement {
 
 	connectedCallback() {
 		if (!this.#board) {
-			this.#setHTML();
 			this.#setCSS();
+			this.#initBoard();
+		}
+
+		if (this.#colored) {
+			this.#initMasks();
 		}
 
 		this.#render();
-	}
-
-	#setHTML() {
-		const { board, ranks } = getBoardHTML();
-
-		this.#board = ranks;
-
-		this.#shadow.appendChild(board);
 	}
 
 	#setCSS() {
 		this.#shadow.adoptedStyleSheets.push(getBoardCSS());
 	}
 
+	#initBoard() {
+		const { svg, ranks } = getBoardHTML();
+		this.#board = ranks;
+		this.#shadow.appendChild(svg);
+	}
+
+	#initMasks() {
+		const { svg, ranks } = getBoardHTML(true);
+		this.#masks = ranks;
+		this.#shadow.appendChild(svg);
+	}
+
+	#destroyMasks() {
+		this.#masks = null;
+		this.#shadow.removeChild(this.#shadow.lastChild!);
+	}
+
 	#render() {
 		const { board, masks } = this.#enigma.encode({
 			fen: this.#fen,
-			colored: this.#colored
+			colored: this.#colored,
 		});
 
-		board!.forEach((rank, index) => (this.#board![index].textContent = rank));
+		this.#board.forEach((rank, index) => (rank.textContent = board![index]));
+
+		if (masks) {
+			this.#masks!.forEach((rank, index) => (rank.textContent = masks![index]));
+		}
 	}
 
 	attributeChangedCallback(name: string, _: string, newValue: string) {
@@ -61,6 +79,7 @@ export class HTMLDiagram extends HTMLElement {
 				break;
 			case "colored":
 				this.#colored = validateBooleanAttribute("colored", newValue);
+				this.#colored ? this.#initMasks() : this.#destroyMasks();
 		}
 
 		this.#board && this.#render();
