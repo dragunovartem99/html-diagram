@@ -15,6 +15,7 @@ var J=Object.defineProperty;var S=p=>{throw TypeError(p)};var U=(p,e,t)=>e in p?
 	svg + svg {
 		position: absolute;
 		inset: 0;
+		width: 100%;
 		z-index: -1;
 	}
 	svg + svg text {
