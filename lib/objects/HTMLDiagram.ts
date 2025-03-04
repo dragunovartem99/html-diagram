@@ -47,7 +47,7 @@ export class HTMLDiagram extends HTMLElement {
 	}
 
 	#initMasks() {
-		const { svg, ranks } = getBoardHTML(true);
+		const { svg, ranks } = getBoardHTML();
 		this.#masks = ranks;
 		this.#shadow.appendChild(svg);
 	}
