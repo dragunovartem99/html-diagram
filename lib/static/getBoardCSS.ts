@@ -1,16 +1,13 @@
 const css = `
 	:host {
-		display: block;
-		container-type: inline-size;
+		display: flex;
 		position: relative;
+		container-type: inline-size;
 	}
 	.board, .masks {
 		user-select: none;
-		line-break: anywhere;
-		white-space: break-spaces;
 		line-height: 1;
 		font-size: 12.5cqw;
-		letter-spacing: -0.01cqw;
 		font-family: var(--diagram-font);
 	}
 	.board { color: var(--diagram-stroke, #000); }
@@ -25,7 +22,7 @@ const css = `
 		background: repeating-conic-gradient(
 			var(--diagram-dark, #bbb) 0% 25%,
 			var(--diagram-light, #eee) 0% 50%
-		) 50% / 25% 25%;
+		) 0 / 25% 25%;
 	}
 `;
 
