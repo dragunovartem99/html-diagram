@@ -12,41 +12,32 @@ export class Enigma {
 	}
 
 	encode({ fen, colored }: { fen: FenRecord; colored: boolean }) {
-		return colored ? this.#encodeColored(fen) : this.#encodeDefault(fen);
+		return colored
+			? { board: this.#encodeLight(fen), masks: this.#encodeMasks(fen) }
+			: { board: this.#encodeDefault(fen), masks: null };
+	}
+
+	#encodeMasks(fen: FenRecord) {
+		return this.#encode(fen, (char: string) => this.#maskMap.get(char as BoardObject));
+	}
+
+	#encodeLight(fen: FenRecord) {
+		return this.#encode(fen, (char: string) => this.#fontMap.get(char as BoardObject)!.light);
 	}
 
 	#encodeDefault(fen: FenRecord) {
-		let board = "";
-
-		this.#encode(fen, (char: string, index: number) => {
-			const background = (index * 9) & 8 ? "dark" : "light";
-			board += this.#fontMap.get(char as BoardObject)![background];
+		return this.#encode(fen, (char: string, offset: number) => {
+			const background = (offset * 9) & 8 ? "dark" : "light";
+			return this.#fontMap.get(char as BoardObject)![background];
 		});
-
-		return { board, masks: null };
-	}
-
-	#encodeColored(fen: FenRecord) {
-		let board = "";
-		let masks = "";
-
-		this.#encode(fen, (char: string) => {
-			board += this.#fontMap.get(char as BoardObject)!.light;
-			masks += this.#maskMap.get(char as BoardObject);
-		});
-
-		return { board, masks };
 	}
 
 	#encode(fen: FenRecord, callback: Function) {
-		[...this.#prepare(fen)].forEach((char, index) => callback(char, index));
-	}
-
-	#prepare(fen: FenRecord) {
 		return fen
 			.split(" ")[0] // extract position
 			.replace(/\//g, "") // remove slashes
 			.replace(/\d/g, (digit) => " ".repeat(+digit)) // expand empty squares
-			.slice(0, 64); // cut possible extra symbols (e.g. Crazyhouse)
+			.slice(0, 64) // cut possible extra symbols (e.g. Crazyhouse)
+			.replace(/./g, (...args) => callback(...args));
 	}
 }
