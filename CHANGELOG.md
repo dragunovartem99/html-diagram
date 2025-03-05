@@ -1,5 +1,11 @@
 # html-diagram
 
+## 0.4.2
+
+### Patch Changes
+
+- Encoding mechanism optimization
+
 ## 0.4.1
 
 ### Patch Changes
