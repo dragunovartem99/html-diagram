@@ -10,7 +10,7 @@ if [[ ! $is_active ]]; then
 	tmux neww -t $flow:1 -n "node"
 
 	tmux send -t $flow:"nvim" "nvim ." ENTER
-	tmux send -t $flow:"node" "npm run dev" ENTER
+	tmux send -t $flow:"node" "npm run dev -- --host" ENTER
 fi
 
 tmux attach -t $flow:"nvim"
