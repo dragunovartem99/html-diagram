@@ -1,21 +1,11 @@
-import { Enigma } from "./Enigma";
-import { getBoardHTML } from "../static/getBoardHTML";
 import { getBoardCSS } from "../static/getBoardCSS";
-import { validateBooleanAttribute } from "../utils/validateBooleanAttribute";
+import { Board } from "./Board";
 
 export class HTMLDiagram extends HTMLElement {
-	static observedAttributes = ["fen", "flipped", "colored"];
+	static observedAttributes = ["fen"];
 
-	#enigma = new Enigma();
-
-	#fen = "8/8/8/8/8/8/8/8";
-	// @ts-ignore
-	#flipped = false;
-	// @ts-ignore
-	#colored = false;
-
+	#board = new Board();
 	#shadow;
-	#board!: HTMLDivElement[];
 
 	constructor() {
 		super();
@@ -23,20 +13,20 @@ export class HTMLDiagram extends HTMLElement {
 	}
 
 	connectedCallback() {
-		if (!this.#board) {
-			this.#setHTML();
-			this.#setCSS();
-		}
-
-		this.#render();
+		this.#setHTML();
+		this.#setCSS();
+		this.#supportWebkit();
 	}
 
 	#setHTML() {
-		const board = getBoardHTML();
+		this.#board.html.forEach((square) => this.#shadow.appendChild(square));
+	}
 
-		this.#board = board;
-		board.forEach((square) => this.#shadow.appendChild(square));
+	#setCSS() {
+		this.#shadow.adoptedStyleSheets.push(getBoardCSS());
+	}
 
+	#supportWebkit() {
 		// @ts-ignore
 		const isWebkit = typeof window.webkitConvertPointFromNodeToPage === "function";
 
@@ -52,31 +42,8 @@ export class HTMLDiagram extends HTMLElement {
 		}
 	}
 
-	#setCSS() {
-		this.#shadow.adoptedStyleSheets.push(getBoardCSS());
-	}
-
-	#render() {
-		const board = this.#enigma.encode({ fen: this.#fen, colored: false });
-		[...board].forEach((char, index) =>
-			char === " "
-				? this.#board[index].removeAttribute("is")
-				: this.#board[index].setAttribute("is", char)
-		);
-	}
-
-	attributeChangedCallback(name: string, _: string, newValue: string) {
-		switch (name) {
-			case "fen":
-				this.#fen = newValue;
-				break;
-			case "flipped":
-				this.#flipped = validateBooleanAttribute("flipped", newValue);
-				break;
-			case "colored":
-				this.#colored = validateBooleanAttribute("colored", newValue);
-		}
-
-		this.#board && this.#render();
+	// @ts-ignore
+	attributeChangedCallback(name: string, oldValue: string, newValue: string) {
+		this.#board.setPosition(newValue);
 	}
 }
