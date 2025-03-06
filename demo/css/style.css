@@ -97,22 +97,6 @@ demo-diagram {
 	--diagram-dark: lightsteelblue;
 }
 
-.grid {
-	container-type: inline-size;
-	font-family: var(--diagram-font);
-	display: grid;
-	grid-template-columns: repeat(8, 1fr);
-}
-
-.grid div {
-	font-size: 12.5cqw;
-	line-height: 1;
-}
-
-.grid div::after {
-	content: attr(is);
-}
-
 .player {
 	font-size: 1.6em;
 	border-bottom: 2px solid var(--color-subtle);
