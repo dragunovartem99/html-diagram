@@ -39,6 +39,7 @@ export class HTMLDiagram extends HTMLElement {
 		this.#shadow.appendChild(this.#board);
 		this.#shadow.appendChild(this.#masks);
 
+		// @ts-ignore
 		const isWebkit = typeof window.webkitConvertPointFromNodeToPage === "function";
 
 		if (isWebkit) {
