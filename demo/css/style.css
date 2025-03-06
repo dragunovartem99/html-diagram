@@ -97,6 +97,59 @@ demo-diagram {
 	--diagram-dark: lightsteelblue;
 }
 
+.grid {
+	container-type: inline-size;
+	font-family: var(--diagram-font);
+	display: grid;
+	grid-template-columns: repeat(8, 1fr);
+}
+
+.grid div {
+	font-size: 12.5cqw;
+	line-height: 1;
+}
+
+.grid div::after { content: "+"; }
+.grid div[dark]::after { content: "="; }
+
+/* White Pieces */
+.grid div[is="K"]::after { content: "K"; }
+.grid div[is="K"][dark]::after { content: "k"; }
+
+.grid div[is="Q"]::after { content: "Q"; }
+.grid div[is="Q"][dark]::after { content: "q"; }
+
+.grid div[is="R"]::after { content: "R"; }
+.grid div[is="R"][dark]::after { content: "r"; }
+
+.grid div[is="B"]::after { content: "B"; }
+.grid div[is="B"][dark]::after { content: "b"; }
+
+.grid div[is="N"]::after { content: "N"; }
+.grid div[is="N"][dark]::after { content: "n"; }
+
+.grid div[is="P"]::after { content: "P"; }
+.grid div[is="P"][dark]::after { content: "p"; }
+
+/* Black Pieces (Russian) */
+.grid div[is="k"]::after { content: "Ц"; }
+.grid div[is="k"][dark]::after { content: "ц"; }
+
+.grid div[is="q"]::after { content: "Ф"; }
+.grid div[is="q"][dark]::after { content: "ф"; }
+
+.grid div[is="r"]::after { content: "Л"; }
+.grid div[is="r"][dark]::after { content: "л"; }
+
+.grid div[is="b"]::after { content: "С"; }
+.grid div[is="b"][dark]::after { content: "с"; }
+
+.grid div[is="n"]::after { content: "К"; }
+.grid div[is="n"][dark]::after { content: "к"; }
+
+.grid div[is="p"]::after { content: "П"; }
+.grid div[is="p"][dark]::after { content: "п"; }
+
 .player {
 	font-size: 1.6em;
 	border-bottom: 2px solid var(--color-subtle);
