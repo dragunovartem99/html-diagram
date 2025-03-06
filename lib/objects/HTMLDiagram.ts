@@ -1,8 +1,9 @@
 import { getBoardCSS } from "../static/getBoardCSS";
+import { validateBooleanAttribute } from "../utils/validateBooleanAttribute";
 import { Board } from "./Board";
 
 export class HTMLDiagram extends HTMLElement {
-	static observedAttributes = ["fen"];
+	static observedAttributes = ["fen", "flipped"];
 
 	#board = new Board();
 	#shadow;
@@ -30,20 +31,21 @@ export class HTMLDiagram extends HTMLElement {
 		// @ts-ignore
 		const isWebkit = typeof window.webkitConvertPointFromNodeToPage === "function";
 
-		if (isWebkit) {
-			const setUnit = () =>
-				this.setAttribute(
-					"style",
-					`--diagram-webkit-unit: ${this.getBoundingClientRect().width / 8}px;`
-				);
+		if (!isWebkit) return;
 
-			setUnit();
-			window.addEventListener("resize", setUnit);
-		}
+		const setUnit = () =>
+			this.setAttribute(
+				"style",
+				`--diagram-webkit-unit: ${this.getBoundingClientRect().width / 8}px;`
+			);
+
+		setUnit();
+		window.addEventListener("resize", setUnit);
 	}
 
 	// @ts-ignore
 	attributeChangedCallback(name: string, oldValue: string, newValue: string) {
-		this.#board.setPosition(newValue);
+		name === "fen" && (this.#board.fen = newValue);
+		name === "flipped" && (this.#board.flipped = validateBooleanAttribute(name, newValue));
 	}
 }
