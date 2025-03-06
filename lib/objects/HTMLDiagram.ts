@@ -38,6 +38,19 @@ export class HTMLDiagram extends HTMLElement {
 
 		this.#shadow.appendChild(this.#board);
 		this.#shadow.appendChild(this.#masks);
+
+		const isWebkit = typeof window.webkitConvertPointFromNodeToPage === "function";
+
+		if (isWebkit) {
+			const setUnit = () =>
+				this.setAttribute(
+					"style",
+					`--diagram-webkit-unit: ${this.getBoundingClientRect().width / 8}px;`
+				);
+
+			setUnit();
+			window.addEventListener("resize", setUnit);
+		}
 	}
 
 	#setCSS() {
