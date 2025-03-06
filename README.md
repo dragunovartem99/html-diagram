@@ -75,7 +75,7 @@ Pick the chess font you like; then define it in CSS.
 
 After you've read [note about fonts](#note-about-fonts), you can look in [./public/fonts](https://github.com/dragunovartem99/html-diagram/tree/main/public/fonts) directory, and pick something you like.
 
-In this example, we'll use the lovely "Adventurer" font by chess fonts _champion_ - Armando H. Marroquin:
+In this example, we'll use the lovely "Adventurer" font by chess fonts _legend_ - Armando H. Marroquin:
 
 ```css
 @font-face {
@@ -202,6 +202,7 @@ A heartfelt thank you to the creators and contributors of these exceptional **Fr
 
 | Font Name  | Author               | Year |
 | ---------- | -------------------- | ---- |
+| Adventurer | Armando H. Marroquin | 2000 |
 | Cases      | Matthieu Leschemelle | 1999 |
 | Smart      | Christoph Wirth      | 1992 |
 
