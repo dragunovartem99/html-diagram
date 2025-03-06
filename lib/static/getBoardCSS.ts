@@ -7,11 +7,11 @@ const css = `
 	}
 
 	div {
-		user-select: none;
 		line-height: 1;
+		user-select: none;
+		font-family: var(--diagram-font);
 		color: var(--diagram-stroke, black);
 		font-size: var(--diagram-webkit-unit, 12.5cqw);
-		font-family: var(--diagram-font);
 	}
 
 	div::before { content: "+" } [dark]::before { content: "=" }
@@ -37,8 +37,9 @@ const css = `
 		position: absolute;
 		inset: 0;
 		z-index: -1;
-		background-color: var(--diagram-light, white);
 		color: var(--diagram-fill, white);
+		background-color: var(--diagram-light, white);
+		-webkit-text-stroke-width: var(--diagram-outline);
 	}
 
 	:host([colored]) [dark]::after { background: var(--diagram-dark, lightgray) }
