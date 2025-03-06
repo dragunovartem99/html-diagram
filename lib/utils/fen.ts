@@ -6,5 +6,5 @@ export function getIterableFen(fen: FenRecord) {
 		.replace(/\//g, "")
 		.replace(/\d/g, (digit) => "1".repeat(+digit)) // expand numbers, e.g. "3" => "111"
 		.slice(0, 64) // cut possible extra symbols (e.g. Crazyhouse)
-		.split("") // convert to array
+		.split(""); // convert to array
 }

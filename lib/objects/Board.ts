@@ -6,11 +6,11 @@ export class Board {
 	#html = getBoardHTML();
 
 	setPosition(fen: FenRecord) {
-		getIterableFen(fen).forEach((char, index) => {
+		getIterableFen(fen).forEach((char, index) =>
 			isNaN(+char)
 				? this.#html[index].setAttribute("is", char)
-				: this.#html[index].removeAttribute("is");
-		});
+				: this.#html[index].removeAttribute("is")
+		);
 	}
 
 	get html() {
