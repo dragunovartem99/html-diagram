@@ -13,7 +13,7 @@ export class HTMLDiagram extends HTMLElement {
 	#colored = false;
 
 	#shadow;
-	#board!: HTMLDivElement;
+	#board!: HTMLDivElement[];
 	#masks?: HTMLDivElement;
 
 	constructor() {
@@ -31,13 +31,10 @@ export class HTMLDiagram extends HTMLElement {
 	}
 
 	#setHTML() {
-		const { board, masks } = getBoardHTML();
+		const board = getBoardHTML();
 
 		this.#board = board;
-		this.#masks = masks;
-
-		this.#shadow.appendChild(this.#board);
-		this.#shadow.appendChild(this.#masks);
+		board.forEach((square) => this.#shadow.appendChild(square));
 
 		// @ts-ignore
 		const isWebkit = typeof window.webkitConvertPointFromNodeToPage === "function";
@@ -59,15 +56,8 @@ export class HTMLDiagram extends HTMLElement {
 	}
 
 	#render() {
-		let { board, masks } = this.#enigma.encode({ fen: this.#fen, colored: this.#colored });
-
-		this.#flipped && (board = this.#enigma.reverse(board));
-		this.#board.textContent = board;
-
-		if (masks) {
-			this.#flipped && (masks = this.#enigma.reverse(masks));
-			this.#masks!.textContent = masks;
-		}
+		const { board } = this.#enigma.encode({ fen: this.#fen, colored: this.#colored });
+		[...board].forEach((char, index) => this.#board[index].setAttribute("is", char))
 	}
 
 	attributeChangedCallback(name: string, _: string, newValue: string) {

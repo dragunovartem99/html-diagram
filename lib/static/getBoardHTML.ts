@@ -1,9 +1,4 @@
 export function getBoardHTML() {
-	const board = document.createElement("div");
-	const masks = document.createElement("div");
-
-	board.classList.add("board");
-	masks.classList.add("masks");
-
-	return { board, masks };
+	const board = Array.from({ length: 64 }, () => document.createElement("div"));
+	return board;
 }

@@ -38,7 +38,6 @@ export class Enigma {
 			.replace(/\//g, "") // remove slashes
 			.replace(/\d/g, (digit) => " ".repeat(+digit)) // expand empty squares
 			.slice(0, 64) // cut possible extra symbols (e.g. Crazyhouse)
-			.replace(/./g, (...args) => callback(...args)) // substitute
-			.replace(/(.{8})/g, "$1 ");
+			.replace(/./g, (...args) => callback(...args)); // substitute
 	}
 }
