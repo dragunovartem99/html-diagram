@@ -1,5 +1,4 @@
 import { getBoardCSS } from "../static/getBoardCSS";
-import { validateBooleanAttribute } from "../utils/validateBooleanAttribute";
 import { Board } from "./Board";
 
 export class HTMLDiagram extends HTMLElement {
