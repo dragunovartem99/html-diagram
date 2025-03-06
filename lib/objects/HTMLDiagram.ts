@@ -44,8 +44,8 @@ export class HTMLDiagram extends HTMLElement {
 	}
 
 	// @ts-ignore
-	attributeChangedCallback(name: string, oldValue: string, newValue: string) {
+	attributeChangedCallback(name: string, _: string, newValue: string) {
 		name === "fen" && (this.#board.fen = newValue);
-		name === "flipped" && (this.#board.flipped = validateBooleanAttribute(name, newValue));
+		name === "flipped" && (this.#board.flipped = newValue !== null);
 	}
 }
