@@ -4,25 +4,29 @@ const css = `
 		position: relative;
 		container-type: inline-size;
 	}
-	.board, .masks {
+	:host > * {
 		user-select: none;
 		line-height: 1;
 		font-size: var(--diagram-webkit-unit, 12.5cqw);
 		font-family: var(--diagram-font);
 	}
-	.board { color: var(--diagram-stroke, #000); }
-	.masks { display: none; }
 	:host([colored]) .masks {
 		display: block;
+	}
+	.masks {
+		display: none;
 		position: absolute;
 		inset: 0;
 		z-index: -1;
 		-webkit-text-stroke-width: var(--diagram-outline);
-		color: var(--diagram-fill, #fff);
+		color: var(--diagram-fill, white);
 		background: repeating-conic-gradient(
-			var(--diagram-dark, #bbb) 0% 25%,
-			var(--diagram-light, #eee) 0% 50%
+			var(--diagram-dark, lightgray) 0% 25%,
+			var(--diagram-light, white) 0% 50%
 		) 50% / 25% 25%;
+	}
+	.board {
+		color: var(--diagram-stroke, black);
 	}
 `;
 
