@@ -1,5 +1,11 @@
 # html-diagram
 
+## 0.5.1
+
+### Patch Changes
+
+- Improve webkit init + resizing
+
 ## 0.5.0
 
 ### Minor Changes
