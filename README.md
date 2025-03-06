@@ -134,7 +134,7 @@ Boolean attribute that rotates the board to show the perspective of the Black pl
 <my-diagram flipped></my-diagram>
 
 <!-- or -->
-
+<my-diagram flipped=""></my-diagram>
 <my-diagram flipped="flipped"></my-diagram>
 ```
 
@@ -148,19 +148,9 @@ Boolean attribute that enables a colored mode for the diagram.
 <my-diagram colored></my-diagram>
 
 <!-- or -->
-
+<my-diagram colored=""></my-diagram>
 <my-diagram colored="colored"></my-diagram>
 ```
-
-### Boolean Atributes: Valid Values
-
-> [!Important]
-> For boolean attributes like flipped and colored, the only valid values are:
-> - The attribute name alone (e.g., `flipped`).
-> - An empty string (e.g., `flipped=""`).
-> - The attribute name as its value, case-insensitive (e.g., `flipped="flipped"`)
->
-> Explanation: https://html.spec.whatwg.org/dev/common-microsyntaxes.html#boolean-attributes
 
 ### Combining Attributes
 
@@ -171,8 +161,7 @@ You can combine multiple attributes in a single html-diagram element to customiz
 	fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
 	flipped
 	colored
->
-</my-diagram>
+></my-diagram>
 ```
 
 ### Interacting with Javascript
