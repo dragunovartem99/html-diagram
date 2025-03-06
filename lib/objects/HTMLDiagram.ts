@@ -9,12 +9,13 @@ export class HTMLDiagram extends HTMLElement {
 	#enigma = new Enigma();
 
 	#fen = "8/8/8/8/8/8/8/8";
+	// @ts-ignore
 	#flipped = false;
+	// @ts-ignore
 	#colored = false;
 
 	#shadow;
 	#board!: HTMLDivElement[];
-	#masks?: HTMLDivElement;
 
 	constructor() {
 		super();
@@ -56,8 +57,12 @@ export class HTMLDiagram extends HTMLElement {
 	}
 
 	#render() {
-		const { board } = this.#enigma.encode({ fen: this.#fen, colored: this.#colored });
-		[...board].forEach((char, index) => this.#board[index].setAttribute("is", char))
+		const board = this.#enigma.encode({ fen: this.#fen, colored: false });
+		[...board].forEach((char, index) =>
+			char === " "
+				? this.#board[index].removeAttribute("is")
+				: this.#board[index].setAttribute("is", char)
+		);
 	}
 
 	attributeChangedCallback(name: string, _: string, newValue: string) {
