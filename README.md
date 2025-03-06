@@ -19,6 +19,8 @@ Demo: https://dragunovartem99.github.io/html-diagram
 - Lightweight: the modules (ES and CommonJS) are each around `~5kb`
 - Friendly to your CPU
 
+> Supported browsers: Chrome 105+, Safari 16.4+, Firefox 110+
+
 ## Note About Fonts
 
 [List Of Supported Fonts](#list-of-supported-fonts)
