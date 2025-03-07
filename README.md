@@ -204,6 +204,7 @@ A heartfelt thank you to the creators and contributors of these exceptional **Fr
 | ---------- | -------------------- | ---- |
 | Adventurer | Armando H. Marroquin | 2000 |
 | Cases      | Matthieu Leschemelle | 1999 |
+| Merida     | Armando H. Marroquin | 1998 |
 | Smart      | Christoph Wirth      | 1992 |
 
 If you know of any additional **free** (or **Freeware**) chess fonts, or if you’ve created your own, please feel free to share them with me!
