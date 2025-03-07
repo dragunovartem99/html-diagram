@@ -4,11 +4,12 @@ Demo: https://dragunovartem99.github.io/html-diagram
 
 ```html
 <html-diagram>
-    Render chess diagrams with plain text – a lightweight Web Component
+    Create chessboards with just text – a lightweight Web Component
 </html-diagram>
 ```
 
-<img src="https://github.com/user-attachments/assets/6ca21907-c507-4620-a11e-87699e52ad2f" width="240" alt="Screenshot of HTML Diagram with Adventurer font">
+
+<img src="https://github.com/user-attachments/assets/339ed4c8-b540-432c-80c3-e55e2c712cc1" width="240" alt="Screenshot of HTML Diagram with Adventurer font">
 
 ## Features
 
