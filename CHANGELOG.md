@@ -1,5 +1,11 @@
 # html-diagram
 
+## 0.5.2
+
+### Patch Changes
+
+- Generate CSS dynamically
+
 ## 0.5.1
 
 ### Patch Changes
