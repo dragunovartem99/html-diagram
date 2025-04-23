@@ -34,12 +34,13 @@
 		"build": "tsc && vite build -c lib.config.ts",
 		"build-demo": "tsc && vite build -c demo.config.ts",
 		"dev": "vite -c lib.config.ts",
-		"flow": "bash .flow",
+		"flow": "flow",
 		"format": "prettier . --write",
 		"preview": "vite preview -c demo.config.ts"
 	},
 	"prettier": "@dragunovartem99/prettier-config",
 	"devDependencies": {
+		"@dragunovartem99/flow": "^0.1.1",
 		"@dragunovartem99/prettier-config": "^1.2.0",
 		"@types/node": "^22.13.1",
 		"typescript": "~5.7.2",

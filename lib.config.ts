@@ -9,7 +9,7 @@ export default defineConfig({
 	build: {
 		lib: {
 			entry: resolve(__dirname, "lib/index.ts"),
-			name: "HTMLDiagram",
+			name: "HTML Diagram",
 			fileName: "html-diagram",
 		},
 		copyPublicDir: false,
