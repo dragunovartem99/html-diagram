@@ -16,7 +16,8 @@ let css = `
 		font-size: var(--diagram-webkit-unit, 12.5cqw);
 	}
 	:host([colored]) div {
-		position: relative
+		position: relative;
+		z-index: 0;
 	}
 	:host([colored]) div::after {
 		content: "";
@@ -28,7 +29,7 @@ let css = `
 		-webkit-text-stroke-width: var(--diagram-outline);
 	}
 	:host([colored]) [dark]::after {
-		background: var(--diagram-dark, lightgray)
+		background: var(--diagram-dark, lightgray);
 	}
 `;
 
