@@ -16,7 +16,6 @@ body {
 	min-height: 100vh;
 	background-image: url("../assets/texture-light.jpg");
 	background-size: min(100vh, 700px);
-	background-color: red;
 }
 
 /* Typography */
