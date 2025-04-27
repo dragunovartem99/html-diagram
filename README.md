@@ -3,8 +3,11 @@
 Demo: https://dragunovartem99.github.io/html-diagram
 
 ```html
-<html-diagram> Create chessboards with just text – a lightweight Web Component </html-diagram>
+<html-diagram>
+    Create chessboards with just text – a lightweight Web Component
+</html-diagram>
 ```
+
 
 <img src="https://github.com/user-attachments/assets/339ed4c8-b540-432c-80c3-e55e2c712cc1" width="240" alt="Screenshot of HTML Diagram with Adventurer font">
 
@@ -42,7 +45,7 @@ All fonts used in the demo are located in [./public/fonts](https://github.com/dr
 
 ### woff2 versions
 
-To achieve compatibility and minimize file size, each original font is accompanied by a `woff2` version. The `woff2` files reuse the following glyphs: king, queen, rook, bishop, knight, pawn, and empty square.
+To achieve compatibility and minimize file size, each original font is accompanied by a  `woff2` version. The `woff2` files reuse the following glyphs: king, queen, rook, bishop, knight, pawn, and empty square.
 
 No modifications have been made to the design of the original glyphs.
 
@@ -77,8 +80,8 @@ In this example, we'll use the lovely "Adventurer" font by chess fonts _legend_ 
 
 ```css
 @font-face {
-	font-family: "Diagram Adventurer";
-	src: "<your-path>/DiagramAdventurer.woff2";
+    font-family: "Diagram Adventurer";
+    src: "<your-path>/DiagramAdventurer.woff2";
 }
 ```
 
@@ -86,7 +89,7 @@ Then, you must tell your diagram to use this font. This is achieved by using CSS
 
 ```css
 my-diagram {
-	--diagram-font: "Diagram Adventurer";
+    --diagram-font: "Diagram Adventurer";
 }
 ```
 
@@ -179,18 +182,17 @@ myDiagram.removeAttribute("flipped"); // remove the flipped state
 ## Styling
 
 Universal Settings:
-
 - `--diagram-font`: Font family for chess pieces
 - `--diagram-stroke`: Stroke color for pieces and board
 
 Colored Mode:
-
 - `--diagram-fill`: Fill color inside chess pieces
 - `--diagram-light`: Color of light squares
 - `--diagram-dark`: Color of dark squares
 - `--diagram-outline`: Outline around chess pieces. Use `cqw` units
 
-> [!Note] > `1cqw` is equal to 1% of the diagram's width. This ensures the diagram remains responsive and proportional.  
+> [!Note]
+> `1cqw` is equal to 1% of the diagram's width. This ensures the diagram remains responsive and proportional.  
 > [MDN: Container query length units](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries#container_query_length_units)
 
 ## List of Supported Fonts
