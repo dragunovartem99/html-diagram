@@ -39,7 +39,8 @@ export class HTMLDiagram extends HTMLElement {
 			this.setAttribute("style", `--diagram-webkit-unit: ${this.clientWidth / 8}px;`);
 		};
 
-		requestAnimationFrame(() => setUnit());
+		setUnit();
+
 		this.#resizeObserver = new ResizeObserver(setUnit);
 		this.#resizeObserver.observe(this);
 	}
