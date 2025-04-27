@@ -1,6 +1,6 @@
 {
 	"name": "html-diagram",
-	"version": "0.5.2",
+	"version": "0.5.3",
 	"description": "",
 	"keywords": [],
 	"homepage": "https://github.com/dragunovartem99/html-diagram#readme",
@@ -42,6 +42,7 @@
 	},
 	"prettier": "@dragunovartem99/prettier-config",
 	"devDependencies": {
+		"@changesets/cli": "^2.29.2",
 		"@dragunovartem99/flow": "^0.1.1",
 		"@dragunovartem99/prettier-config": "^1.2.0",
 		"@eslint/js": "^9.25.1",
