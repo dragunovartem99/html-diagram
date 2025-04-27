@@ -18,7 +18,8 @@ export class HTMLDiagram extends HTMLElement {
 	connectedCallback() {
 		this.#setHTML();
 		this.#setCSS();
-		isWebkit(window) && this.#supportWebkit();
+
+		if (isWebkit(window)) this.#supportWebkit();
 	}
 
 	disconnectedCallback() {
@@ -44,7 +45,10 @@ export class HTMLDiagram extends HTMLElement {
 	}
 
 	attributeChangedCallback(name: string, _: string, newValue: string) {
-		name === "fen" && (this.#board.fen = newValue);
-		name === "flipped" && (this.#board.flipped = checkBooleanAttribute(newValue));
+		if (name === "fen") {
+			this.#board.fen = newValue;
+		} else if (name === "flipped") {
+			this.#board.flipped = checkBooleanAttribute(newValue);
+		}
 	}
 }
