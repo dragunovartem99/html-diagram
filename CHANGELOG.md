@@ -1,5 +1,11 @@
 # html-diagram
 
+## 0.5.3
+
+### Patch Changes
+
+- Remove fancy syntax, make it simpler
+
 ## 0.5.2
 
 ### Patch Changes

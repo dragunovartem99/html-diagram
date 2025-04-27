@@ -1,4 +1,4 @@
 export function isWebkit(window: Window): boolean {
-	// @ts-ignore
+	// @ts-expect-error: this property "doesn't exist" on type Window
 	return typeof window.webkitConvertPointFromNodeToPage === "function";
 }

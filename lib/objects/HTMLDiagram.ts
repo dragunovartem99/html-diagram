@@ -18,7 +18,8 @@ export class HTMLDiagram extends HTMLElement {
 	connectedCallback() {
 		this.#setHTML();
 		this.#setCSS();
-		isWebkit(window) && this.#supportWebkit();
+
+		if (isWebkit(window)) this.#supportWebkit();
 	}
 
 	disconnectedCallback() {
@@ -38,13 +39,17 @@ export class HTMLDiagram extends HTMLElement {
 			this.setAttribute("style", `--diagram-webkit-unit: ${this.clientWidth / 8}px;`);
 		};
 
-		requestAnimationFrame(() => setUnit());
+		setUnit();
+
 		this.#resizeObserver = new ResizeObserver(setUnit);
 		this.#resizeObserver.observe(this);
 	}
 
 	attributeChangedCallback(name: string, _: string, newValue: string) {
-		name === "fen" && (this.#board.fen = newValue);
-		name === "flipped" && (this.#board.flipped = checkBooleanAttribute(newValue));
+		if (name === "fen") {
+			this.#board.fen = newValue;
+		} else if (name === "flipped") {
+			this.#board.flipped = checkBooleanAttribute(newValue);
+		}
 	}
 }

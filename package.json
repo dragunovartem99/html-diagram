@@ -1,6 +1,6 @@
 {
 	"name": "html-diagram",
-	"version": "0.5.2",
+	"version": "0.5.3",
 	"description": "",
 	"keywords": [],
 	"homepage": "https://github.com/dragunovartem99/html-diagram#readme",
@@ -36,14 +36,21 @@
 		"dev": "vite -c lib.config.ts",
 		"flow": "flow",
 		"format": "prettier . --write",
-		"preview": "vite preview -c demo.config.ts"
+		"lint": "eslint",
+		"preview": "vite preview -c demo.config.ts",
+		"prepare": "husky"
 	},
 	"prettier": "@dragunovartem99/prettier-config",
 	"devDependencies": {
+		"@changesets/cli": "^2.29.2",
 		"@dragunovartem99/flow": "^0.1.1",
 		"@dragunovartem99/prettier-config": "^1.2.0",
+		"@eslint/js": "^9.25.1",
 		"@types/node": "^22.13.1",
+		"eslint": "^9.25.1",
+		"husky": "^9.1.7",
 		"typescript": "~5.7.2",
+		"typescript-eslint": "^8.31.0",
 		"vite": "^6.1.0",
 		"vite-plugin-dts": "^4.5.0"
 	}
