@@ -204,6 +204,7 @@ A heartfelt thank you to the creators and contributors of these exceptional **Fr
 | Font Name  | Author               | Year |
 | ---------- | -------------------- | ---- |
 | Adventurer | Armando H. Marroquin | 2000 |
+| Berlin     | Eric Bentzen         | 1997 |
 | Cases      | Matthieu Leschemelle | 1999 |
 | Merida     | Armando H. Marroquin | 1998 |
 | Smart      | Christoph Wirth      | 1992 |
