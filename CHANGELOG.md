@@ -1,5 +1,11 @@
 # html-diagram
 
+## 0.5.6
+
+### Patch Changes
+
+- Improve SEO and README
+
 ## 0.5.5
 
 ### Patch Changes
