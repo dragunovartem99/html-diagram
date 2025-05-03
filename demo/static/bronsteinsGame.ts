@@ -46,4 +46,3 @@ export const bronsteinsGame = [
 	"rnQ2b1r/p1N1kp1p/3q4/1p2P3/3P4/8/PP3KPP/n6R w - - 0 23",
 	"rn2Qb1r/p1N1kp1p/3q4/1p2P3/3P4/8/PP3KPP/n6R b - - 1 23",
 ];
-
