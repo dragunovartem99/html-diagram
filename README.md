@@ -1,6 +1,11 @@
-# HTML Diagram
+# <img src="public/logo.svg" width="30" alt="Logo of HTML Diagram"> HTML Diagram
 
-Demo: https://dragunovartem99.github.io/html-diagram
+
+<a href="https://dragunovartem99.github.io/html-diagram" target="_blank"><img alt="Static Badge" src="https://img.shields.io/badge/Watch_Live_Demo-red"></a>
+<img alt="NPM Downloads" src="https://img.shields.io/npm/d18m/html-diagram?color=blue">
+<img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/html-diagram?color=blue">
+<img alt="NPM Version" src="https://img.shields.io/npm/v/html-diagram?color=orange">
+
 
 ```html
 <html-diagram>
