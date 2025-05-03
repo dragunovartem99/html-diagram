@@ -1,5 +1,12 @@
 # html-diagram
 
+## 0.5.5
+
+### Patch Changes
+
+- d077503: Reduce amount of function invocations
+- ff6de71: Add support for Berlin font
+
 ## 0.5.4
 
 ### Patch Changes
