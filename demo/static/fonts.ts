@@ -1,3 +1,3 @@
 import { FontName } from "../types";
 
-export const fonts: FontName[] = ["Adventurer", "Berlin", "Cases", "Merida", "Smart"];
+export const fonts: FontName[] = ["Adventurer", "Berlin", "Cases", "Kingdom", "Merida", "Smart"];
