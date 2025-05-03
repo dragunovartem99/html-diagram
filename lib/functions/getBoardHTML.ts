@@ -1,9 +1,10 @@
 export function getBoardHTML() {
 	const board = Array.from({ length: 64 }, (_, index) => {
 		const square = document.createElement("div");
-		if ((index * 9) & 8) {
-			square.setAttribute("dark", "");
-		}
+
+		const isDark = ((index * 9) & 8) !== 0;
+		if (isDark) square.setAttribute("dark", "");
+
 		return square;
 	});
 	return board;

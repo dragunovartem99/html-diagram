@@ -1,18 +1,23 @@
-import type { FenRecord } from "../types";
-import { getBoardHTML } from "../static/getBoardHTML";
-import { getIterableFen } from "../utils/getIterableFen";
+import type { BoardHTML, FenRecord, IBoard } from "../types";
+import { getBoardHTML } from "../functions/getBoardHTML";
+import { getIterableFen } from "../functions/getIterableFen";
 
-export class Board {
-	#html = getBoardHTML();
+export class Board implements IBoard {
+	#html: BoardHTML = getBoardHTML();
 	#fen: FenRecord = "8/8/8/8/8/8/8/8";
-	#flipped = false;
+	#flipped: boolean = false;
 
 	#render() {
-		getIterableFen({ fen: this.#fen, reversed: this.#flipped }).forEach((char, index) =>
-			isNaN(+char)
-				? this.#html[index].setAttribute("is", char)
-				: this.#html[index].removeAttribute("is")
-		);
+		const fen = getIterableFen({ fen: this.#fen, reversed: this.#flipped });
+
+		fen.forEach((char, index) => {
+			const isPiece = isNaN(+char);
+			if (isPiece) {
+				this.#html[index].setAttribute("is", char);
+			} else {
+				this.#html[index].removeAttribute("is");
+			}
+		});
 	}
 
 	get html() {
