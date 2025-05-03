@@ -2,7 +2,18 @@
 	"name": "html-diagram",
 	"version": "0.5.5",
 	"description": "",
-	"keywords": [],
+	"keywords": [
+		"chess",
+		"chessboard",
+		"diagram",
+		"chess-diagram",
+		"web-component",
+		"custom-element",
+		"pgn",
+		"fen",
+		"printing",
+		"text"
+	],
 	"homepage": "https://github.com/dragunovartem99/html-diagram#readme",
 	"bugs": {
 		"url": "https://github.com/dragunovartem99/html-diagram/issues",
