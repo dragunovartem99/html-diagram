@@ -1,6 +1,5 @@
 # <img src="public/logo.svg" width="30" alt="Logo of HTML Diagram"> HTML Diagram
 
-
 <a href="https://dragunovartem99.github.io/html-diagram" target="_blank"><img alt="Static Badge" src="https://img.shields.io/badge/Watch_Live_Demo-red"></a>
 <img alt="NPM Downloads" src="https://img.shields.io/npm/d18m/html-diagram?color=blue">
 <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/html-diagram?color=blue">
@@ -211,6 +210,7 @@ A heartfelt thank you to the creators and contributors of these exceptional **Fr
 | Adventurer | Armando H. Marroquin | 2000 |
 | Berlin     | Eric Bentzen         | 1997 |
 | Cases      | Matthieu Leschemelle | 1999 |
+| Kingdom    | Armando H. Marroquin | 1998 |
 | Merida     | Armando H. Marroquin | 1998 |
 | Smart      | Christoph Wirth      | 1992 |
 
