@@ -1,4 +1,4 @@
-import { FontName } from "./types";
+import { FontName } from "../types";
 
 function registerFontFamily(font: FontName) {
 	const stylesheet = new CSSStyleSheet();
