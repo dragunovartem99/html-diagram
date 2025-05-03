@@ -3,7 +3,7 @@ import { HTMLDiagram } from "../lib";
 
 // Demo
 import "./css/style.css";
-import { fonts } from "./scripts/fonts";
+import { fonts } from "./static/fonts";
 import { renderFontOptions } from "./scripts/renderFontOptions";
 import { setTypography } from "./scripts/setTypography";
 import { watchTV } from "./scripts/watchTV";
