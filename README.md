@@ -1,6 +1,8 @@
-# HTML Diagram
+# <img src="public/logo.svg" width="30" alt="Logo of HTML Diagram"> HTML Diagram
 
-Demo: https://dragunovartem99.github.io/html-diagram
+<a href="https://dragunovartem99.github.io/html-diagram" target="_blank" rel="noreferrer">
+    <img src="https://img.shields.io/badge/Live-Demo-brightgreen" alt="Demo">
+</a>
 
 ```html
 <html-diagram>
