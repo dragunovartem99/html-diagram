@@ -6,3 +6,11 @@ export type MaskMap = Map<BoardObject, string>;
 
 export type FenRecord = string;
 export type Cipher = string;
+
+export type BoardHTML = HTMLElement[];
+
+export interface IBoard {
+	html: BoardHTML;
+	fen: FenRecord;
+	flipped: boolean;
+}

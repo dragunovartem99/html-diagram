@@ -1,12 +1,13 @@
+import { IBoard } from "../types";
 import { Board } from "./Board";
-import { getBoardCSS } from "../static/getBoardCSS";
+import { getBoardCSS } from "../functions/getBoardCSS";
 import { isWebkit } from "../utils/isWebkit";
 import { checkBooleanAttribute } from "../utils/checkBooleanAttribute";
 
 export class HTMLDiagram extends HTMLElement {
 	static observedAttributes = ["fen", "flipped"];
 
-	#board = new Board();
+	#board: IBoard = new Board();
 	#shadow;
 	#resizeObserver?: ResizeObserver;
 
