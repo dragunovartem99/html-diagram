@@ -18,7 +18,7 @@ import { watchBronstein } from "./scripts/watchBronstein";
 	// Demo: Typography select
 	const typography = document.querySelector("#typography");
 	renderFontOptions(fonts, typography);
-	setTypography(typography.value);
+	setTypography("Leipzig");
 	typography.addEventListener("change", ({ target }) => setTypography(target.value));
 }
 

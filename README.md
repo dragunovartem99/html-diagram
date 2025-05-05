@@ -5,13 +5,11 @@
 <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/html-diagram?color=blue">
 <img alt="NPM Version" src="https://img.shields.io/npm/v/html-diagram?color=orange">
 
-
 ```html
 <html-diagram>
     Create chessboards with just text – a lightweight Web Component
 </html-diagram>
 ```
-
 
 <img src="https://github.com/user-attachments/assets/339ed4c8-b540-432c-80c3-e55e2c712cc1" width="240" alt="Screenshot of HTML Diagram with Adventurer font">
 
@@ -211,6 +209,7 @@ A heartfelt thank you to the creators and contributors of these exceptional **Fr
 | Berlin     | Eric Bentzen         | 1997 |
 | Cases      | Matthieu Leschemelle | 1999 |
 | Kingdom    | Armando H. Marroquin | 1998 |
+| Leipzig    | Armando H. Marroquin | 1998 |
 | Merida     | Armando H. Marroquin | 1998 |
 | Smart      | Christoph Wirth      | 1992 |
 
