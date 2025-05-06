@@ -203,6 +203,8 @@ Colored Mode:
 
 A heartfelt thank you to the creators and contributors of these exceptional **Freeware** fonts:
 
+<!-- TODO: Release new patch when 10 fonts are supported -->
+
 | Font Name  | Author               | Year |
 | ---------- | -------------------- | ---- |
 | Adventurer | Armando H. Marroquin | 2000 |
