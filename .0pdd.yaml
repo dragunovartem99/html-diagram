@@ -2,13 +2,6 @@ threshold: 16
 model: false
 errors:
     - dragunovartem99@gmail.com
-alerts:
-    suppress:
-        - on-found-puzzle
-        - on-lost-puzzle
-        - on-scope
-    github:
-        - dragunovartem99
 format:
     - short-title
     - title-length=64
