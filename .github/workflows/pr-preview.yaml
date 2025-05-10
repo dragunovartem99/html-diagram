@@ -1,4 +1,4 @@
-name: Deploy PR previews
+name: PR Preview
 
 on:
     pull_request:
@@ -15,7 +15,7 @@ permissions:
 concurrency: preview-${{ github.ref }}
 
 jobs:
-    deploy-preview:
+    pr-preview:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
