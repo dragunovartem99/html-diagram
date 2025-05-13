@@ -61,6 +61,7 @@
 		"@types/node": "^22.13.1",
 		"eslint": "^9.25.1",
 		"husky": "^9.1.7",
+		"jsdom": "^26.1.0",
 		"typescript": "~5.8.0",
 		"typescript-eslint": "^8.31.0",
 		"vite": "^6.1.0",

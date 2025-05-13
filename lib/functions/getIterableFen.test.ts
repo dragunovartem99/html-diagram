@@ -1,5 +1,4 @@
 import { test, expect } from "vitest";
-
 import { getIterableFen } from "./getIterableFen";
 
 // The contract is: you enter the valid FEN, at least piece placement data
