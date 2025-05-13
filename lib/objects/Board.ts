@@ -11,11 +11,10 @@ export class Board implements IBoard {
 		const fen = getIterableFen({ fen: this.#fen, reversed: this.#flipped });
 
 		fen.forEach((char, index) => {
-			const isPiece = isNaN(+char);
-			if (isPiece) {
-				this.#html[index].setAttribute("is", char);
-			} else {
+			if (char === " ") {
 				this.#html[index].removeAttribute("is");
+			} else {
+				this.#html[index].setAttribute("is", char);
 			}
 		});
 	}
