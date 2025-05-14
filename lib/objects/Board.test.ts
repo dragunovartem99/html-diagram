@@ -19,7 +19,7 @@ test("Sets the fen", () => {
 	board.fen = fen;
 
 	// prettier-ignore
-	const sicilianDefence = [
+	const sicilianDefense = [
 		"r", "n", "b", "q", "k", "b", "n", "r",
 		"p", "p", " ", "p", "p", "p", "p", "p",
 		" ", " ", " ", " ", " ", " ", " ", " ",
@@ -30,7 +30,7 @@ test("Sets the fen", () => {
 		"R", "N", "B", "Q", "K", "B", "N", "R",
 	];
 
-	expect(extractIterableFen(board).join() === sicilianDefence.join()).toBe(true);
+	expect(extractIterableFen(board).join() === sicilianDefense.join()).toBe(true);
 });
 
 test("Flips the board", () => {
