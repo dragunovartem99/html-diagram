@@ -19,7 +19,7 @@ test("Sets the fen", () => {
 	board.fen = fen;
 
 	// prettier-ignore
-	const sicilianDefense = [
+	const sicilianSnapshot = [
 		"r", "n", "b", "q", "k", "b", "n", "r",
 		"p", "p", " ", "p", "p", "p", "p", "p",
 		" ", " ", " ", " ", " ", " ", " ", " ",
@@ -30,7 +30,7 @@ test("Sets the fen", () => {
 		"R", "N", "B", "Q", "K", "B", "N", "R",
 	];
 
-	expect(extractIterableFen(board).join() === sicilianDefense.join()).toBe(true);
+	expect(extractIterableFen(board)).toEqual(sicilianSnapshot);
 });
 
 test("Flips the board", () => {
@@ -43,5 +43,5 @@ test("Flips the board", () => {
 	board.flipped = true;
 	const reversedIterableFen = extractIterableFen(board);
 
-	expect(iterableFen.reverse().join() === reversedIterableFen.join()).toBe(true);
+	expect(iterableFen.reverse()).toEqual(reversedIterableFen);
 });

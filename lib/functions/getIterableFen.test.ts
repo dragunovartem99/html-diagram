@@ -26,7 +26,8 @@ test("Reverses FEN correctly", () => {
 	const fen = "2rqr1k1/5pb1/1p1p1np1/p1nPp2p/2P5/4BP2/PP1NB1PP/3QRR1K w - - 2 19";
 	const iterableFen = getIterableFen({ fen });
 	const reversedIterableFen = getIterableFen({ fen, reversed: true });
-	expect([...iterableFen].reverse().join() === reversedIterableFen.join()).toBe(true);
+
+	expect([...iterableFen].reverse()).toEqual(reversedIterableFen);
 });
 
 test("Returns correct value for complex position", () => {
@@ -34,7 +35,8 @@ test("Returns correct value for complex position", () => {
 	const iterableFen = getIterableFen({ fen });
 
 	// prettier-ignore
-	const result = [
+	// https://lichess.org/RoHsVV05#29
+	const snapshot = [
 		"r", " ", " ", "q", "r", " ", "k", " ",
 		" ", " ", "p", "b", " ", "p", "p", " ",
 		"p", "b", " ", "p", " ", "n", "n", "p",
@@ -44,7 +46,6 @@ test("Returns correct value for complex position", () => {
 		" ", "P", "B", " ", " ", "P", "P", " ",
 		"R", " ", "B", "Q", "R", " ", "K", " ",
 	];
-	// https://lichess.org/RoHsVV05#29
 
-	expect(iterableFen.join() === result.join()).toBe(true);
+	expect(iterableFen).toEqual(snapshot);
 });
