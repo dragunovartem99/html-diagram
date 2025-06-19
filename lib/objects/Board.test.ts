@@ -9,7 +9,7 @@ const extractIterableFen = (board: IBoard) =>
 
 test("Generates squares internally", () => {
 	const board = new Board();
-	expect(board.html.length).toBe(64);
+	expect(board.html).toHaveLength(64);
 });
 
 test("Sets the fen", () => {

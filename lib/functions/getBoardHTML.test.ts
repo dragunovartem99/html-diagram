@@ -7,7 +7,7 @@ const isDark = (el: HTMLDivElement) => el.hasAttribute("dark");
 
 test("Returns grid of 64 squares", () => {
 	const html = getBoardHTML();
-	expect(html.length).toBe(64);
+	expect(html).toHaveLength(64);
 });
 
 test("Returns only div elements", () => {
@@ -17,8 +17,8 @@ test("Returns only div elements", () => {
 
 test("Returns 32 dark and light squares", () => {
 	const html = getBoardHTML();
-	expect([...html].filter((el) => isDark(el)).length).toBe(32);
-	expect([...html].filter((el) => !isDark(el)).length).toBe(32);
+	expect([...html].filter((el) => isDark(el))).toHaveLength(32);
+	expect([...html].filter((el) => !isDark(el))).toHaveLength(32);
 });
 
 test("Returns squares in right order", () => {
