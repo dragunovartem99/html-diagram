@@ -167,7 +167,7 @@ You can combine multiple attributes in a single html-diagram element to customiz
 ></my-diagram>
 ```
 
-### Interacting with Javascript
+### Interacting with JavaScript
 
 You can update diagram attributes by using [Element interface](https://developer.mozilla.org/en-US/docs/Web/API/Element) from standard [HTML DOM API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API):
 
