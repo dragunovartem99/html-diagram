@@ -47,10 +47,12 @@ export class HTMLDiagram extends HTMLElement {
 	}
 
 	attributeChangedCallback(name: string, _: string, newValue: string) {
-		if (name === "fen") {
-			this.#board.fen = newValue;
-		} else if (name === "flipped") {
-			this.#board.flipped = checkBooleanAttribute(newValue);
+		switch (name) {
+			case "fen":
+				this.#board.fen = newValue;
+				break;
+			case "flipped":
+				this.#board.flipped = checkBooleanAttribute(newValue);
 		}
 	}
 }

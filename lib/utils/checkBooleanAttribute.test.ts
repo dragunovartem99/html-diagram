@@ -1,11 +1,21 @@
-import { expect, test } from "vitest";
+import { describe, expect, it } from "vitest";
+
 import { checkBooleanAttribute } from "./checkBooleanAttribute";
 
-test("Returns false for null values", () => {
-	expect(checkBooleanAttribute(null)).toBe(false);
-});
+describe("Works with boolean attributes in modern-browser-like way", () => {
+	// https://developer.mozilla.org/en-US/docs/Glossary/Boolean/HTML
 
-test("Returns true for string values", () => {
-	expect(checkBooleanAttribute("")).toBe(true);
-	expect(checkBooleanAttribute("flipped")).toBe(true);
+	it("Evaluates null values as false", () => {
+		expect(checkBooleanAttribute(null)).toBe(false);
+	});
+
+	it("Evaluates empty strings as true", () => {
+		expect(checkBooleanAttribute("")).toBe(true);
+	});
+
+	it("Evaluates same-name string values as true", () => {
+		expect(checkBooleanAttribute("flipped")).toBe(true);
+		expect(checkBooleanAttribute("Flipped")).toBe(true);
+		expect(checkBooleanAttribute("FLIPPED")).toBe(true);
+	});
 });

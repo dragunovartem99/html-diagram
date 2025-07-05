@@ -1,18 +1,23 @@
 // @vitest-environment jsdom
 
-import { expect, test } from "vitest";
+import { expect, it } from "vitest";
+
 import { Board } from "./Board";
 import { IBoard } from "../types";
 
-const extractIterableFen = (board: IBoard) =>
-	[...board.html].map((el) => el.getAttribute("is") ?? " ");
+const extractIterableFen = (board: IBoard) => {
+	return board.html.map((el) => {
+		const piece = el.getAttribute("is");
+		return piece ?? " ";
+	});
+};
 
-test("Generates squares internally", () => {
+it("Generates squares internally", () => {
 	const board = new Board();
 	expect(board.html).toHaveLength(64);
 });
 
-test("Sets the fen", () => {
+it("Sets the fen", () => {
 	const fen = "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2";
 	const board = new Board();
 
@@ -33,7 +38,7 @@ test("Sets the fen", () => {
 	expect(extractIterableFen(board)).toEqual(sicilianSnapshot);
 });
 
-test("Flips the board", () => {
+it("Flips the board", () => {
 	const fen = "rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2";
 	const board = new Board();
 

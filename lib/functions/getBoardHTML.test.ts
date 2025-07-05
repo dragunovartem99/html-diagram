@@ -1,31 +1,34 @@
 // @vitest-environment jsdom
 
-import { test, expect } from "vitest";
+import { expect, it } from "vitest";
 import { getBoardHTML } from "./getBoardHTML";
 
 const isDark = (el: HTMLDivElement) => el.hasAttribute("dark");
 
-test("Returns grid of 64 squares", () => {
+it("Returns grid of 64 squares", () => {
 	const html = getBoardHTML();
+
 	expect(html).toHaveLength(64);
 });
 
-test("Returns only div elements", () => {
+it("Returns only div elements", () => {
 	const html = getBoardHTML();
-	expect([...html].every((el) => el instanceof HTMLDivElement)).toBe(true);
+
+	expect(html.every((el) => el instanceof HTMLDivElement)).toBe(true);
 });
 
-test("Returns 32 dark and light squares", () => {
+it("Returns 32 dark and light squares", () => {
 	const html = getBoardHTML();
-	expect([...html].filter((el) => isDark(el))).toHaveLength(32);
-	expect([...html].filter((el) => !isDark(el))).toHaveLength(32);
+
+	expect(html.filter((el) => isDark(el))).toHaveLength(32);
+	expect(html.filter((el) => !isDark(el))).toHaveLength(32);
 });
 
-test("Returns squares in right order", () => {
+it("Returns squares in right order", () => {
 	const html = getBoardHTML();
 
 	// prettier-ignore
-	const matrix = [
+	const matrixSnapshot = [
 		0, 1, 0, 1, 0, 1, 0, 1,
 		1, 0, 1, 0, 1, 0, 1, 0,
 		0, 1, 0, 1, 0, 1, 0, 1,
@@ -36,5 +39,5 @@ test("Returns squares in right order", () => {
 		1, 0, 1, 0, 1, 0, 1, 0,
 	]; // 1 means "dark"
 
-	expect([...html].every((el, index) => isDark(el) === !!matrix[index])).toBe(true);
+	expect(html.every((el, index) => isDark(el) === !!matrixSnapshot[index])).toBe(true);
 });
