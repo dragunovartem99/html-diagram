@@ -7,12 +7,13 @@ import { checkBooleanAttribute } from "../utils/checkBooleanAttribute";
 export class HTMLDiagram extends HTMLElement {
 	static observedAttributes = ["fen", "flipped"];
 
-	#board: IBoard = new Board();
-	#shadow;
+	#board: IBoard;
+	#shadow: ShadowRoot;
 	#resizeObserver?: ResizeObserver;
 
 	constructor() {
 		super();
+		this.#board = new Board();
 		this.#shadow = this.attachShadow({ mode: "closed" });
 	}
 
@@ -20,7 +21,9 @@ export class HTMLDiagram extends HTMLElement {
 		this.#setHTML();
 		this.#setCSS();
 
-		if (isWebkit(window)) this.#supportWebkit();
+		if (isWebkit(window)) {
+			this.#addWebkitPolyfill();
+		}
 	}
 
 	disconnectedCallback() {
@@ -35,14 +38,17 @@ export class HTMLDiagram extends HTMLElement {
 		this.#shadow.adoptedStyleSheets.push(getBoardCSS());
 	}
 
-	#supportWebkit() {
-		const setUnit = () => {
-			this.setAttribute("style", `--diagram-webkit-unit: ${this.clientWidth / 8}px;`);
-		};
+	#addWebkitPolyfill() {
+		// for now, Webkit works poorly with cqw + zooming in the browser
 
-		setUnit();
+		this.#resizeObserver = new ResizeObserver((entries) => {
+			requestAnimationFrame(() => {
+				const board = entries[0].target;
+				const squareWidth = board.getBoundingClientRect().width / 8;
+				this.setAttribute("style", `--diagram-webkit-unit: ${squareWidth}px;`);
+			});
+		});
 
-		this.#resizeObserver = new ResizeObserver(setUnit);
 		this.#resizeObserver.observe(this);
 	}
 

@@ -5,11 +5,15 @@ type Options = {
 	reversed?: boolean;
 };
 
-export function getIterableFen({ fen, reversed }: Options) {
-	return reversed ? [...expandPiecePlecement(fen)].reverse() : [...expandPiecePlecement(fen)];
+export function getIterableFen({ fen, reversed }: Options): string[] {
+	if (reversed) {
+		return [...expandPiecePlecement(fen)].reverse();
+	} else {
+		return [...expandPiecePlecement(fen)];
+	}
 }
 
-function expandPiecePlecement(fen: FenRecord) {
+function expandPiecePlecement(fen: FenRecord): string {
 	return fen
 		.split(" ")[0] // get piece placement
 		.replace(/\//g, "") // remove slashes
