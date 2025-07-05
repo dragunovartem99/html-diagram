@@ -2,4 +2,4 @@
 "html-diagram": patch
 ---
 
-Improve webkit (safari) polyfill, refactor types and tests
+Improve WebKit (Safari) polyfill, refactor types and tests

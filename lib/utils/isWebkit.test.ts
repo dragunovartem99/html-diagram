@@ -3,7 +3,7 @@ import { JSDOM } from "jsdom";
 
 import { isWebkit } from "./isWebkit";
 
-it('Recognizes "Webkit" browser', () => {
+it('Recognizes "WebKit" browser', () => {
 	const { window: mockWindow } = new JSDOM();
 
 	mockWindow.webkitConvertPointFromNodeToPage = function () {
@@ -13,7 +13,7 @@ it('Recognizes "Webkit" browser', () => {
 	expect(isWebkit(mockWindow)).toBe(true);
 });
 
-it("Recognizes browsers without Webkit-specific methods", () => {
+it("Recognizes browsers without WebKit-specific methods", () => {
 	const { window: mockWindow } = new JSDOM();
 
 	expect(isWebkit(mockWindow)).toBe(false);

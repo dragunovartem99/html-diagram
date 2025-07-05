@@ -39,7 +39,7 @@ export class HTMLDiagram extends HTMLElement {
 	}
 
 	#addWebkitPolyfill() {
-		// for now, Webkit works poorly with cqw + zooming in the browser
+		// for now, WebKit works poorly with cqw + zooming in the browser
 
 		this.#resizeObserver = new ResizeObserver((entries) => {
 			requestAnimationFrame(() => {

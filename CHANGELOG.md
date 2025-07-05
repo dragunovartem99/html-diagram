@@ -23,7 +23,7 @@
 
 ### Patch Changes
 
-- Remove fancy syntax, make it simpler
+- Remove fancy syntax, simplify the code
 
 ## 0.5.2
 
@@ -35,13 +35,13 @@
 
 ### Patch Changes
 
-- Improve webkit init + resizing
+- Improve WebKit init + resizing
 
 ## 0.5.0
 
 ### Minor Changes
 
-- Improve webkit browsers support (Safari, Epiphany, etc.)
+- Improve WebKit browsers support (Safari, Epiphany, etc.)
 
 ## 0.4.2
 
