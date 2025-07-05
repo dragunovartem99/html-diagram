@@ -1,5 +1,13 @@
 # html-diagram
 
+## 0.5.7
+
+### Patch Changes
+
+- bc9aec9: Add support for Leipzig font
+- 4b3acd0: Add support for Kingdom font
+- a4b6a33: Improve WebKit (Safari) polyfill, refactor types and tests
+
 ## 0.5.6
 
 ### Patch Changes
@@ -23,7 +31,7 @@
 
 ### Patch Changes
 
-- Remove fancy syntax, make it simpler
+- Remove fancy syntax, simplify the code
 
 ## 0.5.2
 
@@ -35,13 +43,13 @@
 
 ### Patch Changes
 
-- Improve webkit init + resizing
+- Improve WebKit init + resizing
 
 ## 0.5.0
 
 ### Minor Changes
 
-- Improve webkit browsers support (Safari, Epiphany, etc.)
+- Improve WebKit browsers support (Safari, Epiphany, etc.)
 
 ## 0.4.2
 
