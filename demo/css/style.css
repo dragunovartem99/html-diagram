@@ -48,8 +48,12 @@ a:hover {
 
 /* Form controls */
 
-label + label {
-	margin-left: 0.5rem;
+.controls {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.35rem 1rem;
+	padding-inline: 0.5rem;
+	justify-content: center;
 }
 
 label,
