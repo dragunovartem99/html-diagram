@@ -37,7 +37,7 @@ jobs:
               run: npm run build-demo
 
             - name: Deploy to GitHub Pages
-              uses: JamesIves/github-pages-deploy-action@v4.7.3
+              uses: JamesIves/github-pages-deploy-action@v4.8.0
               with:
                   folder: ./dist-demo
                   branch: gh-pages
