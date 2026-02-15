@@ -5,7 +5,7 @@ on:
         branches: ["main"]
 
 jobs:
-    autofix:
+    ci-check:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
