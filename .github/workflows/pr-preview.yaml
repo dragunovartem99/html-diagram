@@ -6,7 +6,6 @@ on:
             - opened
             - reopened
             - synchronize
-            - closed
 
 permissions:
     contents: write
@@ -22,7 +21,6 @@ jobs:
               uses: actions/checkout@v4
 
             - name: Install and Build
-              if: github.event.action != 'closed' # You might want to skip the build if the PR has been closed
               run: |
                   npm ci
                   npm run build-demo

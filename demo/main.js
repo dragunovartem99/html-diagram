@@ -68,9 +68,11 @@ import { watchBronstein } from "./scripts/watchBronstein";
 		if (type === "featured") {
 			const isFlipped = data.orientation === "black";
 
-			isFlipped
-				? diagram.setAttribute("flipped", "flipped")
-				: diagram.removeAttribute("flipped");
+			if (isFlipped) {
+				diagram.setAttribute("flipped", "flipped");
+			} else {
+				diagram.removeAttribute("flipped");
+			}
 
 			setGameInfo({ ...data, isFlipped, figure });
 		}
