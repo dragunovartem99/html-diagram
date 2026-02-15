@@ -4,7 +4,7 @@ function getHumanLikeDelay() {
 	const { random } = Math;
 
 	const x = random();
-	const range = (min: number, potential: number) => min + random() * potential;
+	const range = (min, potential) => min + random() * potential;
 
 	if (x < 0.05) {
 		return range(0, 200); // premove-like - 5%
@@ -17,9 +17,9 @@ function getHumanLikeDelay() {
 	}
 }
 
-const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-export async function watchBronstein(onFrame: Function) {
+export async function watchBronstein(onFrame) {
 	for (const position of bronsteinsGame) {
 		onFrame({ d: { fen: position } });
 		await wait(getHumanLikeDelay());
