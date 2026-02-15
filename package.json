@@ -53,7 +53,7 @@
 		"prepare": "husky",
 		"preview": "vite preview -c demo.config.ts",
 		"test": "vitest",
-		"tsc:check": "tsc --noEmit"
+		"types:check": "tsc --noEmit"
 	},
 	"prettier": "@dragunovartem99/prettier-config",
 	"devDependencies": {
