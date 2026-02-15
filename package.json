@@ -43,7 +43,7 @@
 	],
 	"scripts": {
 		"build": "tsc && vite build -c lib.config.ts",
-		"build-demo": "tsc && vite build -c demo.config.ts",
+		"build:demo": "tsc && vite build -c demo.config.ts",
 		"dev": "vite -c lib.config.ts",
 		"flow": "flow",
 		"format": "prettier . --write",
@@ -52,7 +52,8 @@
 		"lint:check": "eslint",
 		"prepare": "husky",
 		"preview": "vite preview -c demo.config.ts",
-		"test": "vitest"
+		"test": "vitest",
+		"tsc:check": "tsc --noEmit --skipLibCheck"
 	},
 	"prettier": "@dragunovartem99/prettier-config",
 	"devDependencies": {
