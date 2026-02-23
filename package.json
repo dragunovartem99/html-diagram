@@ -4,50 +4,50 @@
 	"description": "",
 	"keywords": [
 		"chess",
-		"chessboard",
-		"diagram",
 		"chess-diagram",
-		"web-component",
+		"chessboard",
 		"custom-element",
-		"pgn",
+		"diagram",
 		"fen",
+		"pgn",
 		"printing",
-		"text"
+		"text",
+		"web-component"
 	],
 	"homepage": "https://github.com/dragunovartem99/html-diagram#readme",
 	"bugs": {
 		"url": "https://github.com/dragunovartem99/html-diagram/issues",
 		"email": "dragunovartem99@gmail.com"
 	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/dragunovartem99/html-diagram.git"
-	},
 	"license": "MIT",
 	"author": {
 		"name": "Artem Dragunov",
 		"email": "dragunovartem99@gmail.com"
 	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/dragunovartem99/html-diagram.git"
+	},
+	"files": [
+		"dist"
+	],
 	"type": "module",
+	"main": "./dist/html-diagram.umd.cjs",
+	"module": "./dist/html-diagram.js",
+	"types": "./dist/html-diagram.d.ts",
 	"exports": {
 		".": {
 			"import": "./dist/html-diagram.js",
 			"require": "./dist/html-diagram.umd.cjs"
 		}
 	},
-	"main": "./dist/html-diagram.umd.cjs",
-	"module": "./dist/html-diagram.js",
-	"types": "./dist/html-diagram.d.ts",
-	"files": [
-		"dist"
-	],
 	"scripts": {
 		"build": "tsc && vite build -c lib.config.ts",
 		"build:demo": "tsc && vite build -c demo.config.ts",
 		"dev": "vite -c lib.config.ts",
 		"flow": "flow",
-		"format": "prettier . --write",
-		"format:check": "prettier . --check",
+		"format": "oxfmt",
+		"format:check": "oxfmt --check",
 		"lint": "eslint --fix",
 		"lint:check": "eslint",
 		"prepare": "husky",
@@ -55,12 +55,11 @@
 		"test": "vitest",
 		"types:check": "tsc --noEmit"
 	},
-	"prettier": "@dragunovartem99/prettier-config",
 	"devDependencies": {
 		"@changesets/cli": "^2.29.2",
 		"@dragunovartem99/eslint-config": "^1.0.0",
 		"@dragunovartem99/flow": "^0.1.1",
-		"@dragunovartem99/prettier-config": "^1.3.0",
+		"@dragunovartem99/oxfmt-config": "^1.3.0",
 		"@types/jsdom": "^27.0.0",
 		"@types/node": "^24.0.0",
 		"husky": "^9.1.7",
