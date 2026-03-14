@@ -6,4 +6,4 @@ on:
 
 jobs:
     pipes:
-        uses: dragunovartem99/pipes/.github/workflows/ci-check-frontend.yaml@main
+        uses: dragunovartem99/pipes/.github/workflows/ci.yaml@main
