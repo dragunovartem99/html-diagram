@@ -56,7 +56,7 @@
 		"types:check": "tsc --noEmit"
 	},
 	"devDependencies": {
-		"@changesets/cli": "^2.29.2",
+		"@changesets/cli": "^3.0.0",
 		"@dragunovartem99/eslint-config": "^1.0.0",
 		"@dragunovartem99/flow": "^0.1.1",
 		"@dragunovartem99/oxfmt-config": "^2.0.0",
