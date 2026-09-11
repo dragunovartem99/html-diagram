@@ -12,9 +12,8 @@ function getHumanLikeDelay() {
 		return range(2000, 1000); // deep thought - 5%
 	} else if (x < 0.35) {
 		return range(900, 600); // solid - 25%
-	} else {
-		return range(300, 600); // confident - 65%
 	}
+	return range(300, 600); // confident - 65%
 }
 
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));

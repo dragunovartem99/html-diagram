@@ -10,6 +10,7 @@ export const readStream = (processLine) => (response) => {
 		stream.read().then(({ done, value }) => {
 			if (done) {
 				if (buf.length > 0) processLine(JSON.parse(buf));
+				return undefined;
 			} else {
 				const chunk = decoder.decode(value, {
 					stream: true,

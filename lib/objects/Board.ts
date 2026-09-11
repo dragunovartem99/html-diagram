@@ -1,6 +1,6 @@
-import type { BoardHTML, FenRecord, IBoard } from "../types";
 import { getBoardHTML } from "../functions/getBoardHTML";
 import { getIterableFen } from "../functions/getIterableFen";
+import type { BoardHTML, FenRecord, IBoard } from "../types";
 
 export class Board implements IBoard {
 	#html: BoardHTML = getBoardHTML();

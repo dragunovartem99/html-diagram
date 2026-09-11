@@ -1,6 +1,6 @@
+import { baseCSS } from "../static/baseCSS";
 import { fontMap } from "../static/fontMap";
 import { maskMap } from "../static/maskMap";
-import { baseCSS } from "../static/baseCSS";
 
 function generateCSS(): string {
 	let css = "";

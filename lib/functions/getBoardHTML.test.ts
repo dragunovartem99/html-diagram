@@ -1,6 +1,7 @@
 // @vitest-environment jsdom
 
 import { expect, it } from "vitest";
+
 import { getBoardHTML } from "./getBoardHTML";
 
 const isDark = (el: HTMLDivElement) => el.hasAttribute("dark");

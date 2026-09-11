@@ -1,4 +1,5 @@
 import { expect, it } from "vitest";
+
 import { getIterableFen } from "./getIterableFen";
 
 // The contract is: you enter the valid FEN, at least piece placement data
@@ -33,7 +34,7 @@ it("Reverses FEN correctly", () => {
 	const iterableFen = getIterableFen({ fen });
 	const reversedIterableFen = getIterableFen({ fen, reversed: true });
 
-	expect([...iterableFen].reverse()).toEqual(reversedIterableFen);
+	expect([...iterableFen].toReversed()).toEqual(reversedIterableFen);
 });
 
 it("Returns correct value for complex position", () => {
