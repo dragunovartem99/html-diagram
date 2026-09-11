@@ -1,6 +1,6 @@
-import type { BoardHTML, FenRecord, IBoard } from "../types";
 import { getBoardHTML } from "../functions/getBoardHTML";
 import { getIterableFen } from "../functions/getIterableFen";
+import type { BoardHTML, FenRecord, IBoard } from "../types";
 
 export class Board implements IBoard {
 	#html: BoardHTML = getBoardHTML();
@@ -23,9 +23,17 @@ export class Board implements IBoard {
 		return this.#html;
 	}
 
+	get fen() {
+		return this.#fen;
+	}
+
 	set fen(fen: FenRecord) {
 		this.#fen = fen;
 		this.#render();
+	}
+
+	get flipped() {
+		return this.#flipped;
 	}
 
 	set flipped(flipped: boolean) {

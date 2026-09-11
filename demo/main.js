@@ -3,11 +3,11 @@ import { HTMLDiagram } from "../lib";
 
 // Demo
 import "./css/style.css";
-import { fonts } from "./static/fonts";
 import { renderFontOptions } from "./scripts/renderFontOptions";
 import { setTypography } from "./scripts/setTypography";
-import { watchTV } from "./scripts/watchTV";
 import { watchBronstein } from "./scripts/watchBronstein";
+import { watchTV } from "./scripts/watchTV";
+import { fonts } from "./static/fonts";
 
 {
 	// Lib: Usage
@@ -19,46 +19,46 @@ import { watchBronstein } from "./scripts/watchBronstein";
 	const typography = document.querySelector("#typography");
 	renderFontOptions(fonts, typography);
 
-	typography.value = "Leipzig";
+	typography.value = "Adventurer";
 	setTypography(typography.value);
 
 	typography.addEventListener("change", ({ target }) => setTypography(target.value));
+}
+
+function setColored(isColored) {
+	document
+		.querySelectorAll("demo-diagram")
+		.forEach((diagram) =>
+			isColored
+				? diagram.setAttribute("colored", "colored")
+				: diagram.removeAttribute("colored")
+		);
 }
 
 {
 	// Demo: Colored mode
 	const checkbox = document.querySelector("#colored");
 
-	function setColored(isColored) {
-		document
-			.querySelectorAll("demo-diagram")
-			.forEach((diagram) =>
-				isColored
-					? diagram.setAttribute("colored", "colored")
-					: diagram.removeAttribute("colored")
-			);
-	}
-
 	setColored(checkbox.checked);
 	checkbox.addEventListener("change", ({ target }) => setColored(target.checked));
 }
 
-{
-	// Demo: Lichess stream
-	function setGameInfo({ players, isFlipped, figure }) {
-		let [black, white] = figure.querySelectorAll(".player");
+function setGameInfo({ players, isFlipped, figure }) {
+	let [black, white] = figure.querySelectorAll(".player");
 
-		if (isFlipped) {
-			[black, white] = [white, black];
-		}
-
-		white.classList.remove("accent");
-		black.classList.add("accent");
-
-		white.textContent = players[0].user.name;
-		black.textContent = players[1].user.name;
+	if (isFlipped) {
+		[black, white] = [white, black];
 	}
 
+	white.classList.remove("accent");
+	black.classList.add("accent");
+
+	white.textContent = players[0].user.name;
+	black.textContent = players[1].user.name;
+}
+
+{
+	// Demo: Lichess stream
 	watchTV(({ t: type, d: data }) => {
 		const figure = document.querySelector("figure#live");
 		const diagram = figure.querySelector("demo-diagram");

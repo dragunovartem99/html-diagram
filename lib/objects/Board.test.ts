@@ -2,8 +2,8 @@
 
 import { expect, it } from "vitest";
 
-import { Board } from "./Board";
 import { IBoard } from "../types";
+import { Board } from "./Board";
 
 const extractIterableFen = (board: IBoard) => {
 	return board.html.map((el) => {
@@ -48,5 +48,5 @@ it("Flips the board", () => {
 	board.flipped = true;
 	const reversedIterableFen = extractIterableFen(board);
 
-	expect(iterableFen.reverse()).toEqual(reversedIterableFen);
+	expect(iterableFen.toReversed()).toEqual(reversedIterableFen);
 });

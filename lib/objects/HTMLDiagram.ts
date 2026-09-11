@@ -1,8 +1,8 @@
-import { IBoard } from "../types";
-import { Board } from "./Board";
 import { getBoardCSS } from "../functions/getBoardCSS";
-import { isWebkit } from "../utils/isWebkit";
+import { IBoard } from "../types";
 import { checkBooleanAttribute } from "../utils/checkBooleanAttribute";
+import { isWebkit } from "../utils/isWebkit";
+import { Board } from "./Board";
 
 export class HTMLDiagram extends HTMLElement {
 	static observedAttributes = ["fen", "flipped"];
@@ -31,7 +31,7 @@ export class HTMLDiagram extends HTMLElement {
 	}
 
 	#setHTML() {
-		this.#board.html.forEach((square) => this.#shadow.appendChild(square));
+		this.#board.html.forEach((square) => this.#shadow.append(square));
 	}
 
 	#setCSS() {

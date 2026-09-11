@@ -1,5 +1,5 @@
-import { expect, it } from "vitest";
 import { JSDOM } from "jsdom";
+import { expect, it } from "vitest";
 
 import { isWebkit } from "./isWebkit";
 

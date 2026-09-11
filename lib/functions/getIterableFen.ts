@@ -7,16 +7,17 @@ type Options = {
 
 export function getIterableFen({ fen, reversed }: Options): string[] {
 	if (reversed) {
-		return [...expandPiecePlecement(fen)].reverse();
-	} else {
-		return [...expandPiecePlecement(fen)];
+		return [...expandPiecePlecement(fen)].toReversed();
 	}
+	return [...expandPiecePlecement(fen)];
 }
 
 function expandPiecePlecement(fen: FenRecord): string {
+	// Get piece placement, remove slashes, use space for empty squares,
+	// and cut possible extra symbols (like Crazyhouse).
 	return fen
-		.split(" ")[0] // get piece placement
-		.replace(/\//g, "") // remove slashes
-		.replace(/\d/g, (digit) => " ".repeat(+digit)) // use space for empty squares
-		.slice(0, 64); // cut possible extra symbols (like Crazyhouse)
+		.split(" ")[0]
+		.replaceAll("/", "")
+		.replaceAll(/\d/gu, (digit) => " ".repeat(+digit))
+		.slice(0, 64);
 }

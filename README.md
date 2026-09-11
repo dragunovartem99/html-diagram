@@ -46,11 +46,11 @@ All fonts used in the demo are located in [./public/fonts](https://github.com/dr
 
 ### woff2 versions
 
-To achieve compatibility and minimize file size, each original font is accompanied by a  `woff2` version. The `woff2` files reuse the following glyphs: king, queen, rook, bishop, knight, pawn, and empty square.
+To achieve compatibility and minimize file size, each original font is accompanied by a  `woff2` version. The `woff2` files reuse the following glyphs: king, queen, rook, bishop, knight, pawn, and empty square. Masks for colored mode are generated from the piece silhouettes.
 
-No modifications have been made to the design of the original glyphs.
+The shapes of the original pieces are not modified. Pieces are only centered in their squares, and scaled down where they fill the whole square.
 
-> The `woff2` versions were created with FontForge, using encoding ISO 8859-5 (Cyrillic)
+> The `woff2` versions were created with FontForge, using encoding ISO 8859-5 (Cyrillic), by [a build script](https://github.com/dragunovartem99/diagram-fonts)
 
 ## Basic Usage
 
@@ -202,14 +202,33 @@ Colored Mode:
 
 A heartfelt thank you to the creators and contributors of these exceptional **Freeware** fonts:
 
-| Font Name  | Author               | Year |
-| ---------- | -------------------- | ---- |
-| Adventurer | Armando H. Marroquin | 2000 |
-| Berlin     | Eric Bentzen         | 1997 |
-| Cases      | Matthieu Leschemelle | 1999 |
-| Kingdom    | Armando H. Marroquin | 1998 |
-| Leipzig    | Armando H. Marroquin | 1998 |
-| Merida     | Armando H. Marroquin | 1998 |
-| Smart      | Christoph Wirth      | 1992 |
+| Font Name       | Author               | Year |
+| --------------- | -------------------- | ---- |
+| Adventurer      | Armando H. Marroquin | 2000 |
+| Alfonso-X       | Armando H. Marroquin | 1998 |
+| Alpha           | Eric Bentzen         | 1998 |
+| Berlin          | Eric Bentzen         | 1997 |
+| Cases           | Matthieu Leschemelle | 1999 |
+| Cheq            | Alastair Scott       | 1996 |
+| Condal          | Armando H. Marroquin | 1998 |
+| Harlequin       | Armando H. Marroquin | 1998 |
+| Kingdom         | Armando H. Marroquin | 1998 |
+| Leipzig         | Armando H. Marroquin | 1998 |
+| Line            | Armando H. Marroquin | 1999 |
+| Lucena          | Armando H. Marroquin | 1999 |
+| Magnetic        | Armando H. Marroquin | 1998 |
+| Mark            | Armando H. Marroquin | 1997 |
+| Marroquin       | Armando H. Marroquin | 1997 |
+| Maya            | Armando H. Marroquin | 1997 |
+| Mediaeval       | Armando H. Marroquin | 1997 |
+| Merida          | Armando H. Marroquin | 1998 |
+| Millennia-Dark  | Armando H. Marroquin | 1997 |
+| Millennia-Light | Armando H. Marroquin | 1997 |
+| Motif           | Armando H. Marroquin | 1998 |
+| Pirat           | Klaus Wolf           | 1998 |
+| Skak            | Egon Madsen          | 1996 |
+| Smart           | Christoph Wirth      | 1992 |
+| Traveller       | Alan Cowderoy        | 1997 |
+| Utrecht         | Hans Bodlaender      | 1996 |
 
 If you know of any additional **free** (or **Freeware**) chess fonts, or if you’ve created your own, please feel free to share them with me!
