@@ -19,7 +19,7 @@ import { fonts } from "./static/fonts";
 	const typography = document.querySelector("#typography");
 	renderFontOptions(fonts, typography);
 
-	typography.value = "Leipzig";
+	typography.value = "Adventurer";
 	setTypography(typography.value);
 
 	typography.addEventListener("change", ({ target }) => setTypography(target.value));
