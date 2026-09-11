@@ -1,5 +1,11 @@
 # html-diagram
 
+## 0.5.9
+
+### Patch Changes
+
+- Switch from eslint to oxlint and fix all resulting lint warnings across the library source.
+
 ## 0.5.8
 
 ### Patch Changes
