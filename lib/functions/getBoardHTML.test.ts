@@ -29,6 +29,7 @@ it("Returns squares in right order", () => {
 	const html = getBoardHTML();
 
 	// prettier-ignore
+	// 1 means "dark"
 	const matrixSnapshot = [
 		0, 1, 0, 1, 0, 1, 0, 1,
 		1, 0, 1, 0, 1, 0, 1, 0,
@@ -38,7 +39,7 @@ it("Returns squares in right order", () => {
 		1, 0, 1, 0, 1, 0, 1, 0,
 		0, 1, 0, 1, 0, 1, 0, 1,
 		1, 0, 1, 0, 1, 0, 1, 0,
-	]; // 1 means "dark"
+	];
 
 	expect(html.every((el, index) => isDark(el) === !!matrixSnapshot[index])).toBe(true);
 });

@@ -13,9 +13,11 @@ export function getIterableFen({ fen, reversed }: Options): string[] {
 }
 
 function expandPiecePlecement(fen: FenRecord): string {
+	// Get piece placement, remove slashes, use space for empty squares,
+	// and cut possible extra symbols (like Crazyhouse).
 	return fen
-		.split(" ")[0] // get piece placement
-		.replaceAll("/", "") // remove slashes
-		.replaceAll(/\d/g, (digit) => " ".repeat(+digit)) // use space for empty squares
-		.slice(0, 64); // cut possible extra symbols (like Crazyhouse)
+		.split(" ")[0]
+		.replaceAll("/", "")
+		.replaceAll(/\d/gu, (digit) => " ".repeat(+digit))
+		.slice(0, 64);
 }

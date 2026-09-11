@@ -2,7 +2,7 @@
 
 export const readStream = (processLine) => (response) => {
 	const stream = response.body.getReader();
-	const matcher = /\r?\n/;
+	const matcher = /\r?\n/u;
 	const decoder = new TextDecoder();
 	let buf = "";
 
@@ -10,18 +10,17 @@ export const readStream = (processLine) => (response) => {
 		stream.read().then(({ done, value }) => {
 			if (done) {
 				if (buf.length > 0) processLine(JSON.parse(buf));
-				return undefined;
-			} else {
-				const chunk = decoder.decode(value, {
-					stream: true,
-				});
-				buf += chunk;
-
-				const parts = buf.split(matcher);
-				buf = parts.pop();
-				for (const i of parts.filter((p) => p)) processLine(JSON.parse(i));
-				return loop();
+				return;
 			}
+			const chunk = decoder.decode(value, {
+				stream: true,
+			});
+			buf += chunk;
+
+			const parts = buf.split(matcher);
+			buf = parts.pop();
+			for (const i of parts.filter(Boolean)) processLine(JSON.parse(i));
+			return loop();
 		});
 
 	return loop();

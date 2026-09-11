@@ -14,14 +14,16 @@ it("Returns 64 squares for starting position", () => {
 
 it('Ignores "9th rank" (e.g. crazyhouse)', () => {
 	// https://lichess.org/analysis/crazyhouse?fen=r1bqr1k1/p1p2ppp/2p2p2/3p4/3P4/8/PPPNNPPP/R2QK2R/NNBpbb%20w%20KQ%20-%202%2010
-	const fen = "r1bqr1k1/p1p2ppp/2p2p2/3p4/3P4/8/PPPNNPPP/R2QK2R/NNBpbb w KQ - 2 10"; // NNBpbb is "9th rank"
+	// NNBpbb is "9th rank"
+	const fen = "r1bqr1k1/p1p2ppp/2p2p2/3p4/3P4/8/PPPNNPPP/R2QK2R/NNBpbb w KQ - 2 10";
 	const iterableFen = getIterableFen({ fen });
 
 	expect(iterableFen.length).toBe(64);
 });
 
 it("Expands empty squares correctly", () => {
-	const fen = "8/8/8/8/8/8/8/8"; // empty board
+	// empty board
+	const fen = "8/8/8/8/8/8/8/8";
 
 	const iterableFen = getIterableFen({ fen });
 

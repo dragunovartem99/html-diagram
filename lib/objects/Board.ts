@@ -23,9 +23,17 @@ export class Board implements IBoard {
 		return this.#html;
 	}
 
+	get fen() {
+		return this.#fen;
+	}
+
 	set fen(fen: FenRecord) {
 		this.#fen = fen;
 		this.#render();
+	}
+
+	get flipped() {
+		return this.#flipped;
 	}
 
 	set flipped(flipped: boolean) {
