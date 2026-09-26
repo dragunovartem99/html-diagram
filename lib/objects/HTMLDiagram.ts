@@ -1,5 +1,5 @@
 import { getBoardCSS } from "../functions/getBoardCSS";
-import { IBoard } from "../types";
+import type { IBoard } from "../types";
 import { checkBooleanAttribute } from "../utils/checkBooleanAttribute";
 import { isWebkit } from "../utils/isWebkit";
 import { Board } from "./Board";

@@ -196,6 +196,17 @@ Colored Mode:
 > `1cqw` is equal to 1% of the diagram's width. This ensures the diagram remains responsive and proportional.  
 > [MDN: Container query length units](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries#container_query_length_units)
 
+## Development
+
+```sh
+npm ci
+npm run dev
+```
+
+Pull requests run `format:check`, `types:check`, `lint:check` and `test`, and so does the pre-commit
+hook. Merging to `main` deploys the demo to GitHub Pages and, with a pending changeset
+(`npx changeset`), opens a release PR that publishes to npm once merged
+
 ## List of Supported Fonts
 
 [Note About Fonts](#note-about-fonts)

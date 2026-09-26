@@ -59,7 +59,7 @@
 		"@changesets/cli": "^2.29.2",
 		"@dragunovartem99/flow": "^0.1.1",
 		"@dragunovartem99/oxfmt-config": "^2.0.0",
-		"@dragunovartem99/oxlint-config": "^2.0.0",
+		"@dragunovartem99/oxlint-config": "^3.0.1",
 		"@types/jsdom": "^30.0.0",
 		"@types/node": "^24.0.0",
 		"husky": "^9.1.7",

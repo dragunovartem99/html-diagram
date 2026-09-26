@@ -1,4 +1,4 @@
-import { FenRecord } from "../types";
+import type { FenRecord } from "../types";
 
 type Options = {
 	fen: FenRecord;

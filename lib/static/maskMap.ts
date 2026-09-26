@@ -1,4 +1,4 @@
-import { MaskMap } from "../types";
+import type { MaskMap } from "../types";
 
 export const maskMap: MaskMap = new Map([
 	// White
