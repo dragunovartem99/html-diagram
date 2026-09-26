@@ -53,7 +53,8 @@
 		"prepare": "husky",
 		"preview": "vite preview -c demo.config.ts",
 		"test": "vitest",
-		"types:check": "tsc --noEmit"
+		"types:check": "tsc --noEmit",
+		"prepublishOnly": "npm run build"
 	},
 	"devDependencies": {
 		"@changesets/cli": "^2.29.2",
