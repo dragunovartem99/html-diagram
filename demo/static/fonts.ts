@@ -1,4 +1,4 @@
-import { FontName } from "../types";
+import type { FontName } from "../types";
 
 export const fonts: FontName[] = [
 	"Adventurer",

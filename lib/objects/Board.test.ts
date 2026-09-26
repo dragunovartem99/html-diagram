@@ -2,7 +2,7 @@
 
 import { expect, it } from "vitest";
 
-import { IBoard } from "../types";
+import type { IBoard } from "../types";
 import { Board } from "./Board";
 
 const extractIterableFen = (board: IBoard) => {
