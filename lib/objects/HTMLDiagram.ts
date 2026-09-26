@@ -11,6 +11,11 @@ export class HTMLDiagram extends HTMLElement {
 	#shadow: ShadowRoot;
 	#resizeObserver?: ResizeObserver;
 
+	#attributeSetters: Record<string, (value: string) => void> = {
+		fen: (value) => (this.#board.fen = value),
+		flipped: (value) => (this.#board.flipped = checkBooleanAttribute(value)),
+	};
+
 	constructor() {
 		super();
 		this.#board = new Board();
@@ -53,12 +58,6 @@ export class HTMLDiagram extends HTMLElement {
 	}
 
 	attributeChangedCallback(name: string, _: string, newValue: string) {
-		switch (name) {
-			case "fen":
-				this.#board.fen = newValue;
-				break;
-			case "flipped":
-				this.#board.flipped = checkBooleanAttribute(newValue);
-		}
+		this.#attributeSetters[name]?.(newValue);
 	}
 }
