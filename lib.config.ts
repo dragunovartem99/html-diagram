@@ -12,5 +12,5 @@ export default defineConfig({
 		},
 		copyPublicDir: false,
 	},
-	plugins: [dts({ rollupTypes: true })],
+	plugins: [dts({ bundleTypes: true })],
 });
