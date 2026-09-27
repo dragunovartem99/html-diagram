@@ -6,15 +6,11 @@ function generateCSS(): string {
 	let css = "";
 
 	for (const [key, { light, dark }] of fontMap) {
-		if (key === " ") {
-			css += `div::before { content: "${light}" }`;
-			css += `[dark]::before { content: "${dark}" }`;
-			css += `:host([colored]) [dark]::before { content: "${light}" }`;
-		} else {
-			css += `[is=${key}]::before { content: "${light}" }`;
-			css += `[dark][is=${key}]::before { content: "${dark}" }`;
-			css += `:host([colored]) [dark][is=${key}]::before { content: "${light}" }`;
-		}
+		const is = key === " " ? "" : `[is=${key}]`;
+
+		css += `${is || "div"}::before { content: "${light}" }`;
+		css += `[dark]${is}::before { content: "${dark}" }`;
+		css += `:host([colored]) [dark]${is}::before { content: "${light}" }`;
 	}
 
 	for (const [key, mask] of maskMap) {
