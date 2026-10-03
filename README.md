@@ -5,9 +5,7 @@
 <img alt="NPM Version" src="https://img.shields.io/npm/v/html-diagram?color=orange">
 
 ```html
-<html-diagram>
-    Create chessboards with just text – a lightweight Web Component
-</html-diagram>
+<html-diagram> Create chessboards with just text – a lightweight Web Component </html-diagram>
 ```
 
 <img src="https://github.com/user-attachments/assets/339ed4c8-b540-432c-80c3-e55e2c712cc1" width="240" alt="Screenshot of HTML Diagram with Adventurer font">
@@ -46,7 +44,7 @@ All fonts used in the demo are located in [./public/fonts](https://github.com/dr
 
 ### woff2 versions
 
-To achieve compatibility and minimize file size, each original font is accompanied by a  `woff2` version. The `woff2` files reuse the following glyphs: king, queen, rook, bishop, knight, pawn, and empty square. Masks for colored mode are generated from the piece silhouettes.
+To achieve compatibility and minimize file size, each original font is accompanied by a `woff2` version. The `woff2` files reuse the following glyphs: king, queen, rook, bishop, knight, pawn, and empty square. Masks for colored mode are generated from the piece silhouettes.
 
 The shapes of the original pieces are not modified. Pieces are only centered in their squares, and scaled down where they fill the whole square.
 
@@ -160,9 +158,9 @@ You can combine multiple attributes in a single html-diagram element to customiz
 
 ```html
 <my-diagram
-	fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
-	flipped
-	colored
+    fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+    flipped
+    colored
 ></my-diagram>
 ```
 
@@ -183,10 +181,12 @@ myDiagram.removeAttribute("flipped"); // remove the flipped state
 ## Styling
 
 Universal Settings:
+
 - `--diagram-font`: Font family for chess pieces
 - `--diagram-stroke`: Stroke color for pieces and board
 
 Colored Mode:
+
 - `--diagram-fill`: Fill color inside chess pieces
 - `--diagram-light`: Color of light squares
 - `--diagram-dark`: Color of dark squares
