@@ -32,13 +32,12 @@
 		"dist"
 	],
 	"type": "module",
-	"main": "./dist/html-diagram.umd.cjs",
-	"module": "./dist/html-diagram.js",
+	"main": "./dist/html-diagram.js",
 	"types": "./dist/html-diagram.d.ts",
 	"exports": {
 		".": {
-			"import": "./dist/html-diagram.js",
-			"require": "./dist/html-diagram.umd.cjs"
+			"types": "./dist/html-diagram.d.ts",
+			"default": "./dist/html-diagram.js"
 		}
 	},
 	"scripts": {
