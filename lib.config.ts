@@ -7,8 +7,8 @@ export default defineConfig({
 	build: {
 		lib: {
 			entry: resolve(import.meta.dirname, "lib/index.ts"),
-			name: "HTML Diagram",
 			fileName: "html-diagram",
+			formats: ["es"],
 		},
 		copyPublicDir: false,
 	},
