@@ -1,5 +1,11 @@
 # html-diagram
 
+## 0.6.0
+
+### Minor Changes
+
+- 525c252: The UMD build is dropped, the package ships ES modules only. `exports` now declares `types`
+
 ## 0.5.10
 
 ### Patch Changes
