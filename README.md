@@ -243,3 +243,18 @@ A heartfelt thank you to the creators and contributors of these exceptional **Fr
 | Utrecht         | Hans Bodlaender      | 1996 |
 
 If you know of any additional **free** (or **Freeware**) chess fonts, or if you’ve created your own, please feel free to share them with me!
+
+## Preview screenshots
+
+Generate a PNG of the first diagram with its player labels with 24px padding and the demo background at 2× resolution:
+
+```sh
+npm ci
+npx playwright install chromium
+npm run screenshots
+```
+
+The command builds the demo, starts a temporary local preview server, and saves
+`screenshots/preview.png`. It closes the browser and server after capture.
+The screenshot workflow also runs on pull requests, pushes to `main`, and manually;
+download the image from its `html-diagram-preview` artifact. Generated images are not committed.
